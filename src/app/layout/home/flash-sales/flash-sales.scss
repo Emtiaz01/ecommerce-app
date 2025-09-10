@@ -1,0 +1,199 @@
+/* --- Variables for easy customization --- */
+:host {
+  --primary-color: #db4444;
+  --text-dark: #000;
+  --text-light: #fff;
+  --bg-light: #f5f5f5;
+  --font-main: 'Poppins', sans-serif;
+}
+
+/* --- Main Section Layout --- */
+.flash-sales-section {
+  font-family: var(--font-main);
+  padding: 80px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* --- Section Header --- */
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 80px;
+  margin-bottom: 24px;
+
+  .title-container {
+    .category-tag {
+      color: var(--primary-color);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 600;
+      margin: 0;
+    }
+  }
+
+  .countdown-timer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    .time-block {
+      text-align: center;
+      .label { font-size: 0.75rem; font-weight: 500; display: block; }
+      .value { font-size: 2rem; font-weight: 700; line-height: 1; }
+    }
+    .separator { font-size: 2rem; font-weight: 700; color: var(--primary-color); }
+  }
+
+  .carousel-nav {
+    margin-left: auto; // Pushes nav to the far right
+    .nav-arrow {
+      background: var(--bg-light);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      margin-left: 8px;
+      font-size: 1.5rem;
+    }
+  }
+}
+.wishlist-btn {
+    background: url("https://api.iconify.design/mdi/heart-outline.svg") no-repeat center center / contain;
+
+  }
+
+
+/* --- Product Carousel --- */
+.product-carousel {
+  display: flex;
+  gap: 30px;
+  overflow-x: hidden; // Hide scrollbar, control with buttons
+  padding: 10px 0;
+  scroll-behavior: smooth;
+}
+
+/* --- Product Card Styling --- */
+.product-card {
+  flex: 0 0 270px; // Each card has a fixed width
+  
+  .card-image-container {
+    position: relative;
+    background-color: var(--bg-light);
+    border-radius: 4px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    .product-image {
+      max-width: 80%;
+      max-height: 80%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+    }
+
+
+.card-actions {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .action-btn {
+    background: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  // Add this new style for the wishlist button
+  .wishlist-btn {
+    background: url("https://api.iconify.design/mdi/heart-outline.svg") no-repeat center center / contain;
+    // Optionally, add a transition for a smoother hover effect
+    transition: transform 0.2s ease;
+
+    &:hover {
+      // Example hover effect: make the icon slightly larger
+      transform: scale(1.1);
+    }
+  }
+
+  // Style for the view button if needed
+  .view-btn {
+     background: url("https://api.iconify.design/mdi/eye-outline.svg") no-repeat center center / contain;
+  }
+}
+
+    .add-to-cart-btn {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--text-dark);
+      color: var(--text-light);
+      border: none;
+      padding: 10px;
+      border-radius: 0 0 4px 4px;
+      cursor: pointer;
+      transform: translateY(100%); // Initially hidden below
+      transition: transform 0.3s ease;
+    }
+  }
+
+  // Hover effect for Add to Cart button
+  &:hover .add-to-cart-btn {
+    transform: translateY(0);
+  }
+
+  .card-content {
+    padding-top: 16px;
+    .product-name { font-size: 1rem; font-weight: 500; margin: 0 0 8px 0; }
+    .price-container {
+      display: flex;
+      gap: 12px;
+      .discounted-price { color: var(--primary-color); font-weight: 500; }
+      .original-price { color: #888; text-decoration: line-through; }
+    }
+    .rating-container {
+      margin-top: 8px;
+      .stars { color: #ffad33; }
+      .review-count { margin-left: 8px; color: #888; }
+    }
+  }
+}
+
+/* --- Section Footer --- */
+.section-footer {
+  text-align: center;
+  margin-top: 60px;
+  .view-all-btn {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 16px 48px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,162 @@
+/* --- Base Styles (No Changes) --- */
+.hero-section {
+  display: flex;
+  padding: 0 80px;
+  gap: 40px;
+}
+
+.category-sidebar {
+  flex: 0 0 220px;
+  border-right: 1px solid #e0e0e0;
+  padding-right: 20px;
+}
+
+.category-list {
+  list-style: none;
+  padding: 20px 0;
+  margin: 0;
+
+  li {
+    padding: 10px 0;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .arrow-right {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    transform: rotate(45deg);
+  }
+}
+
+/* --- Promo Banner & Slider Styles (Updated) --- */
+.promo-banner {
+  flex-grow: 1;
+  background-color: #000;
+  color: #fff;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 25px;
+  min-height: 300px;
+  position: relative;
+  overflow: hidden; // Crucial for hiding slides outside the viewport
+}
+
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+// NEW CONTAINER FOR HORIZONTAL SLIDING
+.slides-container {
+  display: flex; // Lays out slides in a row
+  height: 100%;
+  transition: transform 0.8s ease-in-out; // Animates the movement
+}
+
+// UPDATED SLIDE STYLES
+.slide {
+  // Each slide occupies 100% of the viewport width and doesn't shrink/grow
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // NOTE: position, opacity, transform, and transition properties are removed from here.
+}
+
+/* --- Text, Image, and Dot Styles (No Changes) --- */
+.promo-text {
+  padding-left: 30px;
+  z-index: 2; // Keep text above any potential overlaps
+
+  .brand-info {
+    font-size: 1rem;
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .heading {
+    margin: 0;
+    font-weight: 400;
+    line-height: 1.2;
+    font-size: 3.25rem;
+    padding-bottom: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+}
+
+.promo-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 5px;
+
+  .link-text {
+    padding-bottom: 6px;
+    border-bottom: 2px solid #fff;
+  }
+
+  .arrow-long-right {
+    display: inline-block;
+    width: 20px;
+    height: 40px;
+    background: url('https://api.iconify.design/material-symbols/arrow-right-alt.svg') no-repeat center center / contain;
+    filter: invert(1);
+  }
+}
+
+.promo-image {
+  flex-shrink: 0;
+  width: 45%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 100%;
+    max-height: 300px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0px 25px 20px rgba(0, 0, 0, 0.4));
+  }
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+
+  .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #808080;
+    margin: 0 5px;
+    cursor: pointer;
+
+    &.active {
+      background-color: #db4444;
+    }
+  }
+}

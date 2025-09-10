@@ -1,0 +1,55 @@
+<section class="hero-section">
+  <!-- Static Sidebar -->
+  <aside class="category-sidebar">
+    <ul class="category-list">
+      <li>Woman's Fashion <span class="arrow-right"></span></li>
+      <li>Men's Fashion <span class="arrow-right"></span></li>
+      <li>Electronics</li>
+      <li>Home & Lifestyle</li>
+      <li>Medicine</li>
+      <li>Sports & Outdoor</li>
+      <li>Baby's & Toys</li>
+      <li>Groceries & Pets</li>
+      <li>Health & Beauty</li>
+    </ul>
+  </aside>
+
+  <!-- Promo Banner with Horizontal Slider -->
+  <main class="promo-banner">
+    <!-- This wrapper acts as the viewport -->
+    <div class="slider-wrapper">
+      <!-- This new container holds all slides in a row and will be moved -->
+      <div class="slides-container" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
+        
+        <!-- Loop through the slides data -->
+        <div *ngFor="let slide of slides(); let i = index" class="slide">
+          
+          <!-- DYNAMIC Text Content, rendered for each slide -->
+          <div class="promo-text">
+            <p class="brand-info"><i class="apple-icon"></i> {{ slide.brand }}</p>
+            <!-- Use [innerHTML] to correctly render the <br> tag from the title -->
+            <h2 class="heading" [innerHTML]="slide.title"></h2>
+            <a [href]="slide.link" class="promo-link">
+              <span class="link-text">Shop Now</span>
+              <span class="arrow-long-right"></span>
+            </a>
+          </div>
+
+          <!-- DYNAMIC Image -->
+          <div class="promo-image">
+            <img [src]="slide.image.src" [alt]="slide.image.alt">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider Dots -->
+    <div class="slider-dots">
+      <span *ngFor="let slide of slides(); let i = index" 
+            class="dot"
+            [ngClass]="{'active': i === currentSlide}"
+            (click)="goToSlide(i)">
+      </span>
+    </div>
+  </main>
+</section>
