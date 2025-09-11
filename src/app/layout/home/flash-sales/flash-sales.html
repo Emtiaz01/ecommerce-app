@@ -1,11 +1,14 @@
-<section class="flash-sales-section">
+<section class="page-container">
   <!-- Section Header -->
   <div class="section-header">
     <div class="title-container">
-      <span class="category-tag">Today's</span>
+      <div class="decorative">
+        <div class="decorative-line"></div>
+        <span class="category-tag">Today's</span>
+      </div>
       <h2 class="section-title">Flash Sales</h2>
     </div>
-    
+
     <!-- Countdown Timer -->
     <div class="countdown-timer">
       <div class="time-block">
@@ -28,7 +31,7 @@
         <span class="value">{{ timeLeft().seconds }}</span>
       </div>
     </div>
-    
+
     <!-- Navigation Arrows -->
     <div class="carousel-nav">
       <button class="nav-arrow" (click)="scroll('left')">&larr;</button>
@@ -44,15 +47,16 @@
         <img [src]="product.thumbnail" [alt]="product.title" class="product-image">
         <div class="card-actions">
           <button class="action-btn wishlist-btn"></button>
-
           <button class="action-btn view-btn"></button>
         </div>
         <button class="add-to-cart-btn">Add To Cart</button>
       </div>
+      
       <div class="card-content">
         <h3 class="product-name">{{ product.title }}</h3>
         <div class="price-container">
-          <span class="discounted-price">{{ calculateDiscountedPrice(product.price, product.discountPercentage) | currency }}</span>
+          <span class="discounted-price">{{ calculateDiscountedPrice(product.price, product.discountPercentage) |
+            currency }}</span>
           <span class="original-price">{{ product.price | currency }}</span>
         </div>
         <div class="rating-container">
@@ -67,5 +71,7 @@
   <!-- View All Button -->
   <div class="section-footer">
     <button class="view-all-btn">View All Products</button>
+      <hr>
   </div>
+
 </section>

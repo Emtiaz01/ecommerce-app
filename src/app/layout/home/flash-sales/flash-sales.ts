@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, signal, ElementRef, ViewChild } from '@angular/core';
-import { CommonModule, DecimalPipe, PercentPipe } from '@angular/common';
+import { CommonModule, DecimalPipe} from '@angular/common';
 import { ApiService } from '../../../services/api'; 
 
 interface TimeLeft {
@@ -12,7 +12,7 @@ interface TimeLeft {
 @Component({
   selector: 'app-flash-sales',
   standalone: true,
-  imports: [CommonModule, DecimalPipe, PercentPipe],
+  imports: [CommonModule, DecimalPipe],
   templateUrl: './flash-sales.html',
   styleUrls: ['./flash-sales.scss']
 })
@@ -83,12 +83,10 @@ export class FlashSales implements OnInit, OnDestroy {
   // Handle scrolling of the carousel.
   scroll(direction: 'left' | 'right'): void {
     const carousel = this.productCarousel.nativeElement as HTMLElement;
-    const scrollAmount = carousel.clientWidth * 0.8; // Scroll by 80% of the visible width.
-
-    if (direction === 'left') {
-      carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    } else {
-      carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  }
+    const scrollAmount = 200; 
+    carousel.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    });
+}
 }

@@ -1,0 +1,31 @@
+<section class="page-container">
+    <div class="music-card-container">
+        <div class="left">
+            <span class="category-tag">Categories</span>
+            <h1 class="main-title">Enhance Your<br>Music Experience</h1>
+            <div class="countdown-timer">
+                <div class="time-block">
+                    <span class="time-value">{{ timeLeft().hours.toString().padStart(2, '0') }}</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-block">
+                    <span class="time-value">{{ timeLeft().days.toString().padStart(2, '0') }}</span>
+                    <span class="time-label">Days</span>
+                </div>
+                <div class="time-block">
+                    <span class="time-value">{{ timeLeft().minutes.toString().padStart(2, '0') }}</span>
+                    <span class="time-label">Minutes</span>
+                </div>
+                <div class="time-block">
+                    <span class="time-value">{{ timeLeft().seconds.toString().padStart(2, '0') }}</span>
+                    <span class="time-label">Seconds</span>
+                </div>
+            </div>
+            <button class="buy-btn" (click)="buyNow()">Buy Now!</button>
+        </div>
+
+        <div class="right">
+            <img src="assets/images/jbl.png" alt="Music Product" class="product-image" />
+        </div>
+    </div>
+</section>

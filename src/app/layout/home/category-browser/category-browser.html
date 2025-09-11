@@ -1,0 +1,35 @@
+<section class="page-container" style="padding-top: 30px;">
+  <!-- Section Header -->
+  <div class="section-header">
+    <div class="title-container">
+      <div class="decorative">
+        <div class="decorative-line"></div>
+        <span class="category-tag">Categories</span>
+      </div>
+      <h2 class="section-title">Browse By Category</h2>
+    </div>
+    <!-- Navigation Arrows -->
+    <div class="carousel-nav">
+      <button class="nav-arrow" (click)="scroll('left')">&larr;</button>
+      <button class="nav-arrow" (click)="scroll('right')">&rarr;</button>
+    </div>
+  </div>
+
+  <!-- Category Cards Carousel -->
+  <div class="category-carousel" #categoryCarousel>
+    <div
+      *ngFor="let category of categories()"
+      class="category-card"
+      [class.active]="category.apiName === activeCategory()"
+      (click)="selectCategory(category.apiName)">
+
+      <div
+        class="icon"
+        [style.mask-image]="'url(' + category.iconUrl + ')'"
+        [style.-webkit-mask-image]="'url(' + category.iconUrl + ')'">
+      </div>
+      <span class="category-name">{{ category.name }}</span>
+    </div>
+  </div>
+  <hr>
+</section>

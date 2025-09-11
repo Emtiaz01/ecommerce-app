@@ -1,0 +1,83 @@
+/* --- Variables for easy customization --- */
+:host {
+  --primary-color: #db4444;
+  --text-dark: #000;
+  --text-light: #fff;
+  --border-color: #ccc;
+  --font-main: 'Poppins', sans-serif;
+}
+
+/* --- Section Header --- */
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 80px;
+  margin-bottom: 24px;
+}
+
+/* --- Category Carousel --- */
+.category-carousel {
+  display: flex;
+  gap: 30px;
+  overflow-x: hidden; 
+  padding: 10px 0;
+  scroll-behavior: smooth; 
+}
+
+/* --- Category Card Styling --- */
+.category-card {
+  flex: 0 0 170px; 
+  height: 145px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  .icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.7rem;
+  background: #000000;
+
+  mask-image: inherit; 
+  mask-repeat: no-repeat;
+  mask-size: contain;         
+  mask-position: center;
+
+  // For WebKit/Blink browsers (Chrome/Safari)
+  -webkit-mask-image: inherit;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  -webkit-mask-position: center;
+  }
+
+  .category-name {
+    font-size: 1rem;
+  }
+
+  // Hover state for the card
+  &:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+
+    .icon {
+      background-color: var(--text-light);
+    }
+  }
+
+  // Active state for the selected card
+  &.active {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-color: var(--primary-color);
+
+    .icon {
+      background-color: var(--text-light);
+    }
+  }
+}
