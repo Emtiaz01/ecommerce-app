@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: radial-gradient(circle at 60% 50%, #232323 60%, #050505 100%);
+    background: radial-gradient(circle at 72.5% 50%, #232323 20%, #050505 30%);
     padding: 0px 58px;
     color: #0a0909;
     height: 460px;
@@ -93,9 +93,9 @@
         z-index: 1;
         
         .product-image {
-            position: relative;
-            left: 100px;
-            width: 630px;
+            position: absolute;
+            padding-left: 100px;
+            width: auto;
             height: auto;
             object-fit: contain;
             filter: drop-shadow(0 5px 35px #000A);
