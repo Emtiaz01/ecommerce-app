@@ -8,11 +8,16 @@ import { FlashSales } from './layout/home/flash-sales/flash-sales';
 import { CategoryBrowser } from "./layout/home/category-browser/category-browser";
 import { TopRatedProducts } from './layout/home/top-rated-products/top-rated-products';
 import { Categories } from "./layout/home/categories/categories";
+import { ExploreProduct } from './layout/home/explore-product/explore-product';
+import { NewArrival } from "./layout/home/new-arrival/new-arrival";
+import { Supports } from "./layout/home/supports/supports";
+import { Footer } from "./footer/footer";
+import { Toparrow } from "./toparrow/toparrow";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Banner, Header, Header2, FlashSales, CategoryBrowser, TopRatedProducts, Categories],
+  imports: [RouterOutlet, Banner, Header, Header2, FlashSales, CategoryBrowser, TopRatedProducts, Categories, ExploreProduct, NewArrival, Supports, Footer, Toparrow],
   templateUrl: './app.html',
 })
 export class App implements OnInit {

@@ -18,9 +18,14 @@ export class ApiService {
   private http = inject(HttpClient);
 
   // --- Methods for General Product & Category Data ---
-
+  getAllProduct():Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}/products`);
+  }
+  getProduct(limit: number = 8, skip: number = 0): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/products/category/tablets`);
+  }
   getProducts(limit: number = 8, skip: number = 0): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/products?limit=${limit}&skip=${skip}`);
+    return this.http.get<any>(`${this.baseUrl}/products/category/motorcycle`);
   }
 
   getProductById(id: number): Observable<any> {
@@ -53,6 +58,11 @@ export class ApiService {
       })
     );
   }
+  getExploreProducts(): Observable<any[]> {
+  return this.http.get<any>(`${this.baseUrl}/products/category/mobile-accessories`).pipe(
+    map(response => response.products) // Extract just the products array
+  );
+}
 
   // --- Methods for User Authentication ---
 

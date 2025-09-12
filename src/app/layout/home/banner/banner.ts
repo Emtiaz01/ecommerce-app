@@ -27,7 +27,7 @@ export class Banner implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // Fetch products for the banner (e.g., first 3 products)
-    this.apiService.getProducts(5, 9).subscribe(response => {
+    this.apiService.getProduct(5, 9).subscribe(response => {
       const slides = response.products.map((product: any) => ({
         brand: product.brand,
         title: product.title,

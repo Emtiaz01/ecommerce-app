@@ -1,0 +1,59 @@
+<section class="page-container">
+  <!-- Section Header -->
+  <div class="section-header">
+    <div class="title-container">
+      <div class="decorative">
+        <div class="decorative-line"></div>
+        <span class="category-tag">Our Products</span>
+      </div>
+      <h2 class="section-title">Explore Our Products</h2>
+    </div>
+    <!-- Navigation Arrows: Hide when showAll is true -->
+    <div class="carousel-nav" *ngIf="!showAll()">
+      <button class="nav-arrow" (click)="scroll('left')">&larr;</button>
+      <button class="nav-arrow" (click)="scroll('right')">&rarr;</button>
+    </div>
+  </div>
+
+  <!-- Product Carousel: Add a dynamic class -->
+  <div class="product-carousel" [class.expanded-grid]="showAll()">
+    <div class="product-card" *ngFor="let product of paginatedProducts">
+      <div class="card-image-container">
+        <img [src]="product.displayImage" [alt]="product.title" class="product-image">
+        <div class="card-actions">
+          <button class="action-btn wishlist-btn"></button>
+          <button class="action-btn view-btn"></button>
+        </div>
+        <button class="add-to-cart-btn">Add To Cart</button>
+      </div>
+      
+      <div class="card-content">
+        <h3 class="product-name">{{ product.title }}</h3>
+        <div class="price-container">
+          <span class="price">{{ product.price | currency }}</span>
+        </div>
+        <div class="rating-container">
+          <span class="stars">★★★★★</span>
+          <span class="review-count">({{ product.stock }})</span>
+        </div>
+        
+        <div class="color-swatches">
+          <span 
+            *ngFor="let image of product.images.slice(0, 5)"
+            class="swatch"
+            [style.background-image]="'url(' + image + ')'"
+            (click)="changeProductImage(product, image)"
+            [class.active]="product.displayImage === image">
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View All Button: Text changes based on showAll state -->
+  <div class="section-footer">
+    <button class="view-all-btn" (click)="viewAllProducts()">
+      {{ showAll() ? 'Show Less Products' : 'View All Products' }}
+    </button>
+  </div>
+</section>

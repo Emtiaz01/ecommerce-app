@@ -1,21 +1,25 @@
 <section class="page-container" style="padding-top: 30px;">
-    <!-- Section Header -->
-    <div class="section-header">
-        <div class="title-container">
-            <div class="decorative">
-                <div class="decorative-line"></div>
-                <span class="category-tag">This Month</span>
-            </div>
-            <h2 class="section-title">Top Rated Products</h2>
-        </div>
-        <!-- View All Button -->
-        <div class="section-footer">
-            <button class="view-btn">View All Products</button>
-        </div>
+  <!-- Section Header -->
+  <div class="section-header">
+    <div class="title-container">
+      <div class="decorative">
+        <div class="decorative-line"></div>
+        <span class="category-tag">This Month</span>
+      </div>
+      <h2 class="section-title">Top Rated Products</h2>
     </div>
+    <!-- View All Button -->
+    <div class="section-footer">
+      <!-- Button now toggles the view and changes text -->
+      <button class="view-btn" (click)="toggleView()">
+        {{ showAll() ? 'Show Less' : 'View All' }}
+      </button>
+    </div>
+  </div>
 
-    <!-- Product Grid -->
+  <!-- Product Grid -->
   <div class="product-grid">
+    <!-- The *ngFor loop remains the same, as it's bound to the `products` signal -->
     <div class="product-card" *ngFor="let product of products()">
       <div class="card-image-container">
         <img [src]="product.thumbnail" [alt]="product.title" class="product-image">
@@ -29,12 +33,10 @@
       <div class="card-content">
         <h3 class="product-name">{{ product.title }}</h3>
         <div class="price-container">
-          <span class="discounted-price">{{ calculateDiscountedPrice(product.price, product.discountPercentage) |
-            currency }}</span>
+          <span class="discounted-price">{{ calculateDiscountedPrice(product.price, product.discountPercentage) | currency }}</span>
           <span class="original-price">{{ product.price | currency }}</span>
         </div>
         <div class="rating-container">
-          <!-- Star rating logic would go here -->
           <span class="stars">★★★★★</span>
           <span class="review-count">({{ product.stock }})</span>
         </div>

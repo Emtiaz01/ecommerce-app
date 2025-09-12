@@ -40,8 +40,11 @@
   </div>
 
   <!-- Product Carousel -->
-  <div class="product-carousel" #productCarousel>
-    <div class="product-card" *ngFor="let product of products()">
+  <div 
+    class="product-carousel" 
+    #productCarousel 
+    [class.expanded-grid]="showAll()">
+    <div class="product-card" *ngFor="let product of showAll() ? products() : products().slice(0, 10)">
       <div class="card-image-container">
         <span class="discount-badge">-{{ product.discountPercentage | number:'1.0-0' }}%</span>
         <img [src]="product.thumbnail" [alt]="product.title" class="product-image">
@@ -55,12 +58,10 @@
       <div class="card-content">
         <h3 class="product-name">{{ product.title }}</h3>
         <div class="price-container">
-          <span class="discounted-price">{{ calculateDiscountedPrice(product.price, product.discountPercentage) |
-            currency }}</span>
+          <span class="discounted-price">{{ calculateDiscountedPrice(product.price, product.discountPercentage) | currency }}</span>
           <span class="original-price">{{ product.price | currency }}</span>
         </div>
         <div class="rating-container">
-          <!-- Star rating logic would go here -->
           <span class="stars">★★★★★</span>
           <span class="review-count">({{ product.stock }})</span>
         </div>
@@ -68,10 +69,11 @@
     </div>
   </div>
 
-  <!-- View All Button -->
   <div class="section-footer">
-    <button class="view-all-btn">View All Products</button>
-      <hr>
+    <button class="view-all-btn" (click)="toggleViewAll()">
+      {{ showAll() ? 'Show Less' : 'View All Products' }}
+    </button>
+    <hr>
   </div>
 
 </section>

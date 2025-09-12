@@ -1,0 +1,12 @@
+<section class="services-container">
+  <!-- Loop through each service item from the component's data -->
+  <div class="service-item" *ngFor="let service of services">
+    <div class="icon-background">
+      <div class="icon-foreground">
+        <img [src]="service.iconUrl" [alt]="service.title" class="service-icon">
+      </div>
+    </div>
+    <h3 class="service-title">{{ service.title }}</h3>
+    <p class="service-description">{{ service.description }}</p>
+  </div>
+</section>

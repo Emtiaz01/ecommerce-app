@@ -34,7 +34,6 @@ export class Categories implements OnInit, OnDestroy {
   }
 
   buyNow(): void {
-    // Implement action, maybe route or open product page
     alert('Buy Now clicked!');
   }
 }

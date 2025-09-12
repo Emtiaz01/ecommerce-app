@@ -1,0 +1,143 @@
+/* --- Main Footer Container --- */
+:host {
+  --footer-bg: #000;
+  --footer-text: #FAFAFA;
+  --footer-text-secondary: #FAFAFA;
+  --font-main: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 80px 20px 0;
+  font-family: var(--font-main);
+  position: relative;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+
+  .footer-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+  .footer-subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    color: var(--footer-text-secondary);
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      margin-bottom: 16px;
+      a {
+        color: var(--footer-text-secondary);
+        text-decoration: none;
+        transition: color 0.3s;
+        &:hover { color: var(--footer-text); }
+      }
+    }
+  }
+}
+
+/* --- Subscription Form --- */
+.subscribe-form {
+  position: relative;
+  max-width: 220px;
+  input {
+    width: 70%;
+    background: transparent;
+    border: 1.5px solid var(--footer-text);
+    border-radius: 4px;
+    padding: 12px 40px 12px 16px;
+    color: var(--footer-text);
+    outline: none;
+  }
+  .send-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    img { height: 20px; }
+  }
+}
+
+/* --- App Download Section --- */
+.app-promo-text { font-size: 12px; font-weight: 500; }
+.app-download-content { display: flex; gap: 8px; align-items: center; margin-bottom: 24px; }
+.qr-code { width: 80px; height: 80px; }
+.app-stores { display: flex; flex-direction: column; gap: 4px; a img { height: 40px; } }
+.social-links { display: flex; gap: 24px; a img { height: 44px; } }
+
+/* --- Copyright Bar --- */
+.footer-bottom {
+  text-align: center;
+  padding: 16px 0;
+  margin-top: 60px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  p { margin: 0; color: var(--footer-text-secondary); font-size: 14px; }
+}
+
+/* --- Scroll to Top Button --- */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--footer-text);
+  color: #000;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: opacity 0.3s, transform 0.3s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+.appstore{
+    width: 136px;
+}
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-column {
+    align-items: center;
+  }
+  .subscribe-form {
+    margin: 0 auto;
+  }
+}

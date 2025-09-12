@@ -1,0 +1,121 @@
+/* --- Shared Variables & Page Container --- */
+:host {
+  --primary-color: #db4444;
+  --text-light: #fff;
+  --font-main: 'Poppins', sans-serif;
+}
+/* --- Section Header Styling --- */
+.section-header {
+  margin-bottom: 24px;
+}
+
+.title-container,
+.decorative,
+.section-title {
+  /* No changes needed here from your code, just ensuring they exist */
+}
+.category-tag {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 0;
+  color: #000;
+}
+
+/* --- Featured Grid Layout --- */
+.featured-grid {
+  display: grid;
+  height: 600px;
+  gap: 30px;
+  /* Use grid-template-areas for a clear layout definition */
+  grid-template-areas:
+    "large horizontal"
+    "large nested";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+/* --- Grid Area Assignments --- */
+.large-card {
+  grid-area: large;
+}
+
+.horizontal-card {
+  grid-area: horizontal;
+}
+
+/* This is the container for the small cards */
+.nested-grid {
+  grid-area: nested;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Create two equal columns */
+  gap: 30px;
+}
+
+/* --- Card Base Styles --- */
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #000;
+  color: var(--text-light);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  /* Gradient overlay for text readability */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+    z-index: 1;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+/* --- Card Content --- */
+.card-content {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 2; /* Ensures content is above the gradient */
+  max-width: 90%;
+
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+    max-width: 250px;
+  }
+}
+
+.shop-now-link {
+  color: var(--text-light);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid var(--text-light);
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #ccc;
+  }
+}

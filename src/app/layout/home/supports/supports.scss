@@ -1,0 +1,66 @@
+/* --- Services Section Container --- */
+.services-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px; /* Adjust gap as needed */
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+/* --- Individual Service Item --- */
+.service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 250px;
+}
+
+/* --- Icon Styling --- */
+/* The outer grey circle */
+.icon-background {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #c1c1c1; /* Light grey background/border */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+/* The inner black circle */
+.icon-foreground {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  filter: invert(1); /* This makes a black SVG icon appear white */
+}
+
+/* --- Typography --- */
+.service-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 8px 0;
+}
+
+.service-description {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}

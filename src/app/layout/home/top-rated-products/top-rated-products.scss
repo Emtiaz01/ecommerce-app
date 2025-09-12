@@ -13,19 +13,20 @@
   justify-content: space-between;
   margin-bottom: 24px;
 }
-.view-btn{
+.view-btn {
   background-color: var(--primary-color);
   color: var(--text-light);
   border: none;
-  padding: 16px 20px;
+  padding: 16px 40px;
   border-radius: 4px;
   font-size: 0.9rem;
   font-weight: 500;
   margin-right: 40px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 .view-btn:hover {
-  background-color: rgb(222, 113, 113)
+  background-color: rgb(222, 113, 113);
 }
 
 /* --- Product Grid --- */
@@ -35,4 +36,3 @@
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   gap: 30px;
 }
-
