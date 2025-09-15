@@ -1,0 +1,34 @@
+<div class="registration-wrapper">
+    <div class="registration-img-section">
+        <img src="assets/images/cart-phone.png" alt="Mobile shopping illustration" loading="lazy" class="main-image" />
+    </div>
+    <div class="registration-form-section">
+        <h2>Welcome Back!</h2>
+        <p class="subhead">Enter your credentials to log in</p>
+        
+        <form (ngSubmit)="onLogin(f)" #f="ngForm">
+            
+            <!-- **CHANGE**: Input for 'username' instead of 'email' -->
+            <input 
+                placeholder="Username" 
+                type="text" 
+                name="username" 
+                ngModel 
+                required>
+            
+            <input 
+                placeholder="Password" 
+                type="password" 
+                name="password" 
+                ngModel 
+                required>
+
+            <div class="logins">
+                <button type="submit" class="view-all-btn" [disabled]="f.invalid">Login</button>
+                <div class="account-bottom">
+                    <a routerLink="/forgot-password">Forgot Password</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

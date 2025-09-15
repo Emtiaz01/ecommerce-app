@@ -1,0 +1,149 @@
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #fff;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.main-nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid #000;
+  text-decoration: underline;
+  color: #000;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 8px 15px;
+  border-radius: 4px;
+
+  input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 12px;
+  }
+
+  .search-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url("https://api.iconify.design/material-symbols/search.svg") no-repeat center center / contain;
+    cursor: pointer;
+  }
+}
+
+.action-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  .wishlist-icon,
+  .cart-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  .wishlist-icon {
+    background: url("https://api.iconify.design/mdi/heart-outline.svg") no-repeat center center / contain;
+  }
+
+  .cart-icon {
+    background: url("https://api.iconify.design/mdi/cart-outline.svg") no-repeat center center / contain;
+  }
+}
+
+.profile-section {
+  position: relative;
+}
+
+.profile-icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* --- UPDATED STYLES FOR TRANSPARENT DROPDOWN --- */
+
+.profile-dropdown {
+  position: absolute;
+  top: 140%;
+  right: 0;
+  width: 225px;
+  z-index: 100;
+  border-radius: 8px; // Slightly more rounded
+  overflow: hidden; // Keeps the blur effect contained
+
+  // Frosted glass effect
+  background: rgba(122, 113, 113, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); // For Safari browser support
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+  }
+
+  li {
+    a, button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 14px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      background: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease; // Smooth hover effect
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.5); // Semi-transparent hover
+      }
+    }
+  }
+}

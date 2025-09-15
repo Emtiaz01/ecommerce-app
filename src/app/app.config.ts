@@ -1,13 +1,19 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+// You no longer need to import withHashLocation
+import { provideRouter } from '@angular/router'; 
+import { provideHttpClient } from '@angular/common/http';
+
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
+    
+    // Corrected line: Simply provide the routes. 
+    // This uses the default PathLocationStrategy for clean URLs.
+    provideRouter(routes), 
+    
     provideHttpClient()
   ]
 };

@@ -1,0 +1,77 @@
+<div class="registration-wrapper">
+  <div class="registration-img-section">
+    <img
+      src="assets/images/cart-phone.png"
+      alt="Mobile shopping illustration"
+      loading="lazy"
+      class="main-image"
+    />
+  </div>
+
+  <div class="registration-form-section">
+    <h2>Create an account</h2>
+    <p class="subhead">Enter your details below</p>
+    
+    <form (ngSubmit)="onSignup(f)" #f="ngForm">
+      
+      <!-- Email Input -->
+      <input placeholder="Email" type="email" name="email" ngModel required email #email="ngModel">
+      <!-- Error messages for Email -->
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+        <div *ngIf="email.errors?.['required']">Email is required.</div>
+        <div *ngIf="email.errors?.['email']">Please enter a valid email address.</div>
+      </div>
+
+      <!-- Username Input -->
+      <input placeholder="Username" type="text" name="username" ngModel required #username="ngModel">
+      <!-- Error message for Username -->
+      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="error-message">
+        <div *ngIf="username.errors?.['required']">Username is required.</div>
+      </div>
+
+      <!-- Password Input -->
+      <input placeholder="Password" type="password" name="password" ngModel required minlength="6" #password="ngModel">
+      <!-- Error messages for Password -->
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
+        <div *ngIf="password.errors?.['required']">Password is required.</div>
+        <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long.</div>
+      </div>
+
+      <!-- Name Input -->
+      <input placeholder="Name" type="text" name="name" ngModel required #name="ngModel">
+      <!-- Error message for Name -->
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error-message">
+        <div *ngIf="name.errors?.['required']">Name is required.</div>
+      </div>
+
+      <!-- Address Input -->
+      <input placeholder="Address" type="text" name="address" ngModel required #address="ngModel">
+      <!-- Error message for Address -->
+      <div *ngIf="address.invalid && (address.dirty || address.touched)" class="error-message">
+        <div *ngIf="address.errors?.['required']">Address is required.</div>
+      </div>
+
+      <!-- Phone Input -->
+      <input placeholder="Phone" type="tel" name="phone" ngModel required #phone="ngModel">
+      <!-- Error message for Phone -->
+      <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="error-message">
+        <div *ngIf="phone.errors?.['required']">Phone number is required.</div>
+      </div>
+      
+      <button type="submit" class="view-all-btn" [disabled]="f.invalid">Create Account</button>
+      
+      <button type="button" class="google-btn">
+        <img
+          src="assets/icons/google.png"
+          alt="Google"
+          class="google-icon"
+          loading="lazy"
+        /> Sign up with Google
+      </button>
+      
+      <div class="account-bottom">
+        Already have account? <a routerLink="/login">Log in</a>
+      </div>
+    </form>
+  </div>
+</div>
