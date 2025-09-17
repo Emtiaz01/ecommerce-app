@@ -16,20 +16,13 @@
 
   <!-- Promo Banner with Horizontal Slider -->
   <main class="promo-banner">
-    <!-- This wrapper acts as the viewport -->
     <div class="slider-wrapper">
-      <!-- This new container holds all slides in a row and will be moved -->
       <div class="slides-container" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
-        
-        <!-- Loop through the slides data -->
         <div *ngFor="let slide of slides(); let i = index" class="slide">
-          
-          <!-- DYNAMIC Text Content, rendered for each slide -->
           <div class="promo-text">
             <p class="brand-info"><i class="apple-icon"></i> {{ slide.brand }}</p>
-            <!-- Use [innerHTML] to correctly render the <br> tag from the title -->
             <h2 class="heading" [innerHTML]="slide.title"></h2>
-            <a [href]="slide.link" class="promo-link">
+            <a [href]="slide.link" class="promo-link" [protectedClick]="shop.bind(this)">
               <span class="link-text">Shop Now</span>
               <span class="arrow-long-right"></span>
             </a>

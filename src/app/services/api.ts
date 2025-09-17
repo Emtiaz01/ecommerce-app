@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-// Interface for detailed category objects
 export interface DetailedCategory {
   slug: string;
   name: string;
@@ -17,8 +16,7 @@ export class ApiService {
   private readonly baseUrl = 'https://dummyjson.com';
   private http = inject(HttpClient);
 
-  // --- Methods for General Product & Category Data ---
-  getAllProduct():Observable<any>{
+  getAllProduct(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/products`);
   }
   getProduct(limit: number = 8, skip: number = 0): Observable<any> {
@@ -59,12 +57,16 @@ export class ApiService {
     );
   }
   getExploreProducts(): Observable<any[]> {
-  return this.http.get<any>(`${this.baseUrl}/products/category/mobile-accessories`).pipe(
-    map(response => response.products) // Extract just the products array
-  );
-}
+    return this.http.get<any>(`${this.baseUrl}/products/category/mobile-accessories`).pipe(
+      map(response => response.products)
+    );
+  }
 
-  // --- Methods for User Authentication ---
+  getJustForYou(): Observable<any[]> {
+    return this.http.get<any>(`${this.baseUrl}/products/category/mens-shirts`).pipe(
+      map(response => response.products)
+    );
+  }
 
   register(user: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/users/add`, user);

@@ -1,7 +1,10 @@
-import { Component, OnInit, OnDestroy, signal, ElementRef, ViewChild } from '@angular/core';
-import { CommonModule, DecimalPipe, CurrencyPipe } from '@angular/common'; // Add CurrencyPipe
+import { Component, OnInit, OnDestroy, signal, ElementRef, ViewChild, inject } from '@angular/core';
+import { CommonModule, DecimalPipe, CurrencyPipe } from '@angular/common'; 
 import { ApiService } from '../../../services/api';
 import { Router } from '@angular/router';
+import { ProtectedClickDirective } from '../../../directives/protected-click'; 
+import { AddToWishlistDirective } from '../../../directives/add-to-wishlist';
+import { AddToCartDirective } from '../../../directives/add-to-cart';
 
 interface TimeLeft {
   days: string;
@@ -13,7 +16,7 @@ interface TimeLeft {
 @Component({
   selector: 'app-flash-sales',
   standalone: true,
-  imports: [CommonModule, DecimalPipe, CurrencyPipe],
+  imports: [CommonModule, DecimalPipe, CurrencyPipe, ProtectedClickDirective, AddToWishlistDirective, AddToCartDirective],
   templateUrl: './flash-sales.html',
   styleUrls: ['./flash-sales.scss']
 })
@@ -21,6 +24,7 @@ export class FlashSales implements OnInit, OnDestroy {
   products = signal<any[]>([]);
   timeLeft = signal<TimeLeft>({ days: '00', hours: '00', minutes: '00', seconds: '00' });
   private countdownInterval: any;
+  
 
   @ViewChild('productCarousel') productCarousel!: ElementRef;
 
@@ -86,6 +90,10 @@ export class FlashSales implements OnInit, OnDestroy {
   toggleViewAll(): void {
     this.showAll.set(!this.showAll());
   }
+  AddToCart(){
+     console.log('User is logged in. Adding to cart...');
+  }
+
 
   navigateToAllProducts(): void {
     this.router.navigate(['/all-products']);

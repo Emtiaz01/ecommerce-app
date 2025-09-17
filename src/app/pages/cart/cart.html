@@ -1,0 +1,79 @@
+<div class="cart-container">
+  <div class="breadcrumb">
+    <a routerLink="/">Home</a> / <span>Cart</span>
+  </div>
+
+  <div class="cart-table" *ngIf="cartService.cartCount() > 0">
+    <!-- Table Header -->
+    <div class="table-header">
+      <span>Product</span>
+      <span>Price</span>
+      <span>Quantity</span>
+      <span>Subtotal</span>
+    </div>
+
+    <!-- Table Rows -->
+    <div *ngFor="let item of cartService.cartItems()" class="table-row">
+      <div class="product-cell">
+        <img [src]="item.imageUrl" [alt]="item.name">
+        <span>{{ item.name }}</span>
+        <button (click)="removeItem(item.id)" class="remove-item-btn">❌</button>
+      </div>
+      <div class="price-cell">{{ item.price | currency }}</div>
+      
+      <!-- Custom Quantity Input Cell -->
+      <div class="quantity-cell">
+        <div class="quantity-input">
+          <input 
+            type="number" 
+            [value]="item.quantity" 
+            (change)="updateQuantity(item.id, $event)" 
+            min="1"
+          >
+          <div class="quantity-controls">
+            <button class="control-btn" (click)="increaseQuantity(item.id, item.quantity)">▲</button>
+            <button class="control-btn" (click)="decreaseQuantity(item.id, item.quantity)">▼</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="subtotal-cell">{{ (item.price * item.quantity) | currency }}</div>
+    </div>
+  </div>
+  
+  <!-- Empty Cart Message -->
+  <div *ngIf="cartService.cartCount() === 0" class="empty-cart">
+    <p>Your cart is empty.</p>
+    <a routerLink="/" class="return-btn">Return To Shop</a>
+  </div>
+
+  <!-- Cart Actions & Summary -->
+  <div class="cart-actions-summary" *ngIf="cartService.cartCount() > 0">
+    <div class="cart-actions">
+      <a routerLink="/" class="return-btn">Return To Shop</a>
+      <button class="update-cart-btn">Update Cart</button>
+    </div>
+    <div class="cart-summary">
+      <div class="coupon-section">
+        <input type="text" placeholder="Coupon Code">
+        <button class="apply-coupon-btn">Apply Coupon</button>
+      </div>
+      <div class="cart-total-box">
+        <h3>Cart Total</h3>
+        <div class="total-row">
+          <span>Subtotal:</span>
+          <span>{{ cartService.subtotal() | currency }}</span>
+        </div>
+        <div class="total-row">
+          <span>Shipping:</span>
+          <span>Free</span>
+        </div>
+        <div class="total-row total">
+          <span>Total:</span>
+          <span>{{ cartService.total() | currency }}</span>
+        </div>
+        <button class="checkout-btn">Proceed to checkout</button>
+      </div>
+    </div>
+  </div>
+</div>

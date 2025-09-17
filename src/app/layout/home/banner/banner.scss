@@ -60,27 +60,25 @@
 
 // NEW CONTAINER FOR HORIZONTAL SLIDING
 .slides-container {
-  display: flex; // Lays out slides in a row
+  display: flex; 
   height: 100%;
-  transition: transform 0.8s ease-in-out; // Animates the movement
+  transition: transform 0.8s ease-in-out; 
 }
 
 // UPDATED SLIDE STYLES
 .slide {
-  // Each slide occupies 100% of the viewport width and doesn't shrink/grow
   flex: 0 0 100%;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // NOTE: position, opacity, transform, and transition properties are removed from here.
 }
 
-/* --- Text, Image, and Dot Styles (No Changes) --- */
+/* --- Text, Image, and Dot Styles  --- */
 .promo-text {
   padding-left: 30px;
-  z-index: 2; // Keep text above any potential overlaps
+  z-index: 2;
 
   .brand-info {
     font-size: 1rem;

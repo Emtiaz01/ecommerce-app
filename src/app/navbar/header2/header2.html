@@ -4,8 +4,7 @@
     <a routerLink="/" class="nav-link">Home</a>
     <a routerLink="/contact" class="nav-link">Contact</a>
     <a routerLink="/about" class="nav-link">About</a>
-    <!-- Show "Sign Up" link only if the user is NOT logged in -->
-    <a *ngIf="!isLoggedIn()" routerLink="/registration" class="nav-link">Sign Up</a>
+    <a routerLink="/registration" class="nav-link">Sign Up</a>
   </nav>
 
   <div class="header-actions">
@@ -14,21 +13,28 @@
       <i class="search-icon"></i>
     </div>
 
-    <!-- action-icons container now holds both original icons and the new profile section -->
     <div class="action-icons">
-      <!-- Your existing icons, now wrapped with *ngIf="!isRegistrationPage" -->
       <ng-container *ngIf="!isRegistrationPage">
-        <i class="wishlist-icon"></i>
-        <i class="cart-icon"></i>
+        <!-- Wishlist icon + badge navigates to wishlist page -->
+        <a routerLink="/wishlist" class="icon-link wishlist-link">
+          <i class="wishlist-icon"></i>
+          <span *ngIf="isLoggedIn() && wishlistService.wishlistCount() > 0" class="badge">
+            {{ wishlistService.wishlistCount() }}
+          </span>
+        </a>
+        <!-- Cart icon + badge navigates to cart page -->
+        <a routerLink="/cart" class="icon-link cart-link">
+          <i class="cart-icon"></i>
+          <span *ngIf="isLoggedIn() && cartService.cartCount() > 0" class="badge">
+            {{ cartService.cartCount() }}
+          </span>
+        </a>
       </ng-container>
 
-      <!-- New Profile Section: Shown only when user is logged in -->
       <div *ngIf="isLoggedIn()" class="profile-section">
         <button (click)="toggleDropdown()" class="profile-icon-button">
-          <!-- User Icon (can be replaced with an image or icon font) -->
-          <img src="https://api.iconify.design/material-symbols/person-outline.svg" alt="User Profile">
+          <img src="https://api.iconify.design/material-symbols/person-outline.svg" alt="User Profile"/>
         </button>
-
         <!-- Dropdown Menu -->
         <div *ngIf="isDropdownOpen()" class="profile-dropdown">
           <ul>

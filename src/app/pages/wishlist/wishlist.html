@@ -1,0 +1,79 @@
+<div class="wishlist-page-container">
+  <!-- Wishlist Header -->
+  <div class="wishlist-header">
+    <h2>Wishlist ({{ wishlistService.wishlistCount() }})</h2>
+    <button class="move-all-btn">Move All To Bag</button>
+  </div>
+
+  <!-- Wishlist Items Grid -->
+  <div class="wishlist-grid">
+    <div *ngFor="let product of wishlistService.wishlistItems()" class="product-card">
+      <div class="card-image-container">
+        <span *ngIf="product.discount" class="discount-badge">-{{ product.discount }}%</span>
+        <img [src]="product.imageUrl" [alt]="product.name" class="product-image">
+        <div class="card-actions">
+          <button class="action-btn remove-btn" (click)="removeItem(product.id)"></button>
+        </div>
+        <button class="add-to-cart-btn" [appAddToCart]="product">Add To Cart</button>
+      </div>
+      <div class="card-content">
+        <h3 class="product-name">{{ product.name }}</h3>
+        <div class="price-container">
+          <ng-container *ngIf="product.originalPrice">
+            <span class="discounted-price">{{ product.price | currency }}</span>
+            <span class="original-price">{{ product.originalPrice | currency }}</span>
+          </ng-container>
+          <span *ngIf="!product.originalPrice" class="regular-price">{{ product.price | currency }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message for Empty Wishlist -->
+  <div *ngIf="wishlistService.wishlistCount() === 0" class="empty-wishlist-message">
+    <p>Your wishlist is currently empty.</p>
+  </div>
+
+  <!-- "Just For You" Section Header -->
+  <div class="section-header">
+    <div class="title-container">
+      <div class="decorative">
+        <div class="decorative-line"></div>
+      </div>
+      <p class="section-text">Just For You</p>
+    </div>
+    <div class="btn">
+      <button class="move-all-btn" (click)="toggleViewAll()">
+        {{ showAllJustForYou() ? 'See Less' : 'See All' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- "Just For You" Products Carousel/Grid -->
+  <div class="product-carousel" [class.expanded-grid]="showAllJustForYou()">
+    <div class="product-card" *ngFor="let product of showAllJustForYou() ? justForYouProducts() : justForYouProducts().slice(0, 10)">
+      <div class="card-image-container">
+        <span *ngIf="product.discountPercentage" class="discount-badge">-{{ product.discountPercentage | number:'1.0-0' }}%</span>
+        <img [src]="product.thumbnail" [alt]="product.title" class="product-image">
+        <div class="card-actions">
+          <button class="action-btn wishlist-btn" [appAddToWishlist]="product"></button>
+          <button class="action-btn view-btn"></button>
+        </div>
+        <!-- Use the smart directive to handle adding to cart -->
+        <button class="add-to-cart-btn" [appAddToCart]="product">Add To Cart</button>
+      </div>
+      <div class="card-content">
+        <h3 class="product-name">{{ product.title }}</h3>
+        <div class="price-container">
+          <span *ngIf="product.discountPercentage" class="discounted-price">{{ calculateDiscountedPrice(product.price, product.discountPercentage) | currency }}</span>
+          <span *ngIf="product.discountPercentage" class="original-price">{{ product.price | currency }}</span>
+          <span *ngIf="!product.discountPercentage" class="regular-price">{{ product.price | currency }}</span>
+        </div>
+        <div class="rating-container">
+          <span class="stars">★★★★★</span>
+          <span class="review-count">({{ product.stock }})</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

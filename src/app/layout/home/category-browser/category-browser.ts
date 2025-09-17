@@ -10,7 +10,6 @@ import {
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../services/api';
 
-// Defines the structure for a category object used in the template
 interface Category {
   name: string; 
   iconUrl: string; 

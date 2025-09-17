@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ApiService } from '../../../services/api'; // Import your ApiService
+import { ApiService } from '../../../services/api';
+import { ProtectedClickDirective } from "../../../directives/protected-click"; 
 
-// Define an interface for a single slide for type safety
 interface Slide {
   brand: string;
   title: string;
@@ -13,12 +13,12 @@ interface Slide {
 @Component({
   selector: 'app-banner',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ProtectedClickDirective],
   templateUrl: './banner.html',
   styleUrls: ['./banner.scss']
 })
 export class Banner implements OnInit, OnDestroy {
-  slides = signal<Slide[]>([]); // Use signal instead of input
+  slides = signal<Slide[]>([]);
 
   currentSlide = 0;
   private intervalId: any;
@@ -26,7 +26,6 @@ export class Banner implements OnInit, OnDestroy {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    // Fetch products for the banner (e.g., first 3 products)
     this.apiService.getProduct(5, 9).subscribe(response => {
       const slides = response.products.map((product: any) => ({
         brand: product.brand,
@@ -61,5 +60,8 @@ export class Banner implements OnInit, OnDestroy {
     this.currentSlide = index;
     clearInterval(this.intervalId);
     this.startAutoSlider();
+  }
+  shop(){
+
   }
 }

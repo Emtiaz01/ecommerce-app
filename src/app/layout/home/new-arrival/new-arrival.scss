@@ -12,7 +12,6 @@
 .title-container,
 .decorative,
 .section-title {
-  /* No changes needed here from your code, just ensuring they exist */
 }
 .category-tag {
   color: var(--primary-color);
@@ -90,7 +89,7 @@
   position: absolute;
   bottom: 24px;
   left: 24px;
-  z-index: 2; /* Ensures content is above the gradient */
+  z-index: 2;
   max-width: 90%;
 
   h3 {

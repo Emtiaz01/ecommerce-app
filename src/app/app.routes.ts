@@ -1,13 +1,18 @@
 import { Routes } from '@angular/router';
-import { Registration } from './registration/registration';
+import { Registration } from './pages/registration/registration';
 import { Home } from './layout/home/home/home'; 
-import { Login } from './login/login';
+import { Login } from './pages/login/login';
+import { About } from './pages/about/about';
+import { Wishlist } from './pages/wishlist/wishlist';
+import { Cart } from './pages/cart/cart';
+import { Contact } from './pages/contact/contact';
 
 export const routes: Routes = [
-  // 1. Set the Home component as the default page for the base URL
   { path: '', component: Home }, 
-
-  // 2. Define the other routes for direct navigation
   { path: 'registration', component: Registration },
-  { path: 'login', component: Login }
+  { path: 'login', component: Login },
+  { path: 'about', component: About},
+  { path: 'wishlist', component: Wishlist},
+  { path: 'cart', component: Cart},
+  { path: 'contact', component: Contact}
 ];

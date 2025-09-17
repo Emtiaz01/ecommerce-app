@@ -10,7 +10,6 @@
     </div>
     <!-- View All Button -->
     <div class="section-footer">
-      <!-- Button now toggles the view and changes text -->
       <button class="view-btn" (click)="toggleView()">
         {{ showAll() ? 'Show Less' : 'View All' }}
       </button>
@@ -19,15 +18,14 @@
 
   <!-- Product Grid -->
   <div class="product-grid">
-    <!-- The *ngFor loop remains the same, as it's bound to the `products` signal -->
     <div class="product-card" *ngFor="let product of products()">
       <div class="card-image-container">
         <img [src]="product.thumbnail" [alt]="product.title" class="product-image">
         <div class="card-actions">
-          <button class="action-btn wishlist-btn"></button>
+          <button class="action-btn wishlist-btn" [appAddToWishlist]="product"></button>
           <button class="action-btn view-btn"></button>
         </div>
-        <button class="add-to-cart-btn">Add To Cart</button>
+        <button class="add-to-cart-btn" [appAddToCart]="product">Add To Cart</button>
       </div>
       
       <div class="card-content">

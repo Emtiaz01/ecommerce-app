@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { IndexedDBService } from '../services/indexeddb.service'; // Ensure this path is correct
-import { User } from '../services/auth.service';
+import { IndexedDBService } from '../../services/indexeddb.service';
+import { User } from '../../services/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -18,8 +18,6 @@ export class Registration {
     private indexedDBService: IndexedDBService,
     private router: Router
   ) {}
-
-  // The hashPassword method has been removed.
 
   async onSignup(form: NgForm) {
     console.log('Step 1: onSignup method started.');
@@ -43,11 +41,7 @@ export class Registration {
         return;
       }
 
-      // --- REMOVED HASHING LOGIC ---
-      // The newUser object is now used directly, containing the plain text password.
-
       console.log(`Step 4: User does not exist. Adding '${newUser.username}' to IndexedDB.`);
-      // --- MODIFICATION: SAVE THE OBJECT WITH THE PLAIN TEXT PASSWORD ---
       await this.indexedDBService.addUser(newUser);
 
       console.log('Step 5: User added successfully.');

@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { IndexedDBService } from '../services/indexeddb.service';
-import { AuthService } from '../services/auth.service'; // Ensure this path is correct
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -30,14 +29,11 @@ export class Login {
 
     try {
       const isLoggedIn = await this.authService.login(username, password);
-
-      // --- CRITICAL DEBUGGING STEP ---
       console.log('AuthService.login() returned:', isLoggedIn);
 
       if (isLoggedIn) {
-        this.router.navigate(['/']); // Navigate to home page
+        this.router.navigate(['/']);
       } else {
-        // This is the most likely path being taken
         alert('Invalid username or password.');
         console.error('Login failed. The username or password did not match.');
       }

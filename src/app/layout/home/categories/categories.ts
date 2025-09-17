@@ -22,7 +22,6 @@ export class Categories implements OnInit, OnDestroy {
     if (this.intervalId) clearInterval(this.intervalId);
   }
 
-  // Helper to calculate days/hours/minutes/seconds left
   private calculateTimeLeft() {
     const now = new Date();
     const diff = Math.max(0, this.targetDate.getTime() - now.getTime());

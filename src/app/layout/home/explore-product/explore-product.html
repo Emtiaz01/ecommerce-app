@@ -21,10 +21,10 @@
       <div class="card-image-container">
         <img [src]="product.displayImage" [alt]="product.title" class="product-image">
         <div class="card-actions">
-          <button class="action-btn wishlist-btn"></button>
+          <button class="action-btn wishlist-btn" [appAddToWishlist]="product"></button>
           <button class="action-btn view-btn"></button>
         </div>
-        <button class="add-to-cart-btn">Add To Cart</button>
+        <button class="add-to-cart-btn" [appAddToCart]="product">Add To Cart</button>
       </div>
       
       <div class="card-content">

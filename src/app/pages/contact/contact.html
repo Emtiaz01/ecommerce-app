@@ -1,0 +1,48 @@
+<div class="contact-page-container">
+  <div class="breadcrumb">
+    <a routerLink="/">Home</a> / <span>Contact</span>
+  </div>
+
+  <div class="contact-content-wrapper">
+    <!-- Left Side: Contact Information -->
+    <div class="info-panel">
+      <div class="info-section">
+        <div class="section-header">
+          <div class="icon-wrapper">
+            <img src="https://api.iconify.design/ph/phone-call-fill.svg" alt="Phone Icon">
+          </div>
+          <h3>Call To Us</h3>
+        </div>
+        <p>We are available 24/7, 7 days a week.</p>
+        <p>Phone: +8801611112222</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="info-section">
+        <div class="section-header">
+          <div class="icon-wrapper">
+            <img src="https://api.iconify.design/ic/round-email.svg" alt="Email Icon">
+          </div>
+          <h3>Write To US</h3>
+        </div>
+        <p>Fill out our form and we will contact you within 24 hours.</p>
+        <p>Emails: customer@exclusive.com</p>
+        <p>Emails: support@exclusive.com</p>
+      </div>
+    </div>
+
+    <!-- Right Side: Contact Form -->
+    <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="sendMessage()">
+      <div class="form-row">
+        <input type="text" placeholder="Your Name *" formControlName="name">
+        <input type="email" placeholder="Your Email *" formControlName="email">
+        <input type="tel" placeholder="Your Phone *" formControlName="phone">
+      </div>
+      <textarea placeholder="Your Message" formControlName="message" rows="8"></textarea>
+      <div class="form-actions">
+        <button type="submit" class="send-btn">Send Message</button>
+      </div>
+    </form>
+  </div>
+</div>

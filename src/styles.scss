@@ -4,16 +4,19 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+
 :root {
   --primary-color: #db4444;
   --text-light: #fff;
   --font-main: 'Poppins', sans-serif;
 }
+
 //whole page styles
 .page-container {
   font-family: var(--font-main);
   padding: 100px 80px 30px 80px;
 }
+
 .section-title {
   font-size: 2.25rem;
   font-weight: 600;
@@ -138,6 +141,15 @@ hr {
         cursor: pointer;
         padding-right: 0px;
         margin: 0px;
+      }
+
+      .remove-btn {
+        background: url("https://api.iconify.design/mdi/delete-outline.svg") no-repeat center center / contain;
+        transition: transform 0.2s ease;
+      }
+
+      &:hover {
+        transform: scale(1.1);
       }
 
       .wishlist-btn {
