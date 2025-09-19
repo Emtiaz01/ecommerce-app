@@ -2,21 +2,27 @@
   display: block;
 }
 
+/* --- Base styles for desktop/laptop --- */
 .announcement-bar {
   background-color: #000;
   color: #fff;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 10px 30px;
   font-family: Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .announcement-text {
   flex-grow: 1;
   text-align: center;
-  font: weight 5px;
+  font-weight: 700;
+  min-width: 140px;
 }
 
 .shop-now-link {
@@ -24,12 +30,14 @@
   text-decoration: underline;
   margin-left: 8px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .language-selector {
   display: flex;
   align-items: center;
   cursor: pointer;
+  margin-left: 24px;
 }
 
 .arrow-down {
@@ -40,3 +48,54 @@
   border-top: 5px solid #fff;
   margin-left: 8px;
 }
+
+/* --- Large Tablets (max-width: 1024px) --- */
+@media (max-width: 1024px) {
+  .announcement-bar {
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+  .language-selector {
+    margin-left: 14px;
+  }
+}
+
+/* --- Tablets (max-width: 768px) --- */
+@media (max-width: 768px) {
+  .announcement-bar {
+    padding: 8px 8px;
+    font-size: 14px;
+  }
+}
+
+/* --- Mobiles (max-width: 600px) --- */
+@media (max-width: 600px) {
+  .announcement-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 7px 4vw;
+    font-size: 13px;
+    min-width: unset;
+  }
+  .announcement-text {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .shop-now-link,
+  .language-selector {
+    justify-content: center;
+    margin-left: 0;
+    min-width: unset;
+  }
+}
+
+/* --- Ultra small devices (max-width: 400px) --- */
+@media (max-width: 400px) {
+  .announcement-bar {
+    font-size: 12px;
+    padding: 5px 2vw;
+    gap: 3px;
+  }
+}
+
