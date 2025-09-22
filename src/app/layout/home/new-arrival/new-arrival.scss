@@ -4,15 +4,12 @@
   --text-light: #fff;
   --font-main: 'Poppins', sans-serif;
 }
+
 /* --- Section Header Styling --- */
 .section-header {
   margin-bottom: 24px;
 }
 
-.title-container,
-.decorative,
-.section-title {
-}
 .category-tag {
   color: var(--primary-color);
   font-weight: 600;
@@ -30,7 +27,6 @@
   display: grid;
   height: 600px;
   gap: 30px;
-  /* Use grid-template-areas for a clear layout definition */
   grid-template-areas:
     "large horizontal"
     "large nested";
@@ -47,11 +43,10 @@
   grid-area: horizontal;
 }
 
-/* This is the container for the small cards */
 .nested-grid {
   grid-area: nested;
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Create two equal columns */
+  grid-template-columns: 1fr 1fr;
   gap: 30px;
 }
 
@@ -70,7 +65,6 @@
     transition: transform 0.4s ease;
   }
 
-  /* Gradient overlay for text readability */
   &::after {
     content: '';
     position: absolute;
@@ -116,5 +110,66 @@
 
   &:hover {
     color: #ccc;
+  }
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 1024px) {
+  .featured-grid {
+    height: auto; /* Allow height to be determined by content */
+    grid-template-areas:
+      "large large"
+      "horizontal horizontal"
+      "nested nested";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .large-card, .horizontal-card {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 28px;
+  }
+  .featured-grid {
+    gap: 20px;
+  }
+  .nested-grid {
+    gap: 20px;
+  }
+  .card-content {
+    bottom: 20px;
+    left: 20px;
+    h3 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .nested-grid {
+    grid-template-columns: 1fr; /* Stack small cards */
+  }
+  .small-card {
+      min-height: 200px;
+  }
+}
+
+@media (max-width: 400px) {
+  .section-title {
+    font-size: 24px;
+  }
+  .card-content {
+    bottom: 16px;
+    left: 16px;
+    h3 {
+      font-size: 18px;
+    }
   }
 }

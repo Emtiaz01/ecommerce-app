@@ -19,9 +19,10 @@ interface Slide {
 })
 export class Banner implements OnInit, OnDestroy {
   slides = signal<Slide[]>([]);
-
   currentSlide = 0;
   private intervalId: any;
+
+  isDropdownOpen = false;
 
   constructor(private apiService: ApiService) {}
 
@@ -61,7 +62,11 @@ export class Banner implements OnInit, OnDestroy {
     clearInterval(this.intervalId);
     this.startAutoSlider();
   }
-  shop(){
+  
+  shop() {
+  }
 
+  toggleDropdown(): void {
+    this.isDropdownOpen = !this.isDropdownOpen;
   }
 }

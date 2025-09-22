@@ -3,12 +3,12 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 80px; /* Adjust gap as needed */
+  gap: 80px;
   padding: 80px 20px;
   max-width: 1200px;
   margin: 0 auto;
   font-family: 'Poppins', sans-serif;
-  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  flex-wrap: wrap;
 }
 
 /* --- Individual Service Item --- */
@@ -21,19 +21,17 @@
 }
 
 /* --- Icon Styling --- */
-/* The outer grey circle */
 .icon-background {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: #c1c1c1; /* Light grey background/border */
+  background-color: #c1c1c1;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 24px;
 }
 
-/* The inner black circle */
 .icon-foreground {
   width: 56px;
   height: 56px;
@@ -45,9 +43,9 @@
 }
 
 .service-icon {
-  width: 60px;
-  height: 60px;
-  filter: invert(1); /* This makes a black SVG icon appear white */
+  width: 32px;
+  height: 32px;
+  filter: invert(1);
 }
 
 /* --- Typography --- */
@@ -63,4 +61,51 @@
   color: #555;
   margin: 0;
   line-height: 1.5;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 1024px) {
+  .services-container {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-container {
+    gap: 40px;
+  }
+  .service-item {
+    max-width: 200px;
+  }
+  .service-title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+  .service-item {
+    max-width: 300px; /* Allow more width in single-column layout */
+  }
+}
+
+@media (max-width: 400px) {
+  .icon-background {
+    width: 70px;
+    height: 70px;
+  }
+  .icon-foreground {
+    width: 50px;
+    height: 50px;
+  }
+  .service-title {
+    font-size: 16px;
+  }
+  .service-description {
+    font-size: 13px;
+  }
 }

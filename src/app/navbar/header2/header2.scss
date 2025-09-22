@@ -2,27 +2,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 80px;
+  padding: 25px 80px;
   border-bottom: 1px solid #e0e0e0;
   background-color: #fff;
   width: 100%;
   box-sizing: border-box;
-  flex-wrap: wrap;
-  min-height: 64px;
+  flex-wrap: nowrap;
+  gap: 30px;
 }
 
 /* Logo */
 .logo {
   font-size: 24px;
   font-weight: bold;
-  white-space: nowrap;
 }
 
 /* Nav */
 .main-nav {
   display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
+  gap: 48px;
+  justify-content: center;
+  flex-grow: 1;
 
   .nav-link {
     text-decoration: none;
@@ -31,12 +31,10 @@
     padding-bottom: 5px;
     border-bottom: 2px solid transparent;
     transition: border 0.15s, color 0.15s;
-  }
-
-  .nav-link.active {
-    border-bottom: 2px solid #000;
-    text-decoration: underline;
-    color: #000;
+    &.active {
+      border-bottom: 2px solid #000;
+      font-weight: 500;
+    }
   }
 }
 
@@ -44,8 +42,7 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 24px;
 }
 
 /* Search */
@@ -53,15 +50,14 @@
   display: flex;
   align-items: center;
   background-color: #f5f5f5;
-  padding: 8px 15px;
+  padding: 7px 12px;
   border-radius: 4px;
-  min-width: 100px;
+  width: 240px;
   input {
     border: none;
     background: transparent;
     outline: none;
     font-size: 12px;
-    min-width: 60px;
     width: 100%;
   }
   .search-icon {
@@ -76,13 +72,13 @@
 /* Icons */
 .action-icons {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   align-items: center;
   .wishlist-icon,
   .cart-icon {
     display: inline-block;
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     cursor: pointer;
   }
   .wishlist-icon {
@@ -106,8 +102,8 @@
   align-items: center;
   justify-content: center;
   img {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
   }
 }
 
@@ -146,103 +142,101 @@
       cursor: pointer;
       transition: background-color 0.2s ease; 
       &:hover {
-        background-color: rgba(255, 255, 255, 0.5); 
+        background-color: rgba(255, 255, 255, 0.2); 
       }
     }
   }
 }
 
 /* Badges */
-.wishlist-link, .icon-link {
+.icon-link {
   position: relative;
   display: inline-block;
 }
 .badge {
   position: absolute;
-  top: -8px;
+  top: -5px;
   right: -8px;
   background: #DB4444;
   color: white;
   border-radius: 50%;
-  min-width: 20px;
+  width: 20px;
   height: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding: 2px;
 }
 
 /* --- RESPONSIVENESS --- */
-/* Laptops/Tablets */
 @media (max-width: 1024px) {
   .main-header {
-    padding: 14px 30px;
+    padding: 20px 40px;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .main-nav {
+    gap: 24px;
+    order: 3; /* Move nav below logo and actions */
+    width: 100%;
+    margin-top: 15px;
+  }
+  .logo { order: 1; }
+  .header-actions { order: 2; }
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    padding: 15px 20px;
   }
   .main-nav {
     gap: 20px;
-  }
-  .action-icons {
-    gap: 12px;
-  }
-}
-/* Tablets */
-@media (max-width: 768px) {
-  .main-header {
-    padding: 12px 14px;
-    min-height: 56px;
-  }
-  .logo {
-    font-size: 20px;
-  }
-  .main-nav {
-    gap: 14px;
-    .nav-link {
-      font-size: 14px;
-    }
-  }
-  .header-actions {
-    gap: 10px;
-  }
-}
-/* Mobile */
-@media (max-width: 600px) {
-  .main-header {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 8px 4vw;
-  }
-  .logo {
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: 3px;
-  }
-  .main-nav,
-  .header-actions {
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-    gap: 8px;
-    margin-bottom: 6px;
+    font-size: 14px;
   }
   .search-bar {
-    min-width: 75px;
-    input { font-size: 11px; }
+    width: 180px;
   }
 }
 
-/* Extra Small Devices */
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .main-header {
-    padding: 7px 2vw;
-    min-height: 40px;
+    flex-direction: row; /* Keep it row-based for better space usage */
+    flex-wrap: wrap;
+    padding: 15px;
   }
-  .logo { font-size: 16px; }
+  .logo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .main-nav {
+    width: 100%;
+    order: 3;
+    font-size: 13px;
+    gap: 15px;
+    justify-content: space-around;
+  }
+  .header-actions {
+    width: 100%;
+    order: 2;
+    justify-content: space-between; 
+  }
+  .search-bar {
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 400px) {
+  .main-nav {
+    gap: 12px;
+    font-size: 12px;
+  }
   .profile-dropdown {
-    width: 90vw; /* almost full width */
-    right: 50%;
+    width: fit-content;
+    right: 136%;
     transform: translateX(50%);
   }
 }

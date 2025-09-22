@@ -1,4 +1,36 @@
-.carousel-nav{
+.carousel-nav {
+  margin-left: 92%;
+  margin-bottom: 30px;
+}
+
+/* Large tablets */
+@media (max-width: 1024px) {
+  .carousel-nav {
     margin-left: 92%;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .carousel-nav {
+    margin-left: 90%;
+    margin-bottom: 22px;
+  }
+}
+
+/* Large mobiles */
+@media (max-width: 600px) {
+  .carousel-nav {
+    margin-left: 80%;
+    margin-bottom: 18px;
+  }
+}
+
+/* Small mobiles */
+@media (max-width: 400px) {
+  .carousel-nav {
+    margin-left: 80%;
+    margin-bottom: 14px;
+  }
 }

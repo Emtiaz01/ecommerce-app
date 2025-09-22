@@ -1,4 +1,3 @@
-/* Main container for the about page content */
 .about-page-container {
   max-width: 1170px;
   margin: 0 auto;
@@ -7,16 +6,18 @@
   color: #000;
 }
 
-/* Breadcrumb: "Home / About" */
+/* Breadcrumb */
 .breadcrumb {
   font-size: 0.875rem;
   color: #7d8184;
   margin-bottom: 80px;
 }
+
 .breadcrumb a {
   color: #7d8184;
   text-decoration: none;
 }
+
 .breadcrumb a:hover {
   text-decoration: underline;
 }
@@ -29,20 +30,24 @@
   gap: 100px;
   margin-bottom: 140px;
 }
+
 .story-text {
   max-width: 525px;
 }
+
 .story-text h2 {
-  font-size: 3.375rem; /* 54px */
+  font-size: 3.375rem;
   font-weight: 600;
   line-height: 1.2;
   margin-bottom: 40px;
 }
+
 .story-text p {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 24px;
 }
+
 .story-image img {
   max-width: 100%;
   height: auto;
@@ -56,6 +61,7 @@
   gap: 10px;
   margin-bottom: 140px;
 }
+
 .stat-item {
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 4px;
@@ -64,12 +70,14 @@
   width: 270px;
   transition: all 0.3s ease;
 }
+
 .stat-item:hover,
 .stat-item.highlighted {
   background-color: #ffffff;
   color: #000000;
   border-color: #7d8184;
 }
+
 .stat-number {
   font-size: 2rem;
   font-weight: 700;
@@ -77,8 +85,7 @@
   margin-bottom: 12px;
 }
 
-/* --- Team Slider Styles --- */
-
+/* Team Slider */
 .team-slider-container {
   width: 100%;
   overflow: hidden;
@@ -88,6 +95,7 @@
 
 .team-slider-track {
   display: flex;
+  flex-direction: row;
   transition: transform 0.5s ease-in-out;
 }
 
@@ -120,7 +128,6 @@
   margin-bottom: 16px;
 }
 
-/* Navigation dots below the slider */
 .slider-dots {
   text-align: center;
   margin-top: 40px;
@@ -138,13 +145,15 @@
 }
 
 .dot.active {
-  background-color: #db4444; 
+  background-color: #db4444;
 }
+
+/* Social icons */
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 16px; 
-  margin-top: 16px; 
+  gap: 16px;
+  margin-top: 16px;
   margin-left: 0px;
   margin-right: 265px;
 }
@@ -157,25 +166,259 @@
 }
 
 .social-links img:hover {
-  opacity: 1; 
+  opacity: 1;
 }
 
-/* Responsive adjustments for smaller screens */
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+/* Up to 1200px, stats/cards shrink a bit */
+@media (max-width: 1200px) {
+  .stat-item {
+    width: 200px;
+    padding: 20px 15px;
+  }
+
+  .story-section,
+  .stats-section {
+    gap: 60px;
+  }
+}
+
+/* Up to 992px (large tablet): vertical stacking for all main sections */
 @media (max-width: 992px) {
   .story-section {
     flex-direction: column;
     text-align: center;
+    gap: 32px;
+    margin-bottom: 110px;
+  }
+
+  .story-text {
+    max-width: 100%;
+  }
+
+  .story-image {
+    width: 75vw;
+    margin: 0 auto;
+  }
+
+  .stats-section {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 100px;
+  }
+
+  .stat-item {
+    width: 70vw;
+    min-width: 160px;
+    max-width: 350px;
+  }
+
+  .team-slider-container {
+    margin-bottom: 100px;
+  }
+
+  .team-member {
+    flex: 0 0 50%;
+    max-width: 370px;
+    margin: 0 auto 38px auto;
   }
 }
 
+/* Up to 768px (tablet): stack team slider vertically, hide slider dots, and tweak other sizes */
 @media (max-width: 768px) {
   .about-page-container {
-    padding: 40px 15px;
+    padding: 32px 4vw;
   }
-  .story-section, .stats-section, .team-section {
-    margin-bottom: 80px;
+
+  .story-section,
+  .stats-section,
+  .team-slider-container {
+    margin-bottom: 64px;
   }
+
   .story-text h2 {
-    font-size: 2.5rem;
+    font-size: 2.1rem;
+    margin-bottom: 28px;
+  }
+
+  .story-text p {
+    font-size: 0.96rem;
+    margin-bottom: 14px;
+  }
+
+  .stat-item {
+    font-size: 0.97rem;
+
+    .stat-number {
+      font-size: 1.57rem;
+    }
+
+    padding: 12px 10px;
+  }
+
+  .team-slider-track {
+    flex-direction: column !important;
+    transition: none;
+  }
+
+  .team-member {
+    flex: 0 0 100%;
+    max-width: 95vw;
+    padding: 0;
+    margin-bottom: 28px;
+  }
+
+  .team-member-image {
+    margin-bottom: 18px;
+  }
+
+  .team-member h3 {
+    font-size: 1.13rem;
+  }
+
+  .slider-dots {
+    display: none !important;
+  }
+}
+
+/* Up to 600px (large mobile): tighter stacking, single-column stats, smaller slider */
+@media (max-width: 600px) {
+  .about-page-container {
+    padding: 16px 0;
+  }
+
+  .story-section,
+  .stats-section {
+    gap: 16px;
+    margin-bottom: 38px;
+  }
+
+  .story-text h2 {
+    font-size: 1.45rem;
+  }
+
+  .story-text p {
+    font-size: 0.91rem;
+  }
+
+  .stat-item {
+    width: 97vw;
+    padding: 10px 4px;
+    font-size: 0.92rem;
+  }
+
+  .stat-number {
+    font-size: 1.2rem;
+  }
+
+  .team-slider-container {
+    margin-bottom: 36px;
+  }
+
+  .team-member {
+    max-width: 100vw;
+  }
+
+  .team-member-image {
+    margin-bottom: 10px;
+  }
+
+  .team-member h3 {
+    font-size: 1rem;
+  }
+
+  .social-links {
+    gap: 10px;
+    margin-right: 0;
+  }
+}
+
+/* Up to 425px (small mobile): full width, single column stats/grid/cards, smaller social icons */
+@media (max-width: 425px) {
+  .about-page-container {
+    padding: 8px 0 8px 0;
+  }
+
+  .breadcrumb {
+    margin-bottom: 22px;
+    font-size: 0.8rem;
+  }
+
+  .story-section {
+    gap: 7vw;
+    margin-bottom: 30px;
+  }
+
+  .story-text h2 {
+    font-size: 1.15rem;
+    margin-bottom: 16px;
+  }
+
+  .story-text p {
+    font-size: 0.87rem;
+    margin-bottom: 10px;
+  }
+
+  .story-image {
+    width: 95vw;
+  }
+
+  .stats-section {
+    gap: 8px;
+    margin-bottom: 30px;
+    flex-direction: column;
+  }
+
+  .stat-item {
+    padding: 10px 2px;
+    width: 98vw;
+    min-width: 130px;
+    font-size: 0.89rem;
+  }
+
+  .stat-number {
+    font-size: 1rem;
+  }
+
+  .team-slider-container {
+    padding-left: 5%;
+    margin-bottom: 18px;
+    width: 90%;
+  }
+
+  .team-member {
+    padding: 0;
+    max-width: 98vw;
+    margin-bottom: 18px;
+  }
+
+  .team-member-image {
+    margin-bottom: 8px;
+  }
+
+  .team-member h3 {
+    font-size: 0.93rem;
+  }
+
+  .slider-dots {
+    margin-top: 18px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 3px;
+  }
+
+  .social-links {
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .social-links img {
+    width: 16px;
+    height: 16px;
   }
 }

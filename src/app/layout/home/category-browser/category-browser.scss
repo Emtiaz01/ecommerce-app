@@ -1,17 +1,15 @@
-/* --- Variables for easy customization --- */
 :host {
   --primary-color: #db4444;
   --text-dark: #000;
   --text-light: #fff;
   --border-color: #ccc;
-  --font-main: 'Poppins', sans-serif;
 }
 
 /* --- Section Header --- */
 .section-header {
   display: flex;
   align-items: flex-end;
-  gap: 80px;
+  justify-content: space-between;
   margin-bottom: 24px;
 }
 
@@ -19,9 +17,13 @@
 .category-carousel {
   display: flex;
   gap: 30px;
-  overflow-x: hidden; 
+  overflow-x: auto;
   padding: 10px 0;
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* --- Category Card Styling --- */
@@ -39,45 +41,86 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 
   .icon {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 0.7rem;
-  background: #000000;
-
-  mask-image: inherit; 
-  mask-repeat: no-repeat;
-  mask-size: contain;         
-  mask-position: center;
-
-  // For WebKit/Blink browsers (Chrome/Safari)
-  -webkit-mask-image: inherit;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: contain;
-  -webkit-mask-position: center;
+    width: 56px;
+    height: 56px;
+    background-color: var(--text-dark);
+    mask-repeat: no-repeat;
+    mask-size: contain;       
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
   }
 
   .category-name {
     font-size: 1rem;
   }
 
-  // Hover state for the card
-  &:hover {
+  &:hover, &.active {
     background-color: var(--primary-color);
     color: var(--text-light);
-
+    border-color: var(--primary-color);
     .icon {
       background-color: var(--text-light);
     }
   }
+}
 
-  // Active state for the selected card
-  &.active {
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    border-color: var(--primary-color);
+/* --- RESPONSIVENESS --- */
+@media (max-width: 1024px) {
+  .category-carousel {
+    gap: 20px;
+  }
+  .category-card {
+    flex: 0 0 150px;
+    height: 130px;
+  }
+}
 
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .category-carousel {
+    gap: 15px;
+  }
+  .carousel-nav{
+    padding-top: 0px;
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .category-carousel {
+    scroll-snap-type: x mandatory;
+  }
+  .category-card {
+    flex: 0 0 130px;
+    height: 120px;
+    scroll-snap-align: start;
+  }
+  .carousel-nav{
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 400px) {
+  .category-card {
+    flex: 0 0 120px;
+    height: 110px;
+    gap: 10px;
     .icon {
-      background-color: var(--text-light);
+      width: 48px;
+      height: 48px;
     }
+    .category-name {
+      font-size: 0.9rem;
+    }
+  }
+  .carousel-nav{
+    padding-left: 0px;
+    margin-left: 0px;
   }
 }

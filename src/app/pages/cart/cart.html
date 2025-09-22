@@ -4,7 +4,7 @@
   </div>
 
   <div class="cart-table" *ngIf="cartService.cartCount() > 0">
-    <!-- Table Header -->
+    <!-- Table Header - Hidden on mobile! -->
     <div class="table-header">
       <span>Product</span>
       <span>Price</span>
@@ -19,10 +19,12 @@
         <span>{{ item.name }}</span>
         <button (click)="removeItem(item.id)" class="remove-item-btn">❌</button>
       </div>
-      <div class="price-cell">{{ item.price | currency }}</div>
-      
-      <!-- Custom Quantity Input Cell -->
+      <div class="price-cell">
+        <span class="label-mobile">Price:</span>
+        <span>{{ item.price | currency }}</span>
+      </div>
       <div class="quantity-cell">
+        <span class="label-mobile">Qty:</span>
         <div class="quantity-input">
           <input 
             type="number" 
@@ -36,11 +38,13 @@
           </div>
         </div>
       </div>
-
-      <div class="subtotal-cell">{{ (item.price * item.quantity) | currency }}</div>
+      <div class="subtotal-cell">
+        <span class="label-mobile">Subtotal:</span>
+        <span>{{ (item.price * item.quantity) | currency }}</span>
+      </div>
     </div>
   </div>
-  
+
   <!-- Empty Cart Message -->
   <div *ngIf="cartService.cartCount() === 0" class="empty-cart">
     <p>Your cart is empty.</p>
@@ -55,7 +59,7 @@
     </div>
     <div class="cart-summary">
       <div class="coupon-section">
-        <input type="text" placeholder="Coupon Code">
+        <input type="text" placeholder="Coupon Code" style="padding-right: 0px;">
         <button class="apply-coupon-btn">Apply Coupon</button>
       </div>
       <div class="cart-total-box">

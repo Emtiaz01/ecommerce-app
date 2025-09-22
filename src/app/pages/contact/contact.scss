@@ -109,3 +109,87 @@
   font-size: 1rem;
   cursor: pointer;
 }
+/* ---- Responsive Breakpoints ---- */
+
+/* Tablets and below (≤992px): Stack panels vertically, shrink fonts and gaps */
+@media (max-width: 992px) {
+  .contact-page-container {
+    margin: 32px auto;
+    padding: 0 4vw;
+  }
+  .contact-content-wrapper {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .info-panel,
+  .contact-form {
+    min-width: 0;
+    width: 100%;
+    padding: 28px 10px;
+    box-sizing: border-box;
+  }
+  .divider {
+    margin: 24px 0;
+  }
+  .section-header h3 {
+    font-size: 0.97rem;
+  }
+}
+
+/* Mobile (≤600px): Tighter layout, single-column inputs, smaller paddings/buttons */
+@media (max-width: 600px) {
+  .contact-page-container {
+    margin: 0;
+    padding: 0 2vw;
+  }
+  .breadcrumb {
+    margin-bottom: 28px;
+    font-size: 0.89rem;
+  }
+  .info-panel, .contact-form {
+    padding: 13px 3px;
+  }
+  .section-header {
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .icon-wrapper {
+    width: 32px;
+    height: 32px;
+  }
+  .icon-wrapper img {
+    width: 14px;
+    height: 14px;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .contact-form input, .contact-form textarea {
+    font-size: 0.98rem;
+    padding: 10px 8px;
+  }
+  .send-btn {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Tiny mobile (≤425px): Smallest gaps, extra-compact fonts/buttons */
+@media (max-width: 425px) {
+  .contact-page-container {
+    padding: 0 1vw;
+  }
+  .info-panel, .contact-form {
+    padding: 4px 0;
+  }
+  .section-header h3 {
+    font-size: 0.89rem;
+  }
+  .send-btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+  }
+}

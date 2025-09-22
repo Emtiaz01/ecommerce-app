@@ -8,25 +8,24 @@
   color: #fff;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center; /* Center content by default */
   align-items: center;
-  padding: 10px 30px;
+  padding: 12px 80px;
   font-family: Arial, sans-serif;
-  font-size: 16px;
-  flex-wrap: wrap;
+  font-size: 14px;
   width: 100%;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .announcement-text {
   flex-grow: 1;
   text-align: center;
-  font-weight: 700;
-  min-width: 140px;
 }
 
 .shop-now-link {
   color: #fff;
+  font-weight: 600;
   text-decoration: underline;
   margin-left: 8px;
   cursor: pointer;
@@ -37,7 +36,8 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-  margin-left: 24px;
+  position: absolute; /* Position it to the right */
+  right: 80px;
 }
 
 .arrow-down {
@@ -52,50 +52,44 @@
 /* --- Large Tablets (max-width: 1024px) --- */
 @media (max-width: 1024px) {
   .announcement-bar {
-    padding: 10px 14px;
-    font-size: 15px;
+    padding: 12px 40px;
+    font-size: 13px;
   }
   .language-selector {
-    margin-left: 14px;
+    right: 40px;
   }
 }
 
 /* --- Tablets (max-width: 768px) --- */
 @media (max-width: 768px) {
   .announcement-bar {
-    padding: 8px 8px;
-    font-size: 14px;
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+  .language-selector {
+    display: none; /* Hide language selector on smaller tablets and mobile */
   }
 }
 
 /* --- Mobiles (max-width: 600px) --- */
 @media (max-width: 600px) {
   .announcement-bar {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-    padding: 7px 4vw;
-    font-size: 13px;
-    min-width: unset;
+    padding: 10px 16px;
   }
   .announcement-text {
-    text-align: center;
-    margin-bottom: 5px;
+    width: 100%;
   }
-  .shop-now-link,
-  .language-selector {
-    justify-content: center;
+  .shop-now-link {
+    display: block; /* Make "Shop Now" a new line for better readability */
+    margin-top: 8px;
     margin-left: 0;
-    min-width: unset;
   }
 }
 
 /* --- Ultra small devices (max-width: 400px) --- */
 @media (max-width: 400px) {
   .announcement-bar {
-    font-size: 12px;
-    padding: 5px 2vw;
-    gap: 3px;
+    font-size: 11px;
+    padding: 8px 12px;
   }
 }
-
