@@ -117,19 +117,120 @@
     }
 }
 
-
-@media (max-width: 900px) {
-    .registration-wrapper {
+@media (max-width: 320px) {
+    .registration-wrapper{
         flex-direction: column;
+    }
+    .registration-img-section .main-image {
+        width: 2vw;
+        max-width: 100%;
+        position: relative;
+        padding-left: 20px;
+        left: 30px;
+    }
 
-        .registration-img-section,
-        .registration-form-section {
-            max-width: 100%;
-            min-width: unset;
-        }
+    .registration-form-section h2 {
+        font-size: 0.61rem;
+    }
 
-        .registration-img-section {
-            margin-bottom: 2.4rem;
-        }
+    .registration-form-section .subhead {
+        font-size: 0.51rem;
+    }
+    .account-bottom{
+       position: relative;
+         right: 30px;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 376px) {
+        .registration-wrapper{
+        flex-direction: column;
+    }
+    .registration-img-section .main-image {
+        width: 2.01vw;
+        max-width: 100%;
+        position: relative;
+        padding-left: 15px;
+        left: 37px;
+    }
+    .registration-form-section {
+        padding-left: 20px;
+    }
+    .registration-form-section h2 {
+        font-size: 0.82rem;
+    }
+
+    .registration-form-section .subhead {
+        font-size: 0.66rem;
+    }
+    .account-bottom{
+       position: relative;
+         right: 35px;
+    }
+}
+
+@media (min-width: 377px) and (max-width: 426px) {
+        .registration-wrapper{
+        flex-direction: column;
+    }
+
+    .registration-img-section .main-image {
+        width: 2vw;
+        max-width: 100%;
+        position: relative;
+        padding-left: 24px;
+        left: 33px;
+    }
+
+    .registration-form-section {
+        padding-left: 40px;
+    }
+}
+
+@media (min-width: 427px) and (max-width: 768px) {
+    .registration-wrapper {
+        flex-direction: row;
+        gap: 0.7rem;
+        padding: 0 3vw;
+    }
+
+    .registration-img-section .main-image {
+        width: 95vw;
+        max-width:156%;
+        padding: 80px 0 10px 15px;
+    }
+
+    .registration-form-section {
+        padding-left: 50px;
+        gap: 0.1rem;
+    }
+    .registration-form-section h2 {
+        font-size: 0.82rem;
+    }
+
+    .registration-form-section .subhead {
+        font-size: 0.66rem;
+    }
+    .account-bottom{
+       position: relative;
+         right: 15px;
+    }
+}
+
+@media  (min-width: 769px) and (max-width: 1024px) {
+    .registration-wrapper {
+        max-width: 720px;
+        gap: 1.1rem;
+    }
+
+    .registration-img-section .main-image {
+        width: 550px;
+        max-width: 50vw;
+        margin: 0px 0 16px 0;
+        padding-top: 80px;
+    }
+
+    .registration-form-section {
+        max-width: 320px;
     }
 }

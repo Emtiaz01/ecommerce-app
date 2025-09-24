@@ -93,7 +93,9 @@ export class FlashSales implements OnInit, OnDestroy {
   AddToCart(){
      console.log('User is logged in. Adding to cart...');
   }
-
+  viewProduct(productId: number): void {
+    this.router.navigate(['/product', productId]);
+  }
 
   navigateToAllProducts(): void {
     this.router.navigate(['/all-products']);

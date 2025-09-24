@@ -1,0 +1,461 @@
+.product-details-container {
+    max-width: 1200px;
+    margin: 2.9rem auto;
+    padding: 0 18px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.breadcrumb {
+    font-size: 0.93rem;
+    color: #7d8184;
+    margin-bottom: 32px;
+
+    a {
+        color: #7d8184;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+.product-details-content {
+    display: flex;
+    gap: 54px;
+    align-items: flex-start;
+}
+
+.image-gallery {
+    display: flex;
+    gap: 18px;
+    min-width: 680px;
+    height: 610px;
+}
+
+.gallery-thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 43px;
+    width: 150px;
+
+
+    .active {
+        border: 2px solid #DB4444;
+        border-radius: 5px;
+    }
+
+    img {
+        width: 115px;
+        height: 115px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin: 2px 0px 0px 40px;
+        cursor: pointer;
+        background: #F5F5F5;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    }
+}
+
+.gallery-main img {
+    width: 610px;
+    height: 610px;
+    object-fit: contain;
+    background: #F5F5F5;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    margin: 1px 0px 0px 0px;
+}
+
+.product-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.product-info h2 {
+    font-size: 2.1rem;
+    font-weight: 610;
+    margin-bottom: 0.7rem;
+}
+
+.rating-stock {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+
+    .stars {
+        font-size: 1.05rem;
+        color: #f5c542;
+    }
+
+    .reviews {
+        font-size: 0.95rem;
+        color: #868686;
+    }
+
+    .stock {
+        font-size: 0.97rem;
+        margin-left: 14px;
+        border-left: 1px solid black;
+        padding-left: 20px;
+    }
+}
+
+.product-price {
+    font-size: 2rem;
+    font-weight: normal;
+    color: black;
+    margin-bottom: 13px;
+}
+
+
+.product-desc {
+    font-size: 0.98rem;
+    color: #474747;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.product-separator {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 23px 0 18px 0;
+}
+
+.product-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #fff;
+  .qty-btn {
+    width: 52px;
+    height: 52px;
+    border: none;
+    background: #fff;
+    font-size: 1.13rem;
+    color: #222;
+    cursor: pointer;
+    &.plus {
+      background: #fff;
+      color: #222;
+    }
+    &:hover, &.plus:hover {
+      background: #db4444;
+      color: #fff;
+    }
+  }
+  .qty-input {
+    width: 38px;
+    height: 32px;
+    font-size: 1rem;
+    border: none;
+    text-align: center;
+    background: #fff;
+    font-weight: 500;
+  }
+  .qty-input::-webkit-outer-spin-button,
+  .qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin:0;}
+}
+
+.buy-btn {
+  background: #db4444;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  width: 120px;
+  height: 32px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background 0.13s;
+  &:hover {
+    background: #b83030;
+  }
+}
+
+
+.wishlist-btn {
+   background: url("https://api.iconify.design/mdi/heart-outline.svg") no-repeat center center / 24px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: border 0.12s, color 0.13s;
+  &:hover {
+    border-color: white;
+  }
+}
+
+.delivery-info {
+  margin-bottom: 25px;
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  background: #fff;
+  padding: 18px 16px;
+  div {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 11px;
+    font-size: 1rem;
+    a {
+      color: #DB4444;
+      text-decoration: underline;
+    }
+  }
+}
+
+.product-variants>div:nth-child(2) button {
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 32px;
+    height: 30px;
+}
+
+
+.delivery-info {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+
+
+}
+.icon-delivary {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url('https://api.iconify.design/mdi/truck-fast-outline.svg') no-repeat center center / contain;
+}
+.icon-return {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url('../../../assets/icons/return.png') no-repeat center center / contain;
+}
+
+.related-section {
+    margin-top: 60px;
+
+    h3 {
+        font-size: 1.13rem;
+        margin-bottom: 20px;
+    }
+}
+
+.related-list {
+    display: flex;
+    gap: 26px;
+}
+
+.related-card {
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.05);
+    padding: 17px 13px;
+    width: 190px;
+    min-width: 170px;
+
+    .related-thumb {
+        position: relative;
+
+        img {
+            width: 100%;
+            height: 94px;
+            object-fit: contain;
+            margin-bottom: 8px;
+            background: #fafafa;
+            border-radius: 5px;
+        }
+
+        .discount {
+            position: absolute;
+            top: 6px;
+            left: 8px;
+            background: #DB4444;
+            color: #fff;
+            font-size: 0.8rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+    }
+
+    .related-title {
+        font-size: 1.02rem;
+        font-weight: 510;
+        margin-bottom: 6px;
+    }
+
+    .related-price {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        font-size: 1rem;
+    }
+
+    .related-price .new {
+        color: #DB4444;
+        font-weight: 600;
+    }
+
+    .related-price .old {
+        text-decoration: line-through;
+        color: #aaa;
+        font-weight: 400;
+    }
+
+    .related-rating {
+        font-size: 0.98rem;
+        color: #f5c542;
+    }
+
+    .add-cart-btn {
+        margin-top: 7px;
+        width: 100%;
+        background: #DB4444;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 9px 0;
+        font-weight: 580;
+        cursor: pointer;
+    }
+}
+/* 1024px ↓  (Tablets / Small laptops) */
+@media (max-width: 1024px) {
+  .product-details-content {
+    gap: 30px;
+  }
+  .image-gallery {
+    min-width: 520px;
+    height: auto;
+  }
+  .gallery-main img {
+    width: 520px;
+    height: auto;
+  }
+}
+
+/* 768px ↓  (Tablets portrait) */
+@media (max-width: 768px) {
+  .product-details-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .image-gallery {
+    min-width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: auto;
+  }
+  .gallery-thumbnails {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+  }
+  .gallery-thumbnails img {
+    margin: 0;
+    width: 90px;
+    height: 90px;
+  }
+  .gallery-main img {
+    width: 90%;
+    height: auto;
+  }
+  .related-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* 425px ↓  (Large phones) */
+@media (max-width: 425px) {
+  .product-details-container {
+    padding: 0 12px;
+  }
+  .gallery-thumbnails img {
+    width: 70px;
+    height: 70px;
+  }
+  .gallery-main img {
+    width: 95%;
+  }
+  .product-info h2 {
+    font-size: 1.7rem;
+  }
+  .product-price {
+    font-size: 1.7rem;
+  }
+  .related-card {
+    width: 45%;
+  }
+}
+
+/* 375px ↓  (Small phones) */
+@media (max-width: 375px) {
+  .product-details-container {
+    padding: 0 10px;
+  }
+  .gallery-thumbnails img {
+    width: 60px;
+    height: 60px;
+  }
+  .product-info h2 {
+    font-size: 1.5rem;
+  }
+  .product-desc {
+    font-size: 0.9rem;
+  }
+  .related-card {
+    width: 90%;
+  }
+}
+
+/* 320px ↓  (Extra small phones) */
+@media (max-width: 320px) {
+    .product-details-container {
+        margin-left: 20px;
+    }
+  .gallery-thumbnails img {
+    width: 55px;
+    height: 55px;
+  }
+  .gallery-main img {
+    width: 100%;
+  }
+  .product-info h2 {
+    font-size: 1.3rem;
+  }
+  .product-price {
+    font-size: 1.4rem;
+  }
+  .product-actions{
+    width: 91%;
+  }
+  .delivery-info{
+    width: 90%;
+  }
+  .related-card {
+    width: 100%;
+  }
+}

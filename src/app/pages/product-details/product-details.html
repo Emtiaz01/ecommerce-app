@@ -1,0 +1,97 @@
+<div class="product-details-container" *ngIf="product">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a routerLink="/">Account</a> / <a routerLink="/category/{{ product.category }}">{{ product.category }}</a> / {{
+        product.title }}
+    </div>
+
+    <!-- Main Product Images/Info -->
+    <div class="product-details-content">
+        <div class="image-gallery">
+            <div class="gallery-thumbnails">
+                <img *ngFor="let img of images" [src]="img" [alt]="product.title" [class.active]="selectedImage === img"
+                    (click)="setImage(img)">
+            </div>
+            <div class="gallery-main">
+                <img [src]="selectedImage" [alt]="product.title">
+            </div>
+        </div>
+        <div class="product-info">
+            <h2>{{ product.title }}</h2>
+            <div class="rating-stock">
+                <span class="stars">★★★★★</span>
+                <span class="reviews">({{ product.rating || 0 }} Reviews)</span>
+                <span class="stock" *ngIf="product.stock > 0" style="color: rgb(128, 255, 128);">In Stock</span>
+                <span class="stock" *ngIf="product.stock == 0" style="color: red;">Out of Stock</span>
+            </div>
+            <div class="product-price">{{ product.price | currency }}</div>
+            <p class="product-desc">{{ product.description }}</p>
+            <hr class="product-separator">
+
+            <div class="product-actions">
+                <div class="qty-controls">
+                    <button class="qty-btn" (click)="decQty()">-</button>
+                    <input type="number" [(ngModel)]="quantity" min="1" class="qty-input">
+                    <button class="qty-btn plus" (click)="incQty()">+</button>
+                </div>
+                <button class="view-all-btn">Buy Now</button>
+                <button class="wishlist-btn" [appAddToWishlist]="product">
+                    <span class="icon-heart"></span>
+                    <!-- Use SVG or icon font for filled heart. -->
+                </button>
+            </div>
+            <div class="delivery-info">
+                <div>
+                    <span class="icon-delivary"></span>
+                    <span>Free Delivery</span>
+                </div>
+                <div>
+                    <span>Enter your postal code for Delivery Availability</span>
+                </div>
+                <hr>
+                <div>
+                    <span class="icon-return"></span>
+                    <span>Return Delivery</span>
+                </div>
+                <div>
+                    <span>Free 30 Days Delivery Returns. Details</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Products -->
+    <div class="related-section" *ngIf="relatedProducts.length">
+        <div class="section-header">
+            <div class="title-container">
+                <div class="decorative">
+                    <div class="decorative-line"></div>
+                    <span class="category-tag">Related Items</span>
+                </div>
+                <div class="related-list">
+                    <div class="product-card" *ngFor="let product of relatedProducts">
+                        <div class="card-image-container">
+
+                            <img [src]="product.thumbnail" [alt]="product.title" class="product-image">
+                            <div class="card-actions">
+                                <button class="action-btn wishlist-btn" [appAddToWishlist]="product"></button>
+                                <button class="action-btn view-btn" (click)="viewProduct(product.id)"></button>
+                            </div>
+                            <button class="add-to-cart-btn" [appAddToCart]="product">Add To Cart</button>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="product-name">{{ product.title }}</h3>
+                            <div class="price-container">
+                                <span class="regular-price">
+                                    {{ product.price | currency }}
+                                </span>
+                            </div>
+                            <div class="rating-container">
+                                <span class="stars">★★★★★</span>
+                                <span class="review-count">({{ product.stock }})</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

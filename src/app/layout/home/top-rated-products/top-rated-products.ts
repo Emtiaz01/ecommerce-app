@@ -46,4 +46,8 @@ export class TopRatedProducts implements OnInit {
   calculateDiscountedPrice(price: number, discountPercentage: number): number {
     return price * (1 - discountPercentage / 100);
   }
+
+  viewProduct(productId: number): void {
+    this.router.navigate(['/product', productId]);
+  }
 }

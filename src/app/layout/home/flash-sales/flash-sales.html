@@ -50,7 +50,7 @@
         <img [src]="product.thumbnail" [alt]="product.title" class="product-image">
         <div class="card-actions">
           <button class="action-btn wishlist-btn" [appAddToWishlist]="product"></button>
-          <button class="action-btn view-btn"></button>
+          <button class="action-btn view-btn" (click)="viewProduct(product.id)"></button>
         </div>
         <button class="add-to-cart-btn" [protectedClick]="AddToCart.bind(this)" [appAddToCart]="product">Add To Cart</button>
       </div>

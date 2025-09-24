@@ -70,18 +70,19 @@
 
 .account-bottom {
     margin-top: 10px;
+
     a {
-        
+
         color: rgb(222, 113, 113);
         text-decoration: none;
     }
 
 }
 
-
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .registration-wrapper {
-        flex-direction: column;
+        flex-direction: row;
+        gap: 1.4rem;
 
         .registration-img-section,
         .registration-form-section {
@@ -90,7 +91,191 @@
         }
 
         .registration-img-section {
-            margin-bottom: 2.4rem;
+            margin-bottom: 2rem;
+
+            .main-image {
+                width: 95vw;
+                max-width: 320px;
+                margin: 0 auto 8px auto;
+            }
+        }
+
+        .registration-form-section {
+            margin-top: 30px;
+            align-items: center;
+        }
+        h2 {
+            padding-right: 40px;
+        }
+        .subhead {
+            padding-right: 40px;
+        }
+        .logins{
+            gap: 15px
+        }
+    }
+}
+@media (max-width: 657px) {
+    .registration-wrapper {
+        flex-direction: column;
+        gap: 0.9rem;
+        margin: 1rem auto 0.5rem auto;
+        padding-left: 165px;
+    }
+
+    .registration-img-section {
+        min-height: 100px;
+
+        .main-image {
+            width: 94vw;
+            max-width: 180px;
+            margin: 0 auto 4px auto;
+        }
+    }
+
+    .registration-form-section {
+        max-width: 100%;
+        min-width: unset;
+        padding-left: 40px; 
+
+        h2 {
+            font-size: 1.14rem;
+        }
+
+        .subhead {
+            font-size: 0.98rem;
+        }
+
+        input {
+            font-size: 0.97rem;
+            padding-top: 0.9rem;
+            padding-bottom: 0.3rem;
+        }
+
+        form {
+            gap: 0.8rem;
+            padding-right: 45px;
+        }
+    }
+
+    .logins {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+}
+@media (max-width: 600px) {
+    .registration-wrapper {
+        flex-direction: column;
+        gap: 0.9rem;
+        margin: 1rem auto 0.5rem auto;
+        padding-left: 55px;
+    }
+
+    .registration-img-section {
+        min-height: 100px;
+
+        .main-image {
+            width: 94vw;
+            max-width: 180px;
+            margin: 0 auto 4px auto;
+        }
+    }
+
+    .registration-form-section {
+        max-width: 100%;
+        min-width: unset;
+        padding-left: 40px; 
+
+        h2 {
+            font-size: 1.14rem;
+        }
+
+        .subhead {
+            font-size: 0.98rem;
+        }
+
+        input {
+            font-size: 0.97rem;
+            padding-top: 0.9rem;
+            padding-bottom: 0.3rem;
+        }
+
+        form {
+            gap: 0.8rem;
+            padding-right: 45px;
+        }
+    }
+
+    .logins {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 425px) {
+    .registration-wrapper {
+        flex-direction: column;
+        padding-left: 30px;
+        gap: 0.5rem;
+    }
+
+    .registration-img-section .main-image {
+        width: 98vw;
+        max-width: 135px;
+        margin-bottom: 0px;
+    }
+
+    .registration-form-section {
+        padding-left: 40px;
+
+        h2 {
+            font-size: 0.98rem;
+        }
+
+        .subhead {
+            font-size: 0.84rem;
+        }
+
+        form {
+            gap: 0.6rem;
+            padding-right: 35px;
+        }
+
+        input {
+            font-size: 0.84rem;
+            padding-top: 0.74rem;
+            padding-bottom: 0.16rem;
+        }
+    }
+}
+
+
+@media (max-width: 320px) {
+    .registration-wrapper {
+        flex-direction: column;
+        padding-left: 7px;
+    }
+
+    .registration-img-section .main-image {
+        max-width: 115px;
+        margin-bottom: 2px;
+    }
+
+    .registration-form-section {
+        padding-left: 30px;
+
+        h2 {
+            font-size: 0.86rem;
+        }
+
+        .subhead {
+            font-size: 0.72rem;
+        }
+
+        form {
+            padding-right: 35px;
         }
     }
 }

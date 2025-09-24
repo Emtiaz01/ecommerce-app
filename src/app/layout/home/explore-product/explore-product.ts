@@ -54,6 +54,9 @@ export class ExploreProduct implements OnInit {
       this.currentPage.set(this.currentPage() + 1);
     }
   }
+  viewProduct(productId: number): void {
+    this.router.navigate(['/product', productId]);
+  }
 
   viewAllProducts(): void {
     this.showAll.set(!this.showAll());
