@@ -1,0 +1,65 @@
+<div class="checkout-breadcrumb">
+  <span>
+    <a href="#">Account</a> / 
+    <a href="#">My Account</a> / 
+    <a href="/">Product</a> / 
+    <a href="/cart">View Cart</a> / 
+    <b>CheckOut</b>
+  </span>
+</div>
+
+<div class="checkout-content">
+  <!-- Billing Form -->
+  <div class="checkout-form">
+    <h1>Billing Details</h1>
+    <form>
+      <div class="form-group required"><label for="firstName">First Name</label><input id="firstName" type="text" required></div>
+      <div class="form-group"><label for="company">Company Name</label><input id="company" type="text"></div>
+      <div class="form-group required"><label for="address">Street Address</label><input id="address" type="text" required></div>
+      <div class="form-group"><label for="apt">Apartment, floor, etc. (optional)</label><input id="apt" type="text"></div>
+      <div class="form-group required"><label for="city">Town/City</label><input id="city" type="text" required></div>
+      <div class="form-group required"><label for="phone">Phone Number</label><input id="phone" type="text" required></div>
+      <div class="form-group required"><label for="email">Email Address</label><input id="email" type="email" required></div>
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="save-info" [(ngModel)]="infoSaved">
+        <label for="save-info">Save this information for faster check-out next time</label>
+      </div>
+    </form>
+  </div>
+  <!-- Order Summary -->
+  <div class="checkout-summary">
+    <div class="summary-products">
+      <div class="summary-product" *ngFor="let item of cartService.cartItems()">
+        <img [src]="item.imageUrl" [alt]="item.name"/>
+        <span>{{ item.name }}</span>
+        <span class="summary-price">{{ item.price * item.quantity | currency }}</span>
+      </div>
+    </div>
+    <div class="summary-totals">
+      <div><span>Subtotal:</span><span>{{ cartService.subtotal() | currency }}</span></div>
+      <div><span>Shipping:</span><span>Free</span></div>
+      <div class="summary-total"><span>Total:</span><span>{{ cartService.total() | currency }}</span></div>
+    </div>
+    <div class="payment-methods">
+      <div>
+        <input type="radio" name="payment" id="bank" [(ngModel)]="paymentMethod" value="bank" />
+        <label for="bank">Bank</label>
+        <span class="payment-icons">
+          <img src="assets/images/bkash.svg" alt="bkash"/>
+          <img src="assets/images/visa.svg" alt="visa"/>
+          <img src="assets/images/mastercard.svg" alt="mastercard"/>
+          <img src="assets/images/nogod.svg" alt="nagad"/>
+        </span>
+      </div>
+      <div>
+        <input type="radio" name="payment" id="cod" [(ngModel)]="paymentMethod" value="cod"/>
+        <label for="cod">Cash on delivery</label>
+      </div>
+    </div>
+    <div class="coupon-row">
+      <input type="text" [(ngModel)]="coupon" placeholder="Coupon Code" />
+      <button class="view-all-btn" type="button">Apply Coupon</button>
+    </div>
+    <button class="view-all-btn" (click)="placeOrder()">Place Order</button>
+  </div>
+</div>

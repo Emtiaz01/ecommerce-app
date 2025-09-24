@@ -33,4 +33,8 @@ export class Cart {
   removeItem(id: string) {
     this.cartService.removeFromCart(id);
   }
+
+  checkout() {
+    window.location.href = '/billing';
+  }
 }

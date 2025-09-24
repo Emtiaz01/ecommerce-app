@@ -5,7 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import { WishlistService } from '../../services/wishlist.service';
 import { ProtectedClickDirective } from '../../directives/protected-click';
 import { AddToWishlistDirective } from '../../directives/add-to-wishlist';
-import { CartService } from '../../services/cart'; // Add your global CartService
+import { CartService } from '../../services/cart'; 
 
 @Component({
   selector: 'app-header2',

@@ -76,7 +76,7 @@
           <span>Total:</span>
           <span>{{ cartService.total() | currency }}</span>
         </div>
-        <button class="checkout-btn">Proceed to checkout</button>
+        <button class="checkout-btn" (click)="checkout()">Proceed to checkout</button>
       </div>
     </div>
   </div>
