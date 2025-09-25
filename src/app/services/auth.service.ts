@@ -24,18 +24,18 @@ export class AuthService {
     this.loadUserFromStorage();
   }
 
-  async login(username: string, password: string): Promise<boolean> {
+  async login(username: string, password: string): Promise<User | null> {
     const user = await this.indexedDBService.getUserByUsername(username);
 
     if (!user || user.password !== password) {
       console.error(`[AuthService] Login failed for user '${username}'.`);
-      return false;
+      return null;
     }
 
     console.log(`[AuthService] Login successful for '${username}'.`);
     this.currentUser.set(user);
     localStorage.setItem('currentUser', JSON.stringify(user));
-    return true;
+    return user;
   }
 
   logout(): void {

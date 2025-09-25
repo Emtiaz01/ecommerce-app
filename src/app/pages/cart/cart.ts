@@ -1,17 +1,27 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { CartService } from '../../../app/services/cart';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, RouterLink],
+  imports: [CommonModule, CurrencyPipe, RouterLink, NgxSkeletonLoaderModule],
   templateUrl: './cart.html',
   styleUrls: ['./cart.scss']
 })
-export class Cart {
+export class Cart implements OnInit {
   public cartService = inject(CartService);
+  private router = inject(Router);
+  loading = signal(true);
+
+  ngOnInit() {
+    // Simulate a loading delay
+    setTimeout(() => {
+      this.loading.set(false);
+    }, 1500); // 1.5-second delay
+  }
 
   updateQuantity(id: string, event: Event) {
     const newQuantity = parseInt((event.target as HTMLInputElement).value, 10);
@@ -35,6 +45,6 @@ export class Cart {
   }
 
   checkout() {
-    window.location.href = '/billing';
+    this.router.navigate(['/billing']);
   }
 }

@@ -1,9 +1,19 @@
-<app-banner></app-banner>
-<app-flash-sales></app-flash-sales>
-<app-category-browser></app-category-browser>
-<app-top-rated-products></app-top-rated-products>
-<app-categories></app-categories>
-<app-explore-product></app-explore-product>
-<app-new-arrival></app-new-arrival>
-<app-supports></app-supports>
-<app-toparrow></app-toparrow>
+<div *ngIf="loading()" class="skeleton-loader">
+  <ngx-skeleton-loader count="3" appearance="line" [theme]="{ 
+    'border-radius': '5px',
+    'height': '75px',
+    'margin-bottom': '15px'
+  }"></ngx-skeleton-loader>
+</div>
+
+<div *ngIf="!loading()">
+  <app-banner></app-banner>
+  <app-flash-sales></app-flash-sales>
+  <app-category-browser></app-category-browser>
+  <app-top-rated-products></app-top-rated-products>
+  <app-categories></app-categories>
+  <app-explore-product></app-explore-product>
+  <app-new-arrival></app-new-arrival>
+  <app-supports></app-supports>
+  <app-toparrow></app-toparrow>
+</div>

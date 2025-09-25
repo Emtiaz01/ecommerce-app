@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 export interface DetailedCategory {
   slug: string;
@@ -72,7 +72,16 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/users/add`, user);
   }
 
+  // Store username locally whenever login succeeds!
   login(credentials: { username: string; password: string }): Observable<any> {
-    return this.http.post(`${this.baseUrl}/auth/login`, credentials);
+    return this.http.post<any>(`${this.baseUrl}/auth/login`, credentials);
+  }
+
+  getUserById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/users/${id}`);
+  }
+
+  updateUser(id: number, userData: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/users/${id}`, userData);
   }
 }

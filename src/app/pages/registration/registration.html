@@ -8,54 +8,60 @@
     />
   </div>
 
-  <div class="registration-form-section">
-    <h2>Create an account</h2>
+  <main class="registration-form-section" aria-labelledby="registration-heading">
+    <h2 id="registration-heading">Create an account</h2>
     <p class="subhead">Enter your details below</p>
     
     <form (ngSubmit)="onSignup(f)" #f="ngForm">
       
       <!-- Email Input -->
-      <input placeholder="Email" type="email" name="email" ngModel required email #email="ngModel">
+      <label for="email" class="sr-only">Enter Your Email</label>
+      <input id="email" placeholder="Email" type="email" name="email" ngModel required email #emailModel="ngModel" [attr.aria-invalid]="emailModel.invalid && emailModel.touched" aria-describedby="email-error">
       <!-- Error messages for Email -->
-      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
-        <div *ngIf="email.errors?.['required']">Email is required.</div>
-        <div *ngIf="email.errors?.['email']">Please enter a valid email address.</div>
+      <div id="email-error" *ngIf="emailModel.invalid && (emailModel.dirty || emailModel.touched)" class="error-message">
+        <div *ngIf="emailModel.errors?.['required']">Email is required.</div>
+        <div *ngIf="emailModel.errors?.['email']">Please enter a valid email address.</div>
       </div>
 
       <!-- Username Input -->
-      <input placeholder="Username" type="text" name="username" ngModel required #username="ngModel">
+      <label for="username" class="sr-only">Enter Your Username</label>
+      <input id="username" placeholder="Username" type="text" name="username" ngModel required #usernameModel="ngModel" [attr.aria-invalid]="usernameModel.invalid && usernameModel.touched" aria-describedby="username-error">
       <!-- Error message for Username -->
-      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="error-message">
-        <div *ngIf="username.errors?.['required']">Username is required.</div>
+      <div id="username-error" *ngIf="usernameModel.invalid && (usernameModel.dirty || usernameModel.touched)" class="error-message">
+        <div *ngIf="usernameModel.errors?.['required']">Username is required.</div>
       </div>
 
       <!-- Password Input -->
-      <input placeholder="Password" type="password" name="password" ngModel required minlength="6" #password="ngModel">
+      <label for="password" class="sr-only">Enter Your Password</label>
+      <input id="password" placeholder="Password" type="password" name="password" ngModel required minlength="6" #passwordModel="ngModel" [attr.aria-invalid]="passwordModel.invalid && passwordModel.touched" aria-describedby="password-error">
       <!-- Error messages for Password -->
-      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
-        <div *ngIf="password.errors?.['required']">Password is required.</div>
-        <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long.</div>
+      <div id="password-error" *ngIf="passwordModel.invalid && (passwordModel.dirty || passwordModel.touched)" class="error-message">
+        <div *ngIf="passwordModel.errors?.['required']">Password is required.</div>
+        <div *ngIf="passwordModel.errors?.['minlength']">Password must be at least 6 characters long.</div>
       </div>
 
       <!-- Name Input -->
-      <input placeholder="Name" type="text" name="name" ngModel required #name="ngModel">
+      <label for="name" class="sr-only">Enter Your Name</label>
+      <input id="name" placeholder="Name" type="text" name="name" ngModel required #nameModel="ngModel" [attr.aria-invalid]="nameModel.invalid && nameModel.touched" aria-describedby="name-error">
       <!-- Error message for Name -->
-      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error-message">
-        <div *ngIf="name.errors?.['required']">Name is required.</div>
+      <div id="name-error" *ngIf="nameModel.invalid && (nameModel.dirty || nameModel.touched)" class="error-message">
+        <div *ngIf="nameModel.errors?.['required']">Name is required.</div>
       </div>
 
       <!-- Address Input -->
-      <input placeholder="Address" type="text" name="address" ngModel required #address="ngModel">
+      <label for="address" class="sr-only">Enter Your Address</label>
+      <input id="address" placeholder="Address" type="text" name="address" ngModel required #addressModel="ngModel" [attr.aria-invalid]="addressModel.invalid && addressModel.touched" aria-describedby="address-error">
       <!-- Error message for Address -->
-      <div *ngIf="address.invalid && (address.dirty || address.touched)" class="error-message">
-        <div *ngIf="address.errors?.['required']">Address is required.</div>
+      <div id="address-error" *ngIf="addressModel.invalid && (addressModel.dirty || addressModel.touched)" class="error-message">
+        <div *ngIf="addressModel.errors?.['required']">Address is required.</div>
       </div>
 
       <!-- Phone Input -->
-      <input placeholder="Phone" type="tel" name="phone" ngModel required #phone="ngModel">
+      <label for="phone" class="sr-only">Enter Your Phone Number</label>
+      <input id="phone" placeholder="Phone" type="tel" name="phone" ngModel required #phoneModel="ngModel" [attr.aria-invalid]="phoneModel.invalid && phoneModel.touched" aria-describedby="phone-error">
       <!-- Error message for Phone -->
-      <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="error-message">
-        <div *ngIf="phone.errors?.['required']">Phone number is required.</div>
+      <div id="phone-error" *ngIf="phoneModel.invalid && (phoneModel.dirty || phoneModel.touched)" class="error-message">
+        <div *ngIf="phoneModel.errors?.['required']">Phone number is required.</div>
       </div>
       
       <button type="submit" class="view-all-btn" [disabled]="f.invalid">Create Account</button>
@@ -73,5 +79,5 @@
         Already have account? <a routerLink="/login">Log in</a>
       </div>
     </form>
-  </div>
+  </main>
 </div>

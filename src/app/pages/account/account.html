@@ -1,0 +1,81 @@
+<div class="account-container">
+    <div class="titlesection">
+  <div class="breadcrumbs">
+    <span>Home / </span>
+    <span>My Account</span>
+  </div>
+  <div class="account-header">
+    <p>Welcome, <span  style="color: tomato;">{{ currentUser.name }}</span></p>
+  </div>
+  </div>
+    <h2>My Account</h2>
+  <div class="account-content">
+    <aside class="sidebar">
+      <nav>
+        <div class="nav-group">
+          <ul>
+            <li class="active"><a href="#">My Profile</a></li>
+            <li><a href="#">Address Book</a></li>
+            <li><a href="#">My Payment Options</a></li>
+          </ul>
+        </div>
+        <div class="nav-group">
+          <h4>My Orders</h4>
+          <ul>
+            <li><a href="#">My Returns</a></li>
+            <li><a href="#">My Cancellations</a></li>
+          </ul>
+        </div>
+        <div class="nav-group">
+          <h4><a href="#">My WishList</a></h4>
+        </div>
+      </nav>
+    </aside>
+    <main class="profile-form-container">
+      <div *ngIf="loading; else formContent" class="skeleton-loader">
+        <ngx-skeleton-loader count="5" appearance="line"></ngx-skeleton-loader>
+      </div>
+      <ng-template #formContent>
+        <form [formGroup]="userForm" (ngSubmit)="onSaveChanges()">
+          <h3>Edit Your Profile</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" formControlName="firstName">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" formControlName="lastName">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" formControlName="email" [disabled]="true">
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" id="address" formControlName="address">
+            </div>
+          </div>
+          <div class="password-section">
+            <h4>Password Changes</h4>
+            <div class="form-group full-width">
+              <input type="password" placeholder="Current Passwod" formControlName="currentPassword">
+            </div>
+            <div class="form-group full-width">
+              <input type="password" placeholder="New Passwod" formControlName="newPassword">
+            </div>
+            <div class="form-group full-width">
+              <input type="password" placeholder="Confirm New Passwod" formControlName="confirmPassword">
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-cancel" (click)="onCancel()">Cancel</button>
+            <button type="submit" class="btn-save">Save Changes</button>
+          </div>
+        </form>
+      </ng-template>
+    </main>
+  </div>
+</div>

@@ -3,80 +3,86 @@
     <a routerLink="/">Home</a> / <span>Cart</span>
   </div>
 
-  <div class="cart-table" *ngIf="cartService.cartCount() > 0">
-    <!-- Table Header - Hidden on mobile! -->
-    <div class="table-header">
-      <span>Product</span>
-      <span>Price</span>
-      <span>Quantity</span>
-      <span>Subtotal</span>
-    </div>
+  <div *ngIf="loading()" class="skeleton-loader">
+    <ngx-skeleton-loader count="5" appearance="line" height="50px"></ngx-skeleton-loader>
+  </div>
 
-    <!-- Table Rows -->
-    <div *ngFor="let item of cartService.cartItems()" class="table-row">
-      <div class="product-cell">
-        <img [src]="item.imageUrl" [alt]="item.name">
-        <span>{{ item.name }}</span>
-        <button (click)="removeItem(item.id)" class="remove-item-btn">❌</button>
+  <div *ngIf="!loading()">
+    <div class="cart-table" *ngIf="cartService.cartCount() > 0">
+      <!-- Table Header - Hidden on mobile! -->
+      <div class="table-header">
+        <span>Product</span>
+        <span>Price</span>
+        <span>Quantity</span>
+        <span>Subtotal</span>
       </div>
-      <div class="price-cell">
-        <span class="label-mobile">Price:</span>
-        <span>{{ item.price | currency }}</span>
-      </div>
-      <div class="quantity-cell">
-        <span class="label-mobile">Qty:</span>
-        <div class="quantity-input">
-          <input 
-            type="number" 
-            [value]="item.quantity" 
-            (change)="updateQuantity(item.id, $event)" 
-            min="1"
-          >
-          <div class="quantity-controls">
-            <button class="control-btn" (click)="increaseQuantity(item.id, item.quantity)">▲</button>
-            <button class="control-btn" (click)="decreaseQuantity(item.id, item.quantity)">▼</button>
+
+      <!-- Table Rows -->
+      <div *ngFor="let item of cartService.cartItems()" class="table-row">
+        <div class="product-cell">
+          <img [src]="item.imageUrl" [alt]="item.name">
+          <span>{{ item.name }}</span>
+          <button (click)="removeItem(item.id)" class="remove-item-btn">❌</button>
+        </div>
+        <div class="price-cell">
+          <span class="label-mobile">Price:</span>
+          <span>{{ item.price | currency }}</span>
+        </div>
+        <div class="quantity-cell">
+          <span class="label-mobile">Qty:</span>
+          <div class="quantity-input">
+            <input 
+              type="number" 
+              [value]="item.quantity" 
+              (change)="updateQuantity(item.id, $event)" 
+              min="1"
+            >
+            <div class="quantity-controls">
+              <button class="control-btn" (click)="increaseQuantity(item.id, item.quantity)">▲</button>
+              <button class="control-btn" (click)="decreaseQuantity(item.id, item.quantity)">▼</button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="subtotal-cell">
-        <span class="label-mobile">Subtotal:</span>
-        <span>{{ (item.price * item.quantity) | currency }}</span>
+        <div class="subtotal-cell">
+          <span class="label-mobile">Subtotal:</span>
+          <span>{{ (item.price * item.quantity) | currency }}</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Empty Cart Message -->
-  <div *ngIf="cartService.cartCount() === 0" class="empty-cart">
-    <p>Your cart is empty.</p>
-    <a routerLink="/" class="return-btn">Return To Shop</a>
-  </div>
-
-  <!-- Cart Actions & Summary -->
-  <div class="cart-actions-summary" *ngIf="cartService.cartCount() > 0">
-    <div class="cart-actions">
+    <!-- Empty Cart Message -->
+    <div *ngIf="cartService.cartCount() === 0" class="empty-cart">
+      <p>Your cart is empty.</p>
       <a routerLink="/" class="return-btn">Return To Shop</a>
-      <button class="update-cart-btn">Update Cart</button>
     </div>
-    <div class="cart-summary">
-      <div class="coupon-section">
-        <input type="text" placeholder="Coupon Code" style="padding-right: 0px;">
-        <button class="apply-coupon-btn">Apply Coupon</button>
+
+    <!-- Cart Actions & Summary -->
+    <div class="cart-actions-summary" *ngIf="cartService.cartCount() > 0">
+      <div class="cart-actions">
+        <a routerLink="/" class="return-btn">Return To Shop</a>
+        <button class="update-cart-btn">Update Cart</button>
       </div>
-      <div class="cart-total-box">
-        <h3>Cart Total</h3>
-        <div class="total-row">
-          <span>Subtotal:</span>
-          <span>{{ cartService.subtotal() | currency }}</span>
+      <div class="cart-summary">
+        <div class="coupon-section">
+          <input type="text" placeholder="Coupon Code" style="padding-right: 0px;">
+          <button class="apply-coupon-btn">Apply Coupon</button>
         </div>
-        <div class="total-row">
-          <span>Shipping:</span>
-          <span>Free</span>
+        <div class="cart-total-box">
+          <h3>Cart Total</h3>
+          <div class="total-row">
+            <span>Subtotal:</span>
+            <span>{{ cartService.subtotal() | currency }}</span>
+          </div>
+          <div class="total-row">
+            <span>Shipping:</span>
+            <span>Free</span>
+          </div>
+          <div class="total-row total">
+            <span>Total:</span>
+            <span>{{ cartService.total() | currency }}</span>
+          </div>
+          <button class="checkout-btn" (click)="checkout()">Proceed to checkout</button>
         </div>
-        <div class="total-row total">
-          <span>Total:</span>
-          <span>{{ cartService.total() | currency }}</span>
-        </div>
-        <button class="checkout-btn" (click)="checkout()">Proceed to checkout</button>
       </div>
     </div>
   </div>

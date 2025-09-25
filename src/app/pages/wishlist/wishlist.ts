@@ -6,11 +6,12 @@ import { ApiService } from '../../../app/services/api';
 import { AddToWishlistDirective } from '../../../app/directives/add-to-wishlist'; 
 import { AddToCartDirective } from '../../../app/directives/add-to-cart'; 
 import { CartService } from '../../../app/services/cart';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @Component({
   selector: 'app-wishlist',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective], 
+  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective, NgxSkeletonLoaderModule], 
   templateUrl: './wishlist.html',
   styleUrls: ['./wishlist.scss']
 })
@@ -22,11 +23,15 @@ export class Wishlist implements OnInit {
 
   justForYouProducts = signal<any[]>([]); 
   showAllJustForYou = signal(false);
+  loading = signal(true);
 
   ngOnInit(): void {
-    this.apiService.getJustForYou().subscribe(products => {
-      this.justForYouProducts.set(products);
-    });
+    setTimeout(() => {
+      this.apiService.getJustForYou().subscribe(products => {
+        this.justForYouProducts.set(products);
+        this.loading.set(false);
+      });
+    }, 1500);
   }
 
   removeItem(productId: string): void {
