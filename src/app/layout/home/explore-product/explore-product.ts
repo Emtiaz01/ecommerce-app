@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { ProtectedClickDirective } from '../../../directives/protected-click'; 
 import { AddToWishlistDirective } from '../../../directives/add-to-wishlist';
 import { AddToCartDirective } from "../../../directives/add-to-cart";
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-explore-product',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective],
+  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective, TranslateModule],
   templateUrl: './explore-product.html',
   styleUrls: ['./explore-product.scss']
 })

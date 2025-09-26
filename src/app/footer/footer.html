@@ -4,27 +4,27 @@
     <!-- Column 1: Exclusive & Subscribe -->
     <div class="footer-column">
       <h3 class="footer-title">Exclusive</h3>
-      <p class="footer-subtitle">Subscribe</p>
-      <p>Get 10% off your first order</p>
+      <p class="footer-subtitle">{{ 'Subscribe' | translate }}</p>
+      <p>{{ 'Get 10% off your first order' | translate }}</p>
       <div class="subscribe-form">
-        <input type="email" placeholder="Enter your email">
+        <input type="email" placeholder="{{ 'Enter your email' | translate }}">
         <button class="send-btn">
-          <img src="assets/icons/send-icon.png" alt="Send"> 
+          <img src="assets/icons/send-icon.png" alt="{{ 'Send' | translate }}"> 
         </button>
       </div>
     </div>
 
     <!-- Column 2: Support -->
     <div class="footer-column">
-      <h3 class="footer-title">Support</h3>
-      <p>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
-      <p>exclusive@gmail.com</p>
-      <p>+88015-88888-9999</p>
+      <h3 class="footer-title">{{ 'Support' | translate }}</h3>
+      <p>{{ '111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.' | translate }}</p>
+      <p>{{ 'exclusive@gmail.com' | translate }}</p>
+      <p>{{ '+88015-88888-9999' | translate }}</p>
     </div>
 
     <!-- Column 3: Account -->
     <div class="footer-column">
-      <h3 class="footer-title">Account</h3>
+      <h3 class="footer-title">{{ 'Account' | translate }}</h3>
       <ul>
         <li *ngFor="let link of accountLinks"><a href="#">{{ link }}</a></li>
       </ul>
@@ -32,7 +32,7 @@
 
     <!-- Column 4: Quick Link -->
     <div class="footer-column">
-      <h3 class="footer-title">Quick Link</h3>
+      <h3 class="footer-title">{{ 'Quick Link' | translate }}</h3>
       <ul>
         <li *ngFor="let link of quickLinks"><a href="#">{{ link }}</a></li>
       </ul>
@@ -40,8 +40,8 @@
 
     <!-- Column 5: Download App -->
     <div class="footer-column">
-      <h3 class="footer-title">Download App</h3>
-      <p class="app-promo-text">Save $3 with App New User Only</p>
+      <h3 class="footer-title">{{ 'Download App' | translate }}</h3>
+      <p class="app-promo-text">{{ 'Save $3 with App New User Only' | translate }}</p>
       <div class="app-download-content">
         <img src="assets/images/qr-code.png" alt="QR Code" class="qr-code">
         <div class="app-stores">
@@ -59,7 +59,7 @@
 
   <!-- Copyright Bar -->
   <div class="footer-bottom">
-    <p>&copy; Copyright Rimel 2022. All right reserved</p>
+    <p>&copy; {{ 'Copyright Rimel 2022. All right reserved' | translate }}</p>
   </div>
 </footer>
 

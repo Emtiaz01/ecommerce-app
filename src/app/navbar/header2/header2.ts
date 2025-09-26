@@ -1,4 +1,4 @@
-import { Component, OnInit, computed, inject, signal, effect } from '@angular/core';
+import { Component, OnInit, computed, inject, signal, effect, Pipe } from '@angular/core';
 import { Router, NavigationEnd, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
@@ -6,6 +6,7 @@ import { WishlistService } from '../../services/wishlist.service';
 import { ProtectedClickDirective } from '../../directives/protected-click';
 import { AddToWishlistDirective } from '../../directives/add-to-wishlist';
 import { CartService } from '../../services/cart'; 
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header2',
@@ -14,7 +15,8 @@ import { CartService } from '../../services/cart';
     CommonModule,
     RouterModule,
     ProtectedClickDirective,
-    AddToWishlistDirective
+    AddToWishlistDirective,
+    TranslateModule
   ],
   templateUrl: './header2.html',
   styleUrls: ['./header2.scss']

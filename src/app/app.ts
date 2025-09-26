@@ -4,19 +4,24 @@ import { ApiService } from './services/api';
 import { Footer } from "./footer/footer";
 import { Header } from './navbar/header/header';
 import { Header2 } from "./navbar/header2/header2";
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Footer, Header, Header2],
+  imports: [RouterOutlet, Footer, Header, Header2, TranslateModule],
   templateUrl: './app.html',
 })
 export class App implements OnInit {
   slides = signal<any[]>([]);
-
   private apiService = inject(ApiService);
+  private translateService = inject(TranslateService);
 
   ngOnInit(): void {
+    // Set default language (optional, can be handled in header2 as well)
+    this.translateService.setDefaultLang('en');
+    this.translateService.use('en');
+
     this.apiService.getProducts(5).subscribe({
       next: (data) => {
         const formattedSlides = data.products.map((product: any) => ({

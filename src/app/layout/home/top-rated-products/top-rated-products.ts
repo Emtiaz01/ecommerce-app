@@ -5,11 +5,12 @@ import { ApiService } from '../../../services/api';
 import { Router } from '@angular/router'; 
 import { AddToWishlistDirective } from '../../../directives/add-to-wishlist';
 import { AddToCartDirective } from '../../../directives/add-to-cart'; 
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-top-rated-products',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective], 
+  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective, TranslateModule], 
   templateUrl: './top-rated-products.html',
   styleUrls: ['./top-rated-products.scss'],
   encapsulation: ViewEncapsulation.None

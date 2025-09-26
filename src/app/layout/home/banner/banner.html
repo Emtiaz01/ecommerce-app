@@ -1,22 +1,22 @@
 <section class="hero-section">
   <div class="category-sidebar-container">
     <button class="category-dropdown-toggle" (click)="toggleDropdown()">
-      <span>Browse Categories</span>
+      <span>{{ 'Browse Categories' | translate }}</span>
       <svg class="dropdown-arrow" [class.rotated]="isDropdownOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
     </button>
 
     <!-- The original sidebar, now with a class binding to control its visibility -->
     <aside class="category-sidebar" [class.is-active]="isDropdownOpen">
       <ul class="category-list">
-        <li>Woman's Fashion <span class="arrow-right"></span></li>
-        <li>Men's Fashion <span class="arrow-right"></span></li>
-        <li>Electronics</li>
-        <li>Home & Lifestyle</li>
-        <li>Medicine</li>
-        <li>Sports & Outdoor</li>
-        <li>Baby's & Toys</li>
-        <li>Groceries & Pets</li>
-        <li>Health & Beauty</li>
+        <li>{{ 'Woman\'s Fashion' | translate }} <span class="arrow-right"></span></li>
+        <li>{{ 'Men\'s Fashion' | translate }} <span class="arrow-right"></span></li>
+        <li>{{ 'Electronics' | translate }}</li>
+        <li>{{ 'Home & Lifestyle' | translate }}</li>
+        <li>{{ 'Medicine' | translate }}</li>
+        <li>{{ 'Sports & Outdoor' | translate }}</li>
+        <li>{{ 'Baby & Toys' | translate }}</li>
+        <li>{{ 'Groceries & Pets' | translate }}</li>
+        <li>{{ 'Health & Beauty' | translate }}</li>
       </ul>
     </aside>
   </div>

@@ -4,14 +4,14 @@
     <div class="title-container">
       <div class="decorative">
         <div class="decorative-line"></div>
-        <span class="category-tag">This Month</span>
+        <span class="category-tag">{{ 'This Month' | translate }}</span>
       </div>
-      <h2 class="section-title">Top Rated Products</h2>
+      <h2 class="section-title">{{ 'Top Rated Products' | translate }}</h2>
     </div>
     <!-- View All Button -->
     <div class="section-footer">
       <button class="view-btn" (click)="toggleView()">
-        {{ showAll() ? 'Show Less' : 'View All' }}
+        {{ showAll() ? ('Show Less' | translate) : ('View All' | translate) }}
       </button>
     </div>
   </div>
@@ -25,7 +25,7 @@
           <button class="action-btn wishlist-btn" [appAddToWishlist]="product"></button>
           <button class="action-btn view-btn" (click)="viewProduct(product.id)"></button>
         </div>
-        <button class="add-to-cart-btn" [appAddToCart]="product">Add To Cart</button>
+        <button class="add-to-cart-btn" [appAddToCart]="product">{{ 'Add To Cart' | translate }}</button>
       </div>
       
       <div class="card-content">

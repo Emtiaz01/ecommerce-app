@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../services/api';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface Category {
   name: string; 
@@ -19,7 +20,7 @@ interface Category {
 @Component({
   selector: 'app-category-browser',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './category-browser.html',
   styleUrls: ['./category-browser.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -4,9 +4,9 @@
     <div class="title-container">
       <div class="decorative">
         <div class="decorative-line"></div>
-        <span class="category-tag">Categories</span>
+        <span class="category-tag">{{ 'Categories' | translate }}</span>
       </div>
-      <h2 class="section-title">Browse By Category</h2>
+      <h2 class="section-title">{{ 'Browse By Category' | translate }}</h2>
     </div>
     <!-- Navigation Arrows -->
     <div class="carousel-nav">
@@ -28,7 +28,7 @@
         [style.mask-image]="'url(' + category.iconUrl + ')'"
         [style.-webkit-mask-image]="'url(' + category.iconUrl + ')'">
       </div>
-      <span class="category-name">{{ category.name }}</span>
+      <span class="category-name">{{ category.name | translate }}</span>
     </div>
   </div>
   <div class="section-footer">

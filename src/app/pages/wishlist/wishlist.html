@@ -6,8 +6,8 @@
   <ng-template [ngIf]="!loading()">
     <!-- Wishlist Header -->
     <div class="wishlist-header">
-      <h2>Wishlist ({{ wishlistService.wishlistCount() }})</h2>
-      <button class="move-all-btn" (click)="moveAllToCart()">Move All To Bag</button>
+      <h2>{{ 'Wishlist' | translate }} ({{ wishlistService.wishlistCount() }})</h2>
+      <button class="move-all-btn" (click)="moveAllToCart()">{{ 'Move All To Bag' | translate }}</button>
     </div>
 
     <!-- Wishlist Items Grid -->
@@ -19,7 +19,7 @@
           <div class="card-actions">
             <button class="action-btn remove-btn" (click)="removeItem(product.id)"></button>
           </div>
-          <button class="add-to-cart-btn" [appAddToCart]="product">Add To Cart</button>
+          <button class="add-to-cart-btn" [appAddToCart]="product">{{ 'Add To Cart' | translate }}</button>
         </div>
         <div class="card-content">
           <h3 class="product-name">{{ product.name }}</h3>
@@ -36,7 +36,7 @@
 
     <!-- Message for Empty Wishlist -->
     <div *ngIf="wishlistService.wishlistCount() === 0" class="empty-wishlist-message">
-      <p>Your wishlist is currently empty.</p>
+      <p>{{ 'Your Wishlist is currently empty.' | translate }}</p>
     </div>
 
     <!-- "Just For You" Section Header -->
@@ -45,11 +45,11 @@
         <div class="decorative">
           <div class="decorative-line"></div>
         </div>
-        <p class="section-text">Just For You</p>
+        <p class="section-text">{{ 'Just For You' | translate }}</p>
       </div>
       <div class="btn">
         <button class="move-all-btn" (click)="toggleViewAll()">
-          {{ showAllJustForYou() ? 'See Less' : 'See All' }}
+          {{ showAllJustForYou() ? 'See Less' : 'See All' | translate }}
         </button>
       </div>
     </div>
@@ -65,7 +65,7 @@
             <button class="action-btn view-btn" (click)="viewProduct(product.id)"></button>
           </div>
           <!-- Use the smart directive to handle adding to cart -->
-          <button class="add-to-cart-btn" [appAddToCart]="product">Add To Cart</button>
+          <button class="add-to-cart-btn" [appAddToCart]="product">{{ 'Add To Cart' | translate }}</button>
         </div>
         <div class="card-content">
           <h3 class="product-name">{{ product.title }}</h3>

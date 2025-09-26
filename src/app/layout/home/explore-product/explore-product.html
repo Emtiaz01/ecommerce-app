@@ -4,9 +4,9 @@
     <div class="title-container">
       <div class="decorative">
         <div class="decorative-line"></div>
-        <span class="category-tag">Our Products</span>
+        <span class="category-tag">{{ 'Our Products' | translate }}</span>
       </div>
-      <h2 class="section-title">Explore Our Products</h2>
+      <h2 class="section-title">{{ 'Explore Our Products' | translate }}</h2>
     </div>
     <!-- Navigation Arrows: Hide when showAll is true -->
     <div class="carousel-nav" *ngIf="!showAll()">
@@ -24,7 +24,7 @@
           <button class="action-btn wishlist-btn" [appAddToWishlist]="product"></button>
           <button class="action-btn view-btn" (click)="viewProduct(product.id)"></button>
         </div>
-        <button class="add-to-cart-btn" [appAddToCart]="product">Add To Cart</button>
+        <button class="add-to-cart-btn" [appAddToCart]="product">{{ 'Add To Cart' | translate }}</button>
       </div>
       
       <div class="card-content">
@@ -53,7 +53,7 @@
   <!-- View All Button: Text changes based on showAll state -->
   <div class="section-footer">
     <button class="view-all-btn" (click)="viewAllProducts()">
-      {{ showAll() ? 'Show Less Products' : 'View All Products' }}
+      {{ showAll() ? ('Show Less Products' | translate) : ('View All Products' | translate) }}
     </button>
   </div>
 </section>

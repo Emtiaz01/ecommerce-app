@@ -2,12 +2,13 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
   // Import ReactiveFormsModule for form handling
-  imports: [CommonModule, ReactiveFormsModule, RouterLink], 
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, TranslateModule], 
   templateUrl: './contact.html',
   styleUrls: ['./contact.scss']
 })

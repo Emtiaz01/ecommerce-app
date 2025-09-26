@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { IndexedDBService } from '../../services/indexeddb.service';
 import { User } from '../../services/auth.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-registration',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterModule],
+  imports: [FormsModule, CommonModule, RouterModule, TranslateModule],
   templateUrl: './registration.html',
   styleUrls: ['./registration.scss']
 })

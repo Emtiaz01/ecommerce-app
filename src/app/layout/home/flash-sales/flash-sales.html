@@ -4,30 +4,30 @@
     <div class="title-container">
       <div class="decorative">
         <div class="decorative-line"></div>
-        <span class="category-tag">Today's</span>
+        <span class="category-tag">{{ 'Today\'s' | translate }}</span>
       </div>
-      <h2 class="section-title">Flash Sales</h2>
+      <h2 class="section-title">{{ 'Flash Sales' | translate }}</h2>
     </div>
 
     <!-- Countdown Timer -->
     <div class="countdown-timer">
       <div class="time-block">
-        <span class="label">Days</span>
+        <span class="label">{{ 'Days' | translate }}</span>
         <span class="value">{{ timeLeft().days }}</span>
       </div>
       <span class="separator">:</span>
       <div class="time-block">
-        <span class="label">Hours</span>
+        <span class="label">{{ 'Hours' | translate }}</span>
         <span class="value">{{ timeLeft().hours }}</span>
       </div>
       <span class="separator">:</span>
       <div class="time-block">
-        <span class="label">Minutes</span>
+        <span class="label">{{ 'Minutes' | translate }}</span>
         <span class="value">{{ timeLeft().minutes }}</span>
       </div>
       <span class="separator">:</span>
       <div class="time-block">
-        <span class="label">Seconds</span>
+        <span class="label">{{ 'Seconds' | translate }}</span>
         <span class="value">{{ timeLeft().seconds }}</span>
       </div>
     </div>
@@ -46,24 +46,24 @@
     [class.expanded-grid]="showAll()">
     <div class="product-card" *ngFor="let product of showAll() ? products() : products().slice(0, 10)">
       <div class="card-image-container">
-        <span class="discount-badge">-{{ product.discountPercentage | number:'1.0-0' }}%</span>
+        <span class="discount-badge">-{{ product.discountPercentage | number:'1.0-0' | translate }}%</span>
         <img [src]="product.thumbnail" [alt]="product.title" class="product-image">
         <div class="card-actions">
           <button class="action-btn wishlist-btn" [appAddToWishlist]="product"></button>
           <button class="action-btn view-btn" (click)="viewProduct(product.id)"></button>
         </div>
-        <button class="add-to-cart-btn" [protectedClick]="AddToCart.bind(this)" [appAddToCart]="product">Add To Cart</button>
+        <button class="add-to-cart-btn" [protectedClick]="AddToCart.bind(this)" [appAddToCart]="product">{{ 'Add To Cart' | translate }}</button>
       </div>
       
       <div class="card-content">
-        <h3 class="product-name">{{ product.title }}</h3>
+        <h3 class="product-name">{{ product.title | translate }}</h3>
         <div class="price-container">
-          <span class="discounted-price">{{ calculateDiscountedPrice(product.price, product.discountPercentage) | currency }}</span>
-          <span class="original-price">{{ product.price | currency }}</span>
+          <span class="discounted-price">{{ calculateDiscountedPrice(product.price, product.discountPercentage) | currency | translate }}</span>
+          <span class="original-price">{{ product.price | currency | translate }}</span>
         </div>
         <div class="rating-container">
           <span class="stars">★★★★★</span>
-          <span class="review-count">({{ product.stock }})</span>
+          <span class="review-count">({{ product.stock | translate }})</span>
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@
 
   <div class="section-footer">
     <button class="view-all-btn" (click)="toggleViewAll()">
-      {{ showAll() ? 'Show Less' : 'View All Products' }}
+      {{ showAll() ? ('Show Less' | translate) : ('View All Products' | translate) }}
     </button>
     <hr>
   </div>

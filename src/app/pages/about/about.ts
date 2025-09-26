@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { Supports } from '../../layout/home/supports/supports';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about',
-  imports: [Supports, CommonModule],
+  imports: [Supports, CommonModule, TranslateModule],
   templateUrl: './about.html',
   styleUrl: './about.scss'
 })

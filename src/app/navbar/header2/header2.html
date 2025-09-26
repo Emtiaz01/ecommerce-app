@@ -1,15 +1,15 @@
 <header class="main-header">
   <div class="logo"><a routerLink="/" class="nav-link">Exclusive</a></div>
   <nav class="main-nav">
-    <a routerLink="/" class="nav-link">Home</a>
-    <a routerLink="/contact" class="nav-link">Contact</a>
-    <a routerLink="/about" class="nav-link">About</a>
-    <a routerLink="/registration" class="nav-link">Sign Up</a>
+    <a routerLink="/" class="nav-link">{{ 'Home' | translate }}</a>
+    <a routerLink="/contact" class="nav-link">{{ 'Contact' | translate }}</a>
+    <a routerLink="/about" class="nav-link">{{ 'About' | translate }}</a>
+    <a routerLink="/registration" class="nav-link">{{ 'Sign Up' | translate }}</a>
   </nav>
 
   <div class="header-actions">
     <div class="search-bar">
-      <input type="text" placeholder="What are you looking for?">
+      <input type="text" [placeholder]="'What are you looking for?' | translate">
       <i class="search-icon"></i>
     </div>
 
@@ -38,11 +38,11 @@
         <!-- Dropdown Menu -->
         <div *ngIf="isDropdownOpen()" class="profile-dropdown">
           <ul>
-            <li><a routerLink="/account">Manage My Account</a></li>
-            <li><a routerLink="/account/orders">My Order</a></li>
-            <li><a routerLink="/account/cancellations">My Cancellations</a></li>
-            <li><a routerLink="/account/reviews">My Reviews</a></li>
-            <li><button (click)="logout()">Logout</button></li>
+            <li><a routerLink="/account">{{ 'MANAGE MY ACCOUNT' | translate }}</a></li>
+            <li><a routerLink="/account/orders">{{ 'MY ORDER' | translate }}</a></li>
+            <li><a routerLink="/account/cancellations">{{ 'MY CANCELLATIONS' | translate }}</a></li>
+            <li><a routerLink="/account/reviews">{{ 'MY REVIEWS' | translate }}</a></li>
+            <li><button (click)="logout()">{{ 'LOGOUT' | translate }}</button></li>
           </ul>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ProtectedClickDirective } from '../../../directives/protected-click'; 
 import { AddToWishlistDirective } from '../../../directives/add-to-wishlist';
 import { AddToCartDirective } from '../../../directives/add-to-cart';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface TimeLeft {
   days: string;
@@ -16,7 +17,7 @@ interface TimeLeft {
 @Component({
   selector: 'app-flash-sales',
   standalone: true,
-  imports: [CommonModule, DecimalPipe, CurrencyPipe, ProtectedClickDirective, AddToWishlistDirective, AddToCartDirective],
+  imports: [CommonModule, DecimalPipe, CurrencyPipe, ProtectedClickDirective, AddToWishlistDirective, AddToCartDirective, TranslateModule],
   templateUrl: './flash-sales.html',
   styleUrls: ['./flash-sales.scss']
 })

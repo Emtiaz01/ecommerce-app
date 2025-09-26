@@ -7,11 +7,12 @@ import { AddToWishlistDirective } from '../../../app/directives/add-to-wishlist'
 import { AddToCartDirective } from '../../../app/directives/add-to-cart'; 
 import { CartService } from '../../../app/services/cart';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-wishlist',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective, NgxSkeletonLoaderModule], 
+  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective, NgxSkeletonLoaderModule, TranslateModule], 
   templateUrl: './wishlist.html',
   styleUrls: ['./wishlist.scss']
 })

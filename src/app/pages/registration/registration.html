@@ -9,74 +9,73 @@
   </div>
 
   <main class="registration-form-section" aria-labelledby="registration-heading">
-    <h2 id="registration-heading">Create an account</h2>
-    <p class="subhead">Enter your details below</p>
+    <h2 id="registration-heading">{{ 'Create an account' | translate }}</h2>
     
     <form (ngSubmit)="onSignup(f)" #f="ngForm">
       
       <!-- Email Input -->
-      <label for="email" class="sr-only">Enter Your Email</label>
-      <input id="email" placeholder="Email" type="email" name="email" ngModel required email #emailModel="ngModel" [attr.aria-invalid]="emailModel.invalid && emailModel.touched" aria-describedby="email-error">
+      <label for="email" class="sr-only">{{ 'Enter Your Email' | translate }}</label>
+      <input id="email"  type="email" name="email" ngModel required email #emailModel="ngModel" [attr.aria-invalid]="emailModel.invalid && emailModel.touched" aria-describedby="email-error">
       <!-- Error messages for Email -->
       <div id="email-error" *ngIf="emailModel.invalid && (emailModel.dirty || emailModel.touched)" class="error-message">
-        <div *ngIf="emailModel.errors?.['required']">Email is required.</div>
-        <div *ngIf="emailModel.errors?.['email']">Please enter a valid email address.</div>
+        <div *ngIf="emailModel.errors?.['required']">{{ 'Email is required.' | translate }}</div>
+        <div *ngIf="emailModel.errors?.['email']">{{ 'Please enter a valid email address.' | translate }}</div>
       </div>
 
       <!-- Username Input -->
-      <label for="username" class="sr-only">Enter Your Username</label>
-      <input id="username" placeholder="Username" type="text" name="username" ngModel required #usernameModel="ngModel" [attr.aria-invalid]="usernameModel.invalid && usernameModel.touched" aria-describedby="username-error">
+      <label for="username" class="sr-only">{{ 'Enter Your Username' | translate }}</label>
+      <input id="username"  type="text" name="username" ngModel required #usernameModel="ngModel" [attr.aria-invalid]="usernameModel.invalid && usernameModel.touched" aria-describedby="username-error">
       <!-- Error message for Username -->
       <div id="username-error" *ngIf="usernameModel.invalid && (usernameModel.dirty || usernameModel.touched)" class="error-message">
-        <div *ngIf="usernameModel.errors?.['required']">Username is required.</div>
+        <div *ngIf="usernameModel.errors?.['required']">{{ 'Username is required.' | translate }}</div>
       </div>
 
       <!-- Password Input -->
-      <label for="password" class="sr-only">Enter Your Password</label>
-      <input id="password" placeholder="Password" type="password" name="password" ngModel required minlength="6" #passwordModel="ngModel" [attr.aria-invalid]="passwordModel.invalid && passwordModel.touched" aria-describedby="password-error">
+      <label for="password" class="sr-only">{{ 'Enter Your Password' | translate }}</label>
+      <input id="password"  type="password" name="password" ngModel required minlength="6" #passwordModel="ngModel" [attr.aria-invalid]="passwordModel.invalid && passwordModel.touched" aria-describedby="password-error">
       <!-- Error messages for Password -->
       <div id="password-error" *ngIf="passwordModel.invalid && (passwordModel.dirty || passwordModel.touched)" class="error-message">
-        <div *ngIf="passwordModel.errors?.['required']">Password is required.</div>
-        <div *ngIf="passwordModel.errors?.['minlength']">Password must be at least 6 characters long.</div>
+        <div *ngIf="passwordModel.errors?.['required']">{{ 'Password is required.' | translate }}</div>
+        <div *ngIf="passwordModel.errors?.['minlength']">{{ 'Password must be at least 6 characters long.' | translate }}</div>
       </div>
 
       <!-- Name Input -->
-      <label for="name" class="sr-only">Enter Your Name</label>
-      <input id="name" placeholder="Name" type="text" name="name" ngModel required #nameModel="ngModel" [attr.aria-invalid]="nameModel.invalid && nameModel.touched" aria-describedby="name-error">
+      <label for="name" class="sr-only">{{ 'Enter Your Name' | translate }}</label>
+      <input id="name"  type="text" name="name" ngModel required #nameModel="ngModel" [attr.aria-invalid]="nameModel.invalid && nameModel.touched" aria-describedby="name-error">
       <!-- Error message for Name -->
       <div id="name-error" *ngIf="nameModel.invalid && (nameModel.dirty || nameModel.touched)" class="error-message">
-        <div *ngIf="nameModel.errors?.['required']">Name is required.</div>
+        <div *ngIf="nameModel.errors?.['required']">{{ 'Name is required.' | translate }}</div>
       </div>
 
       <!-- Address Input -->
-      <label for="address" class="sr-only">Enter Your Address</label>
-      <input id="address" placeholder="Address" type="text" name="address" ngModel required #addressModel="ngModel" [attr.aria-invalid]="addressModel.invalid && addressModel.touched" aria-describedby="address-error">
+      <label for="address" class="sr-only">{{ 'Enter Your Address' | translate }}</label>
+      <input id="address"  type="text" name="address" ngModel required #addressModel="ngModel" [attr.aria-invalid]="addressModel.invalid && addressModel.touched" aria-describedby="address-error">
       <!-- Error message for Address -->
       <div id="address-error" *ngIf="addressModel.invalid && (addressModel.dirty || addressModel.touched)" class="error-message">
-        <div *ngIf="addressModel.errors?.['required']">Address is required.</div>
+        <div *ngIf="addressModel.errors?.['required']">{{ 'Address is required.' | translate }}</div>
       </div>
 
       <!-- Phone Input -->
-      <label for="phone" class="sr-only">Enter Your Phone Number</label>
-      <input id="phone" placeholder="Phone" type="tel" name="phone" ngModel required #phoneModel="ngModel" [attr.aria-invalid]="phoneModel.invalid && phoneModel.touched" aria-describedby="phone-error">
+      <label for="phone" class="sr-only">{{ 'Enter Your Phone Number' | translate }}</label>
+      <input id="phone"  type="tel" name="phone" ngModel required #phoneModel="ngModel" [attr.aria-invalid]="phoneModel.invalid && phoneModel.touched" aria-describedby="phone-error">
       <!-- Error message for Phone -->
       <div id="phone-error" *ngIf="phoneModel.invalid && (phoneModel.dirty || phoneModel.touched)" class="error-message">
-        <div *ngIf="phoneModel.errors?.['required']">Phone number is required.</div>
+        <div *ngIf="phoneModel.errors?.['required']">{{ 'Phone number is required.' | translate }}</div>
       </div>
-      
-      <button type="submit" class="view-all-btn" [disabled]="f.invalid">Create Account</button>
-      
+
+      <button type="submit" class="view-all-btn" [disabled]="f.invalid">{{ 'Create Account' | translate }}</button>
+
       <button type="button" class="google-btn">
         <img
           src="assets/icons/google.png"
           alt="Google"
           class="google-icon"
           loading="lazy"
-        /> Sign up with Google
+        /> {{ 'Sign up with Google' | translate }}
       </button>
       
       <div class="account-bottom">
-        Already have account? <a routerLink="/login">Log in</a>
+        {{ 'Already have account?' | translate }} <a routerLink="/login">{{ 'Log in' | translate }}</a>
       </div>
     </form>
   </main>
