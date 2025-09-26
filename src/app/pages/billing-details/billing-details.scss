@@ -228,6 +228,7 @@
 
 @media (max-width: 1024px) {
     .checkout-content {
+        margin: 0px 20px 20px 20px;
         gap: 16px;
     }
 
@@ -237,6 +238,10 @@
 
     .checkout-form h1 {
         font-size: 1.42rem;
+    }
+    .coupon-row{
+        flex-direction: column;
+        gap: 7px;
     }
 }
 

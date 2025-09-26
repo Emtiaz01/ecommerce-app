@@ -42,3 +42,10 @@ p {
 .home-btn:hover {
   background: #ba3535;
 }
+@media (max-width: 426px){
+  p {
+  font-size: 0.8rem;
+  color: #333;
+  margin: 0 0 32px 10px;
+}
+}
