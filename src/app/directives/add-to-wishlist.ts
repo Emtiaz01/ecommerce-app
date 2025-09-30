@@ -17,6 +17,13 @@ export class AddToWishlistDirective {
   @HostListener('click')
   onClick(): void {
     if (this.authService.currentUser()) {
+      alert('Please log in to add items to your cart.');
+      this.router.navigate(['/login']);
+      return;
+    }
+
+    if (this.authService.currentUser()) {
+      // Defensive programming: Ensure productData is provided
       if (!this.productData) {
         console.error('AddToWishlistDirective: No product data provided!');
         return;

@@ -1,6 +1,6 @@
 <div class="cart-container">
   <div class="breadcrumb">
-    <a routerLink="/">Home</a> / <span>Cart</span>
+    <a routerLink="/">{{ 'Home' | translate }}</a> / <span>{{ 'Cart' | translate }}</span>
   </div>
 
   <div *ngIf="loading()" class="skeleton-loader">
@@ -11,10 +11,10 @@
     <div class="cart-table" *ngIf="cartService.cartCount() > 0">
       <!-- Table Header - Hidden on mobile! -->
       <div class="table-header">
-        <span>Product</span>
-        <span>Price</span>
-        <span>Quantity</span>
-        <span>Subtotal</span>
+        <span>{{ 'Product' | translate }}</span>
+        <span>{{ 'Price' | translate }}</span>
+        <span>{{ 'Quantity' | translate }}</span>
+        <span>{{ 'Subtotal' | translate }}</span>
       </div>
 
       <!-- Table Rows -->
@@ -25,11 +25,11 @@
           <button (click)="removeItem(item.id)" class="remove-item-btn">❌</button>
         </div>
         <div class="price-cell">
-          <span class="label-mobile">Price:</span>
+          <span class="label-mobile">{{ 'Price' | translate }}:</span>
           <span>{{ item.price | currency }}</span>
         </div>
         <div class="quantity-cell">
-          <span class="label-mobile">Qty:</span>
+          <span class="label-mobile">{{ 'Qty' | translate }}:</span>
           <div class="quantity-input">
             <input 
               type="number" 
@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="subtotal-cell">
-          <span class="label-mobile">Subtotal:</span>
+          <span class="label-mobile">{{ 'Subtotal' | translate }}:</span>
           <span>{{ (item.price * item.quantity) | currency }}</span>
         </div>
       </div>
@@ -52,36 +52,36 @@
 
     <!-- Empty Cart Message -->
     <div *ngIf="cartService.cartCount() === 0" class="empty-cart">
-      <p>Your cart is empty.</p>
-      <a routerLink="/" class="return-btn">Return To Shop</a>
+      <p>{{ 'Your cart is empty.' | translate }}</p>
+      <a routerLink="/" class="return-btn">{{ 'Return To Shop' | translate }}</a>
     </div>
 
     <!-- Cart Actions & Summary -->
     <div class="cart-actions-summary" *ngIf="cartService.cartCount() > 0">
       <div class="cart-actions">
-        <a routerLink="/" class="return-btn">Return To Shop</a>
-        <button class="update-cart-btn">Update Cart</button>
+        <a routerLink="/" class="return-btn">{{ 'Return To Shop' | translate }}</a>
+        <button class="update-cart-btn">{{ 'Update Cart' | translate }}</button>
       </div>
       <div class="cart-summary">
         <div class="coupon-section">
-          <input type="text" placeholder="Coupon Code" style="padding-right: 0px;">
-          <button class="apply-coupon-btn">Apply Coupon</button>
+          <input type="text" placeholder="{{ 'Coupon Code' | translate }}" style="padding-right: 0px;">
+          <button class="apply-coupon-btn">{{ 'Apply Coupon' | translate }}</button>
         </div>
         <div class="cart-total-box">
-          <h3>Cart Total</h3>
+          <h3>{{ 'Cart Total' | translate }}</h3>
           <div class="total-row">
-            <span>Subtotal:</span>
+            <span>{{ 'Subtotal' | translate }}:</span>
             <span>{{ cartService.subtotal() | currency }}</span>
           </div>
           <div class="total-row">
-            <span>Shipping:</span>
-            <span>Free</span>
+            <span>{{ 'Shipping' | translate }}:</span>
+            <span>{{ 'Free' | translate }}</span>
           </div>
           <div class="total-row total">
-            <span>Total:</span>
+            <span>{{ 'Total' | translate }}:</span>
             <span>{{ cartService.total() | currency }}</span>
           </div>
-          <button class="checkout-btn" (click)="checkout()">Proceed to checkout</button>
+          <button class="checkout-btn" (click)="checkout()">{{ 'Proceed to checkout' | translate }}</button>
         </div>
       </div>
     </div>
