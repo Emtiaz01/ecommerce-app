@@ -21,7 +21,7 @@
       <div class="form-group required"><label for="phone">Phone Number</label><input id="phone" type="text" required></div>
       <div class="form-group required"><label for="email">Email Address</label><input id="email" type="email" required></div>
       <div class="form-group checkbox-group">
-        <input type="checkbox" id="save-info" [(ngModel)]="infoSaved">
+        <input type="checkbox" id="save-info" [(ngModel)]="infoSaved" name="saveInfo">
         <label for="save-info">Save this information for faster check-out next time</label>
       </div>
     </form>
@@ -57,7 +57,7 @@
       </div>
     </div>
     <div class="coupon-row">
-      <input type="text" [(ngModel)]="coupon" placeholder="Coupon Code" />
+      <input type="text" [(ngModel)]="coupon" name="coupon" placeholder="Coupon Code" />
       <button class="view-all-btn" type="button">Apply Coupon</button>
     </div>
     <button class="view-all-btn" (click)="placeOrder()">Place Order</button>

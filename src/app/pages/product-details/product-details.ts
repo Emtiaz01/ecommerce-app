@@ -23,8 +23,6 @@ export class ProductDetails implements OnInit {
   images: string[] = [];
   selectedImage: string = '';
   quantity: number = 1;
-  selectedColour: string = '';
-  selectedSize: string = '';
   
   ngOnInit(): void {
     const productId = +this.route.snapshot.paramMap.get('id')!;
@@ -32,8 +30,6 @@ export class ProductDetails implements OnInit {
       this.product = product;
       this.images = [product.thumbnail, ...product.images || []];
       this.selectedImage = product.thumbnail;
-      this.selectedColour = product.colors?.[0] || '';
-      this.selectedSize = product.sizes?.[0] || '';
       // Fetch related
       this.apiService.getProductsByCategory(product.category).subscribe(res =>
         this.relatedProducts = res.products.filter((p: any) => p.id !== productId).slice(0, 4));
@@ -49,6 +45,5 @@ export class ProductDetails implements OnInit {
   setImage(img: string) { this.selectedImage = img; }
   decQty() { if (this.quantity > 1) this.quantity--; }
   incQty() { this.quantity++; }
-  setColour(c: string) { this.selectedColour = c; }
-  setSize(s: string) { this.selectedSize = s; }
+  
 }
