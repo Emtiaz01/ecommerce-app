@@ -1,4 +1,4 @@
-# 🛒 E-Commerce Angular Application
+#  E-Commerce Angular Application
 
 A modern, responsive e-commerce web application built with Angular 20 and TypeScript. This application provides a complete online shopping experience with features like product browsing, cart management, wishlist functionality, user authentication, and internationalization support.
 
