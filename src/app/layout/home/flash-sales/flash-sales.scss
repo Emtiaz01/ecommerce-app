@@ -45,12 +45,10 @@
   padding: 10px 0;
   scroll-behavior: smooth;
   scrollbar-width: none; 
-  &::-webkit-scrollbar {
-    display: none; 
-  }
 }
 
 .product-carousel.expanded-grid {
+  border: 2px solid red;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   overflow-x: visible; 

@@ -45,7 +45,7 @@
 .service-icon {
   width: 32px;
   height: 32px;
-  filter: invert(1);
+  filter: contrast(300%) invert(100%) brightness(300%);
 }
 
 /* --- Typography --- */
@@ -53,7 +53,7 @@
   font-size: 20px;
   font-weight: 600;
   color: #000;
-  margin: 0 0 8px 0;
+  margin: 0 0 8px 0;  
 }
 
 .service-description {
