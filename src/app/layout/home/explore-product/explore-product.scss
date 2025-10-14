@@ -53,9 +53,76 @@
     transform: scale(1.15);
   }
 }
+@media (min-width: 55px) and (max-width: 319px){
+    .product-carousel {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 0 2vw;
+  }
+  .color-swatches {
+    gap: 4px;
+    margin-top: 10px;
+    margin-left: 0;
+    margin-bottom: 2px;
+  }
+  .swatch {
+    width: 15px;
+    height: 15px;
+  }
+  .price {
+    font-size: 1rem;
+  }
+  .section-footer {
+    margin-top: 24px;
+    padding: 0 2vw;
+  }
+  .view-all-btn {
+      width: 150px;
+      font-size: 0.8rem;
+      padding: 20px 0;
+    }
+}
 
+@media (min-width: 320px) and (max-width: 426px) {
+    .product-carousel {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 0 2vw;
+  }
+  .color-swatches {
+    gap: 4px;
+    margin-top: 10px;
+    margin-left: 0;
+    margin-bottom: 2px;
+  }
+  .swatch {
+    width: 15px;
+    height: 15px;
+  }
+  .price {
+    font-size: 1rem;
+  }
+  .section-footer {
+    margin-top: 24px;
+    padding: 0 2vw;
+  }
+  .view-all-btn {
+      width: 200px;
+      font-size: 0.9rem;
+      padding: 20px 0;
+    }
+}
 
-@media (max-width: 767px) {
+@media (min-width: 426px) and (max-width: 766px) {
+  
+  .view-all-btn {
+      width: 200px;
+      font-size: 0.98rem;
+      padding: 20px 0;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 1024px) {
   .product-carousel {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -77,10 +144,10 @@
   .section-footer {
     margin-top: 24px;
     padding: 0 2vw;
-    .view-all-btn {
-      width: 100%;
-      font-size: 0.98rem;
-      padding: 8px 0;
-    }
   }
+  .view-all-btn {
+      width: 200px;
+      font-size: 0.98rem;
+      padding: 20px 0;
+    }
 }

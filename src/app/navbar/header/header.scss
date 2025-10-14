@@ -89,6 +89,9 @@
     padding: 12px 40px;
     font-size: 13px;
   }
+  .announcement-text {
+    padding: 0 80px;
+  }
   .language-selector {
     right: 40px;
   }
@@ -100,8 +103,11 @@
     padding: 10px 20px;
     font-size: 12px;
   }
+  .announcement-text {
+    padding: 0 100px;
+  }
   .language-selector {
-    display: none; /* Hide language selector on smaller tablets and mobile */
+    margin-left: 100px;
   }
 }
 
@@ -123,7 +129,22 @@
 /* --- Ultra small devices (max-width: 400px) --- */
 @media (max-width: 400px) {
   .announcement-bar {
+    display: flex;
+    flex-direction: column;
     font-size: 11px;
-    padding: 8px 12px;
+    padding: 8px 32px;
+  }
+  .language-selector {
+    display: flex; /* Show language selector on very small devices */
+    flex-direction: column;
+    padding-top: 10px;
+  }
+}
+@media (max-width: 320px) {
+  .announcement-bar {
+    padding: 8px 16px;
+  }
+  .language-selector {
+    right: 16px;
   }
 }

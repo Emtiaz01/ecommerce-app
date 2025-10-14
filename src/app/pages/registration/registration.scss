@@ -189,20 +189,22 @@
 
 @media (min-width: 427px) and (max-width: 768px) {
     .registration-wrapper {
-        flex-direction: row;
+        flex-direction: column;
         gap: 0.7rem;
-        padding: 0 3vw;
+        padding: 0 2vw;
     }
 
     .registration-img-section .main-image {
-        width: 95vw;
-        max-width:156%;
-        padding: 80px 0 10px 15px;
+        max-width:100%;
+        padding: 80px 0 10px 85px;
+        margin-left: 10px;
     }
 
     .registration-form-section {
+        width: 80%;
+        margin: 0 auto;
         padding-left: 50px;
-        gap: 0.1rem;
+        gap: 2px;
     }
     .registration-form-section h2 {
         font-size: 0.82rem;
@@ -216,8 +218,27 @@
          right: 15px;
     }
 }
+@media  (min-width: 769px) and (max-width: 890px) {
+    .registration-wrapper {
+        max-width: 620px;
+        gap: 1.1rem;
+    }
 
-@media  (min-width: 769px) and (max-width: 1024px) {
+    .registration-img-section .main-image {
+        width: 100px;
+        margin: 0 auto;
+        max-width: 40vw;
+        padding-top: 140px;
+        padding-left: 30px;
+    }
+
+    .registration-form-section {
+        max-width: 320px;
+        margin-right: 130px;
+    }
+}
+
+@media  (min-width: 891px) and (max-width: 1024px) {
     .registration-wrapper {
         max-width: 720px;
         gap: 1.1rem;
@@ -232,5 +253,23 @@
 
     .registration-form-section {
         max-width: 320px;
+    }
+}
+@media (min-width: 1025px) and (max-width: 1222px) {
+    .registration-wrapper {
+        max-width: 900px;
+        gap: 1.5rem;
+        margin: 2rem auto 1rem auto;
+    }
+
+    .registration-img-section .main-image {
+        width: 650px;
+        max-width: 50vw;
+        margin: 0px 0 16px 0;
+        padding-top: 80px;
+    }
+
+    .registration-form-section {
+        max-width: 350px;
     }
 }

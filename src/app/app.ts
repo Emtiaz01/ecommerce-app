@@ -18,9 +18,10 @@ export class App implements OnInit {
   private translateService = inject(TranslateService);
 
   ngOnInit(): void {
-    // Set default language (optional, can be handled in header2 as well)
+    // Initialize translation service with saved language or default
+    const savedLang = localStorage.getItem('selectedLanguage') || 'en';
     this.translateService.setDefaultLang('en');
-    this.translateService.use('en');
+    this.translateService.use(savedLang);
 
     this.apiService.getProducts(5).subscribe({
       next: (data) => {
