@@ -1,12 +1,4 @@
-import {
-  Component,
-  OnInit,
-  signal,
-  ElementRef,
-  ViewChild,
-  ChangeDetectionStrategy,
-  inject
-} from '@angular/core';
+import {Component,OnInit,signal,ElementRef,ViewChild,ChangeDetectionStrategy,inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../services/api';
 import { TranslateModule } from '@ngx-translate/core';
@@ -66,7 +58,7 @@ export class CategoryBrowser implements OnInit {
   ngOnInit(): void {
   this.apiService.getCategories().subscribe((apiCategorySlugs) => {
     const mappedCategories = apiCategorySlugs
-      .filter(slug => typeof slug === 'string' && slug.length > 0)
+      .filter(slug => typeof slug === 'string' && slug.length > 0 && slug !== 'fragrances' && slug !== 'womens-bags')
       .map(slug => {
         const categorySlug = slug.toLowerCase();
         const iconName = this.iconMap[categorySlug] || 'mdi:apps'; 
