@@ -9,11 +9,11 @@
     <div class="product-details-content">
         <div class="image-gallery">
             <div class="gallery-thumbnails">
-                <img *ngFor="let img of images" [src]="img" [alt]="product.title" [class.active]="selectedImage === img"
-                    (click)="setImage(img)">
+                <img *ngFor="let img of images" [ngSrc]="img" [alt]="product.title" [class.active]="selectedImage === img"
+                    (click)="setImage(img)" width="100" height="100">
             </div>
             <div class="gallery-main">
-                <img [src]="selectedImage" [alt]="product.title">
+                <img [ngSrc]="selectedImage" [alt]="product.title" width="400" height="400">
             </div>
         </div>
         <div class="product-info">
@@ -72,7 +72,7 @@
                     <div class="product-card" *ngFor="let product of relatedProducts">
                         <div class="card-image-container">
 
-                            <img [src]="product.thumbnail" [alt]="product.title" class="product-image">
+                            <img [ngSrc]="product.thumbnail" [alt]="product.title" class="product-image" width="200" height="200">
                             <div class="card-actions">
                                 <button class="action-btn wishlist-btn" [appAddToWishlist]="product"></button>
                                 <button class="action-btn view-btn" (click)="viewProduct(product.id)"></button>

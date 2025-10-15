@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { CartService } from '../../../app/services/cart';
 import { Router, RouterLink } from '@angular/router';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
@@ -8,7 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, RouterLink, NgxSkeletonLoaderModule, TranslateModule],
+  imports: [CommonModule, CurrencyPipe, RouterLink, NgxSkeletonLoaderModule, TranslateModule, NgOptimizedImage],
   templateUrl: './cart.html',
   styleUrls: ['./cart.scss']
 })

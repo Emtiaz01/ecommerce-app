@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { ApiService } from '../../services/api';
 import { FormsModule } from '@angular/forms';
 import { AddToCartDirective } from '../../directives/add-to-cart';
@@ -10,7 +10,7 @@ import { DecimalPipe } from '@angular/common';
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, FormsModule, RouterModule, AddToCartDirective, AddToWishlistDirective, DecimalPipe],
+  imports: [CommonModule, CurrencyPipe, FormsModule, RouterModule, AddToCartDirective, AddToWishlistDirective, DecimalPipe, NgOptimizedImage],
   templateUrl: './product-details.html',
   styleUrls: ['./product-details.scss']
 })

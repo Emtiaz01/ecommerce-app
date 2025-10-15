@@ -20,7 +20,7 @@
       <!-- Table Rows -->
       <div *ngFor="let item of cartService.cartItems()" class="table-row">
         <div class="product-cell">
-          <img [src]="item.imageUrl" [alt]="item.name">
+          <img [ngSrc]="item.imageUrl" [alt]="item.name" width="50" height="50">
           <span>{{ item.name }}</span>
           <button (click)="removeItem(item.id)" class="remove-item-btn">❌</button>
         </div>

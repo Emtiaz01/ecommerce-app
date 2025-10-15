@@ -9,7 +9,7 @@
       <div class="subscribe-form">
         <input type="email" placeholder="{{ 'Enter your email' | translate }}">
         <button class="send-btn">
-          <img src="assets/icons/send-icon.png" alt="{{ 'Send' | translate }}"> 
+          <img ngSrc="assets/icons/send-icon.png" alt="{{ 'Send' | translate }}" width="32" height="24"> 
         </button>
       </div>
     </div>
@@ -43,15 +43,15 @@
       <h3 class="footer-title">{{ 'Download App' | translate }}</h3>
       <p class="app-promo-text">{{ 'Save $3 with App New User Only' | translate }}</p>
       <div class="app-download-content">
-        <img src="assets/images/qr-code.png" alt="QR Code" class="qr-code">
+        <img ngSrc="assets/images/qr-code.png" alt="QR Code" class="qr-code" width="80" height="80">
         <div class="app-stores">
-          <a href="#"><img src="assets/images/google-play.png" alt="Google Play"></a>
-          <a href="#"><img src="assets/images/app-store.png" alt="App Store" class="appstore"></a> 
+          <a href="#"><img ngSrc="assets/images/google-play.png" alt="Google Play" width="110" height="40"></a>
+          <a href="#"><img ngSrc="assets/images/app-store.png" alt="App Store" class="appstore" width="110" height="40"></a> 
         </div>
       </div>
       <div class="social-links">
         <a *ngFor="let social of socialLinks" href="#">
-          <img [src]="social.iconUrl" [alt]="social.name">
+          <img [ngSrc]="social.iconUrl" [alt]="social.name" width="24" height="24">
         </a>
       </div>
     </div>

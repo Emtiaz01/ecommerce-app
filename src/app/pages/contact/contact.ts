@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -8,7 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-contact',
   standalone: true,
   // Import ReactiveFormsModule for form handling
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, TranslateModule], 
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, TranslateModule, NgOptimizedImage], 
   templateUrl: './contact.html',
   styleUrls: ['./contact.scss']
 })

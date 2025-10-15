@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ApiService } from '../../../services/api';
 import { ProtectedClickDirective } from "../../../directives/protected-click"; 
 import { TranslateModule } from '@ngx-translate/core';
@@ -14,7 +14,7 @@ interface Slide {
 @Component({
   selector: 'app-banner',
   standalone: true,
-  imports: [CommonModule, ProtectedClickDirective, TranslateModule],
+  imports: [CommonModule, ProtectedClickDirective, TranslateModule, NgOptimizedImage],
   templateUrl: './banner.html',
   styleUrls: ['./banner.scss']
 })

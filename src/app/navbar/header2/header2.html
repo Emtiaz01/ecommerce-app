@@ -33,7 +33,7 @@
 
       <div *ngIf="isLoggedIn()" class="profile-section">
         <button (click)="toggleDropdown()" class="profile-icon-button">
-          <img src="https://api.iconify.design/material-symbols/person-outline.svg" alt="User Profile"/>
+          <img ngSrc="https://api.iconify.design/material-symbols/person-outline.svg" alt="User Profile" width="24" height="24"/>
         </button>
         <!-- Dropdown Menu -->
         <div *ngIf="isDropdownOpen()" class="profile-dropdown">

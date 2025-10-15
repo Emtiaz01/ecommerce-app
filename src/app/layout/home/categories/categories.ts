@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-categories',
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './categories.html',
   styleUrl: './categories.scss'
 })

@@ -15,7 +15,7 @@
       </p>
     </div>
     <div class="story-image">
-      <img src="assets/images/about-story-image.png" alt="Two women shopping happily">
+      <img ngSrc="assets/images/about-story-image.png" alt="Two women shopping happily" width="500" height="500">
     </div>
   </div>
 
@@ -33,7 +33,7 @@
     <!-- This loop creates a card for EACH member -->
     <div *ngFor="let member of teamMembers" class="team-member">
       <div class="team-member-image">
-        <img [src]="member.image" [alt]="member.name">
+        <img [ngSrc]="member.image" [alt]="member.name" width="250" height="250">
       </div>
       <h3>{{ member.name }}</h3>
       <p>{{ member.title }}</p>
@@ -41,7 +41,7 @@
       <!-- This div is INSIDE the loop, so it repeats for every member -->
       <div class="social-links">
         <a *ngFor="let social of socialLinks" href="#">
-          <img [src]="social.iconUrl" [alt]="social.name">
+          <img [ngSrc]="social.iconUrl" [alt]="social.name" width="24" height="24">
         </a>
       </div>
 

@@ -47,7 +47,7 @@
     <div class="product-card" *ngFor="let product of showAll() ? products() : products().slice(0, 10)">
       <div class="card-image-container">
         <span class="discount-badge">-{{ product.discountPercentage | number:'1.0-0' | translate }}%</span>
-        <img [src]="product.thumbnail" [alt]="product.title" class="product-image">
+        <img [ngSrc]="product.thumbnail" [alt]="product.title" class="product-image" width="270" height="250">
         <div class="card-actions">
           <button class="action-btn wishlist-btn" [appAddToWishlist]="product"></button>
           <button class="action-btn view-btn" (click)="viewProduct(product.id)"></button>

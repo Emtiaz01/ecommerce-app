@@ -14,7 +14,7 @@
   <div class="featured-grid">
     <!-- PlayStation 5 (Large Card) -->
     <div class="card large-card">
-      <img [src]="cards[0].image" alt="{{ cards[0].title }}">
+      <img [ngSrc]="cards[0].image" alt="{{ cards[0].title }}" width="570" height="600" priority>
       <div class="card-content">
         <h3>{{ cards[0].title }}</h3>
         <p>{{ cards[0].description }}</p>
@@ -24,7 +24,7 @@
 
     <!-- Women's Collections (Horizontal Card) -->
     <div class="card horizontal-card">
-      <img [src]="cards[1].image" alt="{{ cards[1].title }}">
+      <img [ngSrc]="cards[1].image" alt="{{ cards[1].title }}" width="570" height="284">
       <div class="card-content">
         <h3>{{ cards[1].title }}</h3>
         <p>{{ cards[1].description }}</p>
@@ -36,7 +36,7 @@
     <div class="nested-grid">
       <!-- Speakers (Small Card) -->
       <div class="card small-card">
-        <img [src]="cards[2].image" alt="{{ cards[2].title }}">
+        <img [ngSrc]="cards[2].image" alt="{{ cards[2].title }}" width="270" height="284">
         <div class="card-content">
           <h3>{{ cards[2].title }}</h3>
           <p>{{ cards[2].description }}</p>
@@ -46,7 +46,7 @@
 
       <!-- Perfume (Small Card) -->
       <div class="card small-card">
-        <img [src]="cards[3].image" alt="{{ cards[3].title }}">
+        <img [ngSrc]="cards[3].image" alt="{{ cards[3].title }}" width="270" height="284">
         <div class="card-content">
           <h3>{{ cards[3].title }}</h3>
           <p>{{ cards[3].description }}</p>

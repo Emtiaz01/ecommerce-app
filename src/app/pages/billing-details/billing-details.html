@@ -30,7 +30,7 @@
   <div class="checkout-summary">
     <div class="summary-products">
       <div class="summary-product" *ngFor="let item of cartService.cartItems()">
-        <img [src]="item.imageUrl" [alt]="item.name"/>
+        <img [ngSrc]="item.imageUrl" [alt]="item.name" width="50" height="50"/>
         <span>{{ item.name }}</span>
         <span class="summary-price">{{ item.price * item.quantity | currency }}</span>
       </div>
@@ -45,10 +45,10 @@
         <input type="radio" name="payment" id="bank" [(ngModel)]="paymentMethod" value="bank" />
         <label for="bank">Bank</label>
         <span class="payment-icons">
-          <img src="assets/images/bkash.svg" alt="bkash"/>
-          <img src="assets/images/visa.svg" alt="visa"/>
-          <img src="assets/images/mastercard.svg" alt="mastercard"/>
-          <img src="assets/images/nogod.svg" alt="nagad"/>
+          <img ngSrc="assets/images/bkash.svg" alt="bkash" width="42" height="14"/>
+          <img ngSrc="assets/images/visa.svg" alt="visa" width="42" height="14"/>
+          <img ngSrc="assets/images/mastercard.svg" alt="mastercard" width="42" height="14"/>
+          <img ngSrc="assets/images/nogod.svg" alt="nagad" width="42" height="14"/>
         </span>
       </div>
       <div>

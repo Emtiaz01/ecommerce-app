@@ -1,5 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { ApiService } from '../../../services/api';
 import { Router } from '@angular/router';
 import { ProtectedClickDirective } from '../../../directives/protected-click'; 
@@ -10,7 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-explore-product',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective, TranslateModule],
+  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective, TranslateModule, NgOptimizedImage],
   templateUrl: './explore-product.html',
   styleUrls: ['./explore-product.scss']
 })

@@ -1,5 +1,5 @@
 import { Component, OnInit, signal, inject } from '@angular/core';
-import { CommonModule, CurrencyPipe } from '@angular/common'; 
+import { CommonModule, CurrencyPipe, NgOptimizedImage } from '@angular/common'; 
 import { ViewEncapsulation } from '@angular/core';
 import { ApiService } from '../../../services/api';
 import { Router } from '@angular/router'; 
@@ -10,7 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-top-rated-products',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective, TranslateModule], 
+  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective, TranslateModule, NgOptimizedImage], 
   templateUrl: './top-rated-products.html',
   styleUrls: ['./top-rated-products.scss'],
   encapsulation: ViewEncapsulation.None

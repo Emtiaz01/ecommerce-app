@@ -1,5 +1,5 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { Router } from '@angular/router';
 import { WishlistService } from '../../../app/services/wishlist.service';
 import { ApiService } from '../../../app/services/api';
@@ -12,7 +12,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-wishlist',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective, NgxSkeletonLoaderModule, TranslateModule], 
+  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective, NgxSkeletonLoaderModule, TranslateModule, NgOptimizedImage], 
   templateUrl: './wishlist.html',
   styleUrls: ['./wishlist.scss']
 })

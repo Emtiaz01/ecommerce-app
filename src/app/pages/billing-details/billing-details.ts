@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { CartService } from '../../../app/services/cart';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-billing-details',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, FormsModule],
+  imports: [CommonModule, CurrencyPipe, FormsModule, NgOptimizedImage],
   templateUrl: './billing-details.html',
   styleUrls: ['./billing-details.scss']
 })

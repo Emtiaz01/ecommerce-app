@@ -1,6 +1,6 @@
 import { Component, OnInit, computed, inject, signal, effect, Pipe } from '@angular/core';
 import { Router, NavigationEnd, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { WishlistService } from '../../services/wishlist.service';
 import { ProtectedClickDirective } from '../../directives/protected-click';
@@ -16,7 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
     RouterModule,
     ProtectedClickDirective,
     AddToWishlistDirective,
-    TranslateModule
+    TranslateModule,
+    NgOptimizedImage
   ],
   templateUrl: './header2.html',
   styleUrls: ['./header2.scss']
