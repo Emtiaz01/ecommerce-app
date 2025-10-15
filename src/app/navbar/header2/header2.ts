@@ -3,8 +3,6 @@ import { Router, NavigationEnd, RouterModule } from '@angular/router';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { WishlistService } from '../../services/wishlist.service';
-import { ProtectedClickDirective } from '../../directives/protected-click';
-import { AddToWishlistDirective } from '../../directives/add-to-wishlist';
 import { CartService } from '../../services/cart'; 
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -14,8 +12,6 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [
     CommonModule,
     RouterModule,
-    ProtectedClickDirective,
-    AddToWishlistDirective,
     TranslateModule,
     NgOptimizedImage
   ],

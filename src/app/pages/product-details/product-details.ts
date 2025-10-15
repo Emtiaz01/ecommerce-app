@@ -5,12 +5,11 @@ import { ApiService } from '../../services/api';
 import { FormsModule } from '@angular/forms';
 import { AddToCartDirective } from '../../directives/add-to-cart';
 import { AddToWishlistDirective } from '../../directives/add-to-wishlist';
-import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, FormsModule, RouterModule, AddToCartDirective, AddToWishlistDirective, DecimalPipe, NgOptimizedImage],
+  imports: [CommonModule, CurrencyPipe, FormsModule, RouterModule, AddToCartDirective, AddToWishlistDirective, NgOptimizedImage],
   templateUrl: './product-details.html',
   styleUrls: ['./product-details.scss']
 })
