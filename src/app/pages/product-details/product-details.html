@@ -30,12 +30,12 @@
 
             <div class="product-actions">
                 <div class="qty-controls">
-                    <button class="qty-btn" (click)="decQty()">-</button>
-                    <input type="number" [(ngModel)]="quantity" min="1" class="qty-input">
-                    <button class="qty-btn plus" (click)="incQty()">+</button>
+                    <button class="qty-btn" (click)="decQty()" aria-label="Decrease quantity">-</button>
+                    <input type="number" [(ngModel)]="quantity" min="1" class="qty-input" aria-label="Quantity">
+                    <button class="qty-btn plus" (click)="incQty()" aria-label="Increase quantity">+</button>
                 </div>
                 <button class="view-all-btn">Buy Now</button>
-                <button class="wishlist-btn" [appAddToWishlist]="product">
+                <button class="wishlist-btn" [appAddToWishlist]="product" aria-label="Add to wishlist">
                     <span class="icon-heart"></span>
                     <!-- Use SVG or icon font for filled heart. -->
                 </button>
@@ -74,8 +74,8 @@
 
                             <img [ngSrc]="product.thumbnail" [alt]="product.title" class="product-image" width="200" height="200">
                             <div class="card-actions">
-                                <button class="action-btn wishlist-btn" [appAddToWishlist]="product"></button>
-                                <button class="action-btn view-btn" (click)="viewProduct(product.id)"></button>
+                                <button class="action-btn wishlist-btn" [appAddToWishlist]="product" [attr.aria-label]="'Add ' + product.title + ' to wishlist'"></button>
+                                <button class="action-btn view-btn" (click)="viewProduct(product.id)" [attr.aria-label]="'View details for ' + product.title"></button>
                             </div>
                             <button class="add-to-cart-btn" [appAddToCart]="product">Add To Cart</button>
                         </div>

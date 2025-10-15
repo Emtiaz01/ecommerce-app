@@ -16,16 +16,16 @@
     <div class="action-icons">
       <ng-container *ngIf="!isRegistrationPage">
         <!-- Wishlist icon + badge navigates to wishlist page -->
-        <a routerLink="/wishlist" class="icon-link wishlist-link">
-          <i class="wishlist-icon"></i>
-          <span *ngIf="isLoggedIn() && wishlistService.wishlistCount() > 0" class="badge">
+        <a routerLink="/wishlist" class="icon-link wishlist-link" [attr.aria-label]="'View your wishlist with ' + wishlistService.wishlistCount() + ' items'">
+          <i class="wishlist-icon" aria-hidden="true"></i>
+          <span *ngIf="isLoggedIn() && wishlistService.wishlistCount() > 0" class="badge" aria-hidden="true">
             {{ wishlistService.wishlistCount() }}
           </span>
         </a>
         <!-- Cart icon + badge navigates to cart page -->
-        <a routerLink="/cart" class="icon-link cart-link">
-          <i class="cart-icon"></i>
-          <span *ngIf="isLoggedIn() && cartService.cartCount() > 0" class="badge">
+        <a routerLink="/cart" class="icon-link cart-link" [attr.aria-label]="'View your shopping cart with ' + cartService.cartCount() + ' items'">
+          <i class="cart-icon" aria-hidden="true"></i>
+          <span *ngIf="isLoggedIn() && cartService.cartCount() > 0" class="badge" aria-hidden="true">
             {{ cartService.cartCount() }}
           </span>
         </a>
@@ -42,7 +42,7 @@
             <li><a routerLink="/account/orders">{{ 'MY ORDER' | translate }}</a></li>
             <li><a routerLink="/account/cancellations">{{ 'MY CANCELLATIONS' | translate }}</a></li>
             <li><a routerLink="/account/reviews">{{ 'MY REVIEWS' | translate }}</a></li>
-            <li><button (click)="logout()">{{ 'LOGOUT' | translate }}</button></li>
+            <li><button (click)="logout()" aria-label="Logout">{{ 'LOGOUT' | translate }}</button></li>
           </ul>
         </div>
       </div>

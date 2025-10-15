@@ -65,9 +65,9 @@
         <div *ngIf="phoneModel.errors?.['required']">{{ 'Phone number is required.' | translate }}</div>
       </div>
 
-      <button type="submit" class="view-all-btn" [disabled]="f.invalid">{{ 'Create Account' | translate }}</button>
+      <button type="submit" class="view-all-btn" [disabled]="f.invalid" aria-label="Create Account">{{ 'Create Account' | translate }}</button>
 
-      <button type="button" class="google-btn">
+      <button type="button" class="google-btn" aria-label="Sign up with Google">
         <img
           ngSrc="assets/icons/google.png"
           alt="Google"

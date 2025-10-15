@@ -7,7 +7,7 @@
     <!-- Wishlist Header -->
     <div class="wishlist-header">
       <h2>{{ 'Wishlist' | translate }} ({{ wishlistService.wishlistCount() }})</h2>
-      <button class="move-all-btn" (click)="moveAllToCart()">{{ 'Move All To Bag' | translate }}</button>
+      <button class="move-all-btn" (click)="moveAllToCart()" aria-label="Move all items to bag">{{ 'Move All To Bag' | translate }}</button>
     </div>
 
     <!-- Wishlist Items Grid -->
@@ -17,9 +17,9 @@
           <span *ngIf="product.discount" class="discount-badge">-{{ product.discount }}%</span>
           <img [ngSrc]="product.imageUrl" [alt]="product.name" class="product-image" width="200" height="200">
           <div class="card-actions">
-            <button class="action-btn remove-btn" (click)="removeItem(product.id)"></button>
+            <button class="action-btn remove-btn" (click)="removeItem(product.id)" [attr.aria-label]="'Remove ' + product.name + ' from wishlist'"></button>
           </div>
-          <button class="add-to-cart-btn" [appAddToCart]="product">{{ 'Add To Cart' | translate }}</button>
+          <button class="add-to-cart-btn" [appAddToCart]="product" aria-label="Add to cart">{{ 'Add To Cart' | translate }}</button>
         </div>
         <div class="card-content">
           <h3 class="product-name">{{ product.name }}</h3>
@@ -48,7 +48,7 @@
         <p class="section-text">{{ 'Just For You' | translate }}</p>
       </div>
       <div class="btn">
-        <button class="move-all-btn" (click)="toggleViewAll()">
+        <button class="move-all-btn" (click)="toggleViewAll()" aria-label="Toggle view all just for you products">
           {{ showAllJustForYou() ? 'See Less' : 'See All' | translate }}
         </button>
       </div>
@@ -61,8 +61,8 @@
           <span *ngIf="product.discountPercentage" class="discount-badge">-{{ product.discountPercentage | number:'1.0-0' }}%</span>
           <img [ngSrc]="product.thumbnail" [alt]="product.title" class="product-image" width="200" height="200">
           <div class="card-actions">
-            <button class="action-btn wishlist-btn" [appAddToWishlist]="product"></button>
-            <button class="action-btn view-btn" (click)="viewProduct(product.id)"></button>
+            <button class="action-btn wishlist-btn" [appAddToWishlist]="product" [attr.aria-label]="'Add ' + product.title + ' to wishlist'"></button>
+            <button class="action-btn view-btn" (click)="viewProduct(product.id)" [attr.aria-label]="'View details for ' + product.title"></button>
           </div>
           <!-- Use the smart directive to handle adding to cart -->
           <button class="add-to-cart-btn" [appAddToCart]="product">{{ 'Add To Cart' | translate }}</button>

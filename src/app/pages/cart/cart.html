@@ -22,7 +22,7 @@
         <div class="product-cell">
           <img [ngSrc]="item.imageUrl" [alt]="item.name" width="50" height="50">
           <span>{{ item.name }}</span>
-          <button (click)="removeItem(item.id)" class="remove-item-btn">❌</button>
+          <button (click)="removeItem(item.id)" class="remove-item-btn" aria-label="Remove {{ item.name }} from cart">❌</button>
         </div>
         <div class="price-cell">
           <span class="label-mobile">{{ 'Price' | translate }}:</span>
@@ -38,8 +38,8 @@
               min="1"
             >
             <div class="quantity-controls">
-              <button class="control-btn" (click)="increaseQuantity(item.id, item.quantity)">▲</button>
-              <button class="control-btn" (click)="decreaseQuantity(item.id, item.quantity)">▼</button>
+              <button class="control-btn" (click)="increaseQuantity(item.id, item.quantity)" aria-label="Increase quantity of {{ item.name }}">▲</button>
+              <button class="control-btn" (click)="decreaseQuantity(item.id, item.quantity)" aria-label="Decrease quantity of {{ item.name }}">▼</button>
             </div>
           </div>
         </div>
@@ -60,12 +60,12 @@
     <div class="cart-actions-summary" *ngIf="cartService.cartCount() > 0">
       <div class="cart-actions">
         <a routerLink="/" class="return-btn">{{ 'Return To Shop' | translate }}</a>
-        <button class="update-cart-btn">{{ 'Update Cart' | translate }}</button>
+        <button class="update-cart-btn" aria-label="Update Cart">{{ 'Update Cart' | translate }}</button>
       </div>
       <div class="cart-summary">
         <div class="coupon-section">
           <input type="text" placeholder="{{ 'Coupon Code' | translate }}" style="padding-right: 0px;">
-          <button class="apply-coupon-btn">{{ 'Apply Coupon' | translate }}</button>
+          <button class="apply-coupon-btn" aria-label="Apply Coupon">{{ 'Apply Coupon' | translate }}</button>
         </div>
         <div class="cart-total-box">
           <h3>{{ 'Cart Total' | translate }}</h3>
@@ -81,7 +81,7 @@
             <span>{{ 'Total' | translate }}:</span>
             <span>{{ cartService.total() | currency }}</span>
           </div>
-          <button class="checkout-btn" (click)="checkout()">{{ 'Proceed to checkout' | translate }}</button>
+          <button class="checkout-btn" (click)="checkout()" aria-label="Proceed to checkout">{{ 'Proceed to checkout' | translate }}</button>
         </div>
       </div>
     </div>

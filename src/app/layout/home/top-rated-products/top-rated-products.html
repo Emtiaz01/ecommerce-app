@@ -10,7 +10,7 @@
     </div>
     <!-- View All Button -->
     <div class="section-footer">
-      <button class="view-btn" (click)="toggleView()">
+      <button class="view-btn" (click)="toggleView()" aria-label="Toggle view all top rated products">
         {{ showAll() ? ('Show Less' | translate) : ('View All' | translate) }}
       </button>
     </div>
@@ -22,10 +22,10 @@
       <div class="card-image-container">
         <img [ngSrc]="product.thumbnail" [alt]="product.title" class="product-image" width="270" height="250">
         <div class="card-actions">
-          <button class="action-btn wishlist-btn" [appAddToWishlist]="product"></button>
-          <button class="action-btn view-btn" (click)="viewProduct(product.id)"></button>
+          <button class="action-btn wishlist-btn" [appAddToWishlist]="product" [attr.aria-label]="'Add ' + product.title + ' to wishlist'"></button>
+          <button class="action-btn view-btn" (click)="viewProduct(product.id)" [attr.aria-label]="'View details for ' + product.title"></button>
         </div>
-        <button class="add-to-cart-btn" [appAddToCart]="product">{{ 'Add To Cart' | translate }}</button>
+        <button class="add-to-cart-btn" [appAddToCart]="product" [attr.aria-label]="'Add ' + product.title + ' to cart'">{{ 'Add To Cart' | translate }}</button>
       </div>
       
       <div class="card-content">

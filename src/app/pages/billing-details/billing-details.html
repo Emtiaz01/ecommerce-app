@@ -58,8 +58,8 @@
     </div>
     <div class="coupon-row">
       <input type="text" [(ngModel)]="coupon" name="coupon" placeholder="Coupon Code" />
-      <button class="view-all-btn" type="button">Apply Coupon</button>
+      <button class="view-all-btn" type="button" aria-label="Apply Coupon">Apply Coupon</button>
     </div>
-    <button class="view-all-btn" (click)="placeOrder()">Place Order</button>
+    <button class="view-all-btn" (click)="placeOrder()" aria-label="Place Order">Place Order</button>
   </div>
 </div>

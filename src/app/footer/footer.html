@@ -45,12 +45,12 @@
       <div class="app-download-content">
         <img ngSrc="assets/images/qr-code.png" alt="QR Code" class="qr-code" width="80" height="80">
         <div class="app-stores">
-          <a href="#"><img ngSrc="assets/images/google-play.png" alt="Google Play" width="110" height="40"></a>
-          <a href="#"><img ngSrc="assets/images/app-store.png" alt="App Store" class="appstore" width="110" height="40"></a> 
+          <a href="#" aria-label="Download on Google Play"><img ngSrc="assets/images/google-play.png" alt="Google Play" width="110" height="40"></a>
+          <a href="#" aria-label="Download on the App Store"><img ngSrc="assets/images/app-store.png" alt="App Store" class="appstore" width="110" height="40"></a> 
         </div>
       </div>
       <div class="social-links">
-        <a *ngFor="let social of socialLinks" href="#">
+        <a *ngFor="let social of socialLinks" href="#" [attr.aria-label]="'Visit our ' + social.name + ' page'">
           <img [ngSrc]="social.iconUrl" [alt]="social.name" width="24" height="24">
         </a>
       </div>

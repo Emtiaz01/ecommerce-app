@@ -10,8 +10,8 @@
     </div>
     <!-- Navigation Arrows: Hide when showAll is true -->
     <div class="carousel-nav" *ngIf="!showAll()">
-      <button class="nav-arrow" (click)="scroll('left')">&larr;</button>
-      <button class="nav-arrow" (click)="scroll('right')">&rarr;</button>
+      <button class="nav-arrow" (click)="scroll('left')" aria-label="Scroll left">&larr;</button>
+      <button class="nav-arrow" (click)="scroll('right')" aria-label="Scroll right">&rarr;</button>
     </div>
   </div>
 
@@ -21,10 +21,10 @@
       <div class="card-image-container">
         <img [ngSrc]="product.displayImage" [alt]="product.title" class="product-image" width="270" height="250">
         <div class="card-actions">
-          <button class="action-btn wishlist-btn" [appAddToWishlist]="product"></button>
-          <button class="action-btn view-btn" (click)="viewProduct(product.id)"></button>
+          <button class="action-btn wishlist-btn" [appAddToWishlist]="product" [attr.aria-label]="'Add ' + product.title + ' to wishlist'"></button>
+          <button class="action-btn view-btn" (click)="viewProduct(product.id)" [attr.aria-label]="'View details for ' + product.title"></button>
         </div>
-        <button class="add-to-cart-btn" [appAddToCart]="product">{{ 'Add To Cart' | translate }}</button>
+        <button class="add-to-cart-btn" [appAddToCart]="product" [attr.aria-label]="'Add ' + product.title + ' to cart'">{{ 'Add To Cart' | translate }}</button>
       </div>
       
       <div class="card-content">
@@ -52,7 +52,7 @@
 
   <!-- View All Button: Text changes based on showAll state -->
   <div class="section-footer">
-    <button class="view-all-btn" (click)="viewAllProducts()">
+    <button class="view-all-btn" (click)="viewAllProducts()" aria-label="Toggle view all products">
       {{ showAll() ? ('Show Less Products' | translate) : ('View All Products' | translate) }}
     </button>
   </div>
