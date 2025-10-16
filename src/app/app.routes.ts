@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path: 'cart', loadComponent: () => import('./layout/cart/cart').then(m => m.Cart) },
   { path: 'contact', loadComponent: () => import('./layout/contact/contact').then(m => m.Contact) },
   { path: 'product/:id', loadComponent: () => import('./layout/product-details/product-details').then(m => m.ProductDetails) },
-  { path: 'billing', loadComponent: () => import('./layout/billing-details/billing-details').then(m => m.BillingDetails) },
+  { path: 'billing', loadComponent: () => import('./layout/cart/billing-details/billing-details').then(m => m.BillingDetails) },
   { path: 'account', loadComponent: () => import('./layout/account/account').then(m => m.Account) },
   { path: '**', component: Error } 
 ];
