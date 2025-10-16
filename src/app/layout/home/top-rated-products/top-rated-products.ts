@@ -24,7 +24,7 @@ export class TopRatedProducts implements OnInit {
   private router = inject(Router);
 
   ngOnInit(): void {
-    this.apiService.getProducts(50, 0).subscribe((response) => {
+    this.apiService.getProductsByCategory('motorcycle', 50, 0).subscribe((response) => {
       const sortedProducts = response.products
         .filter((p: { rating: any; }) => typeof p.rating === 'number')
         .sort((a: { rating: number; }, b: { rating: number; }) => b.rating - a.rating);

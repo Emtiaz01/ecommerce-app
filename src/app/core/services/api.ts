@@ -1,7 +1,8 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, forkJoin } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 
 export interface DetailedCategory {
   slug: string;
@@ -13,17 +14,14 @@ export interface DetailedCategory {
   providedIn: 'root'
 })
 export class ApiService {
-  private readonly baseUrl = 'https://dummyjson.com';
+  private readonly baseUrl = environment.apiUrl;
   private http = inject(HttpClient);
 
-  getAllProduct(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/products`);
-  }
-  getProduct(limit: number = 8, skip: number = 0): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/products/category/tablets`);
-  }
-  getProducts(limit: number = 8, skip: number = 0): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/products/category/motorcycle`);
+  getAllProduct(limit: number = 100, skip: number = 0): Observable<any> {
+    const params = new HttpParams()
+      .set('limit', limit.toString())
+      .set('skip', skip.toString());
+    return this.http.get<any>(`${this.baseUrl}/products`, { params });
   }
 
   getProductById(id: number): Observable<any> {
@@ -38,8 +36,11 @@ export class ApiService {
     return this.http.get<DetailedCategory[]>(`${this.baseUrl}/products/categories`);
   }
 
-  getProductsByCategory(category: string): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/products/category/${category}`);
+  getProductsByCategory(category: string, limit: number = 8, skip: number = 0): Observable<any> {
+    const params = new HttpParams()
+      .set('limit', limit.toString())
+      .set('skip', skip.toString());
+    return this.http.get<any>(`${this.baseUrl}/products/category/${category}`, { params });
   }
 
   searchProducts(query: string): Observable<any> {
@@ -47,8 +48,8 @@ export class ApiService {
   }
 
   getFlashSaleProducts(): Observable<any[]> {
-    const laptops$ = this.http.get<any>(`${this.baseUrl}/products/category/laptops`);
-    const smartphones$ = this.http.get<any>(`${this.baseUrl}/products/category/smartphones`);
+    const laptops$ = this.getProductsByCategory('laptops');
+    const smartphones$ = this.getProductsByCategory('smartphones');
 
     return forkJoin([laptops$, smartphones$]).pipe(
       map(([laptopsResponse, smartphonesResponse]) => {
@@ -57,13 +58,13 @@ export class ApiService {
     );
   }
   getExploreProducts(): Observable<any[]> {
-    return this.http.get<any>(`${this.baseUrl}/products/category/mobile-accessories`).pipe(
+    return this.getProductsByCategory('mobile-accessories').pipe(
       map(response => response.products)
     );
   }
 
   getJustForYou(): Observable<any[]> {
-    return this.http.get<any>(`${this.baseUrl}/products/category/mens-shirts`).pipe(
+    return this.getProductsByCategory('mens-shirts').pipe(
       map(response => response.products)
     );
   }

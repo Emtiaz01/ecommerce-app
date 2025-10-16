@@ -23,7 +23,7 @@ export class App implements OnInit {
     this.translateService.setDefaultLang('en');
     this.translateService.use(savedLang);
 
-    this.apiService.getProducts(5).subscribe({
+    this.apiService.getAllProduct(5).subscribe({
       next: (data) => {
         const formattedSlides = data.products.map((product: any) => ({
           brand: product.brand,
