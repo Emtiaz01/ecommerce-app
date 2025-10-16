@@ -28,7 +28,7 @@ export class Banner implements OnInit, OnDestroy {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.apiService.getAllProduct(5, 9).subscribe(response => {
+    this.apiService.getProductsByCategory('tablets', 50, 0).subscribe(response => {
       const slides = response.products.map((product: any) => ({
         brand: product.brand,
         title: product.title,
