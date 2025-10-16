@@ -1,8 +1,8 @@
 import { Directive, HostListener, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
-import { CartService } from '../services/cart';
-import { Product } from '../services/wishlist.service';
+import { AuthService } from '../../core/guards/auth.service';
+import { CartService } from '../../core/services/cart';
+import { Product } from '../../core/services/wishlist.service';
 
 @Directive({
   selector: '[appAddToCart]',

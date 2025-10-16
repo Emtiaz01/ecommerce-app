@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule, CurrencyPipe, NgOptimizedImage } from '@angular/common';
-import { CartService } from '../../../app/services/cart';
+import { CartService } from '../../core/services/cart';
 import { FormsModule } from '@angular/forms';
 
 @Component({

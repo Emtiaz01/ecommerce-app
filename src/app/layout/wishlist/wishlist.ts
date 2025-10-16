@@ -1,11 +1,11 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule, CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { Router } from '@angular/router';
-import { WishlistService } from '../../../app/services/wishlist.service';
-import { ApiService } from '../../../app/services/api';
-import { AddToWishlistDirective } from '../../../app/directives/add-to-wishlist'; 
-import { AddToCartDirective } from '../../../app/directives/add-to-cart'; 
-import { CartService } from '../../../app/services/cart';
+import { WishlistService } from '../../core/services/wishlist.service';
+import { ApiService } from '../../core/services/api';
+import { AddToWishlistDirective } from '../../shared/directives/add-to-wishlist'; 
+import { AddToCartDirective } from '../../shared/directives/add-to-cart'; 
+import { CartService } from '../../core/services/cart';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { TranslateModule } from '@ngx-translate/core';
 

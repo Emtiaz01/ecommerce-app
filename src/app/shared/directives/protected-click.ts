@@ -1,6 +1,6 @@
 import { Directive, HostListener, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../core/guards/auth.service';
 
 @Directive({
   selector: '[protectedClick]',

@@ -1,9 +1,9 @@
 import { Component, OnInit, computed, inject, signal, effect, Pipe } from '@angular/core';
 import { Router, NavigationEnd, RouterModule } from '@angular/router';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { AuthService } from '../../services/auth.service';
-import { WishlistService } from '../../services/wishlist.service';
-import { CartService } from '../../services/cart'; 
+import { AuthService } from '../../core/guards/auth.service';
+import { WishlistService } from '../../core/services/wishlist.service';
+import { CartService } from '../../core/services/cart'; 
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

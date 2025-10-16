@@ -1,10 +1,9 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule, CurrencyPipe, NgOptimizedImage } from '@angular/common';
-import { ApiService } from '../../../services/api';
+import { ApiService } from '../../../core/services/api';
 import { Router } from '@angular/router';
-import { ProtectedClickDirective } from '../../../directives/protected-click'; 
-import { AddToWishlistDirective } from '../../../directives/add-to-wishlist';
-import { AddToCartDirective } from "../../../directives/add-to-cart";
+import { AddToWishlistDirective } from '../../../shared/directives/add-to-wishlist';
+import { AddToCartDirective } from "../../../shared/directives/add-to-cart";
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

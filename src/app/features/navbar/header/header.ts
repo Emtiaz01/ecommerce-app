@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ProtectedClickDirective } from "../../directives/protected-click";
+import { ProtectedClickDirective } from "../../../shared/directives/protected-click";
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 

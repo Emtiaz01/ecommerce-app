@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { IndexedDBService } from '../../services/indexeddb.service';
-import { User } from '../../services/auth.service';
+import { IndexedDBService } from '../../core/services/indexeddb.service';
+import { User } from '../../core/guards/auth.service';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IndexedDBService } from '../../services/indexeddb.service';
+import { IndexedDBService } from '../../core/services/indexeddb.service';
 import { CommonModule } from '@angular/common';
-import { ApiService } from '../../services/api';
+import { ApiService } from '../../core/services/api';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @Component({

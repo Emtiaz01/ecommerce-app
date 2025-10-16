@@ -1,7 +1,7 @@
 import { Directive, HostListener, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
-import { WishlistService, Product } from '../services/wishlist.service';
+import { AuthService } from '../../core/guards/auth.service';
+import { WishlistService, Product } from '../../core/services/wishlist.service';
 
 @Directive({
   selector: '[appAddToWishlist]',

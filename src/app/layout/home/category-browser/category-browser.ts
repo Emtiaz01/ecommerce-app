@@ -1,6 +1,6 @@
 import {Component,OnInit,signal,ElementRef,ViewChild,ChangeDetectionStrategy,inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ApiService } from '../../../services/api';
+import { ApiService } from '../../../core/services/api';
 import { TranslateModule } from '@ngx-translate/core';
 
 interface Category {

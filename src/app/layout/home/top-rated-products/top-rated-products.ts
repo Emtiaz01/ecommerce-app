@@ -1,10 +1,10 @@
 import { Component, OnInit, signal, inject } from '@angular/core';
 import { CommonModule, CurrencyPipe, NgOptimizedImage } from '@angular/common'; 
 import { ViewEncapsulation } from '@angular/core';
-import { ApiService } from '../../../services/api';
+import { ApiService } from '../../../core/services/api';
 import { Router } from '@angular/router'; 
-import { AddToWishlistDirective } from '../../../directives/add-to-wishlist';
-import { AddToCartDirective } from '../../../directives/add-to-cart'; 
+import { AddToWishlistDirective } from '../../../shared/directives/add-to-wishlist';
+import { AddToCartDirective } from '../../../shared/directives/add-to-cart'; 
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

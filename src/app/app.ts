@@ -1,9 +1,9 @@
 import { Component, signal, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ApiService } from './services/api';
-import { Footer } from "./footer/footer";
-import { Header } from './navbar/header/header';
-import { Header2 } from "./navbar/header2/header2";
+import { ApiService } from './core/services/api';
+import { Footer } from "./features/footer/footer";
+import { Header } from './features//navbar/header/header';
+import { Header2 } from "./features/navbar/header2/header2";
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({

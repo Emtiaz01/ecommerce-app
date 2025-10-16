@@ -1,10 +1,10 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule, CurrencyPipe, NgOptimizedImage } from '@angular/common';
-import { ApiService } from '../../services/api';
+import { ApiService } from '../../core/services/api';
 import { FormsModule } from '@angular/forms';
-import { AddToCartDirective } from '../../directives/add-to-cart';
-import { AddToWishlistDirective } from '../../directives/add-to-wishlist';
+import { AddToCartDirective } from '../../shared/directives/add-to-cart';
+import { AddToWishlistDirective } from '../../shared/directives/add-to-wishlist';
 
 @Component({
   selector: 'app-product-details',

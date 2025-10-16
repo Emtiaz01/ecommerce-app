@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { ApiService } from '../../../services/api';
-import { ProtectedClickDirective } from "../../../directives/protected-click"; 
+import { ApiService } from '../../../core/services/api';
+import { ProtectedClickDirective } from "../../../shared/directives/protected-click"; 
 import { TranslateModule } from '@ngx-translate/core';
 
 interface Slide {
