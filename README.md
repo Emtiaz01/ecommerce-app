@@ -51,55 +51,78 @@ A modern, responsive e-commerce web application built with Angular 20 and TypeSc
 - **Karma & Jasmine** - Testing framework
 
 ##  Project Structure
-
 ```
 src/
 ├── app/
-│   ├── directives/          # Reusable directives
-│   │   ├── add-to-cart.ts          # Add to cart functionality
-│   │   ├── add-to-wishlist.ts      # Add to wishlist functionality
-│   │   └── protected-click.ts      # Authentication protection
-│   ├── layout/              # Layout components
-│   │   └── home/
-│   │       ├── banner/             # Hero banner section
-│   │       ├── categories/         # Product categories
-│   │       ├── flash-sales/        # Flash sales with countdown
-│   │       ├── explore-product/    # Product exploration
-│   │       ├── new-arrival/        # New product arrivals
-│   │       └── top-rated-products/ # Featured products
-│   ├── navbar/              # Navigation components
-│   │   ├── header/                 # Main navigation
-│   │   └── header2/                # Secondary navigation
-│   ├── pages/               # Application pages
-│   │   ├── about/                  # About page
-│   │   ├── account/                # User account management
-│   │   ├── billing-details/        # Checkout billing
-│   │   ├── cart/                   # Shopping cart
-│   │   ├── contact/                # Contact page
-│   │   ├── error/                  # Error pages
-│   │   ├── login/                  # User login
-│   │   ├── product-details/        # Product detail view
-│   │   ├── registration/           # User registration
-│   │   └── wishlist/               # User wishlist
-│   ├── services/            # Business logic services
-│   │   ├── api.ts                  # API communication
-│   │   ├── auth.service.ts         # Authentication service
-│   │   ├── auth.guard.ts           # Route protection
-│   │   ├── cart.ts                 # Shopping cart service
-│   │   ├── indexeddb.service.ts    # Local database service
-│   │   └── wishlist.service.ts     # Wishlist management
-│   ├── footer/              # Footer component
-│   ├── toparrow/            # Scroll to top functionality
-│   ├── app.config.ts        # Application configuration
-│   ├── app.routes.ts        # Routing configuration
-│   └── app.ts               # Root component
+│   ├── core/                   # Global singletons (auth, API, guards)
+│   │   ├── services/
+│   │   │   ├── api.service.ts
+│   │   │   ├── auth.service.ts
+│   │   │   ├── cart.service.ts
+│   │   │   ├── wishlist.service.ts
+│   │   │   └── indexeddb.service.ts
+│   │   ├── guards/
+│   │      └── auth.guard.ts 
+│   │   
+│   │   
+│   │
+│   ├── shared/                 # Reusable UI + utils
+│   │   ├── directives/
+│   │   │   ├── add-to-cart.directive.ts
+│   │   │   ├── add-to-wishlist.directive.ts
+│   │   │   └── protected-click.directive.ts
+│   │   
+│   │       
+│   │       
+│   │   
+│   │   
+│   │
+│   ├── features/
+│   │   ├── home/
+│   │   │   ├── banner/
+│   │   │   ├── categories/
+│   │   │   ├── flash-sales/
+│   │   │   ├── explore-product/
+│   │   │   ├── new-arrival/
+│   │   │   └── top-rated-products/
+│   │   │   └── home/ 
+│   │   ├── auth/
+│   │   │   ├── login/
+│   │   │   ├── registration/
+│   │   │  
+│   │   ├── cart/
+│   │   │   ├── cart.ts
+│   │   │   ├── billing-details/
+│   │   │   
+│   │   ├── wishlist/
+│   │   ├── product-details /
+│   │   │   
+│   │   │   
+│   │   │   
+│   │   ├── about/
+│   │   ├── contact/
+│   │   └── error/
+│   │
+│   ├── layout/
+│   │   ├── navbar/
+│   │   │   ├── header/
+│   │   │   └── header2/
+│   │   ├── footer/
+│   │   ├── toparrow/
+│   │   └── layout.module.ts
+│   │
+│   ├── app.config.ts
+│   ├── app.routes.ts
+│   └── app.ts
+│
 ├── assets/
-│   ├── i18n/                # Translation files
-│   │   ├── en.json                 # English translations
-│   │   └── bn.json                 # Bengali translations
-│   ├── icons/               # Application icons
-│   └── images/              # Static images
-└── styles.scss              # Global styles
+│   ├── i18n/
+│   │   ├── en.json
+│   │   └── bn.json
+│   ├── icons/
+│   └── images/
+│
+└── styles 
 ```
 
 ##  Installation & Setup
