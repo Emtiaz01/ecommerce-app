@@ -122,6 +122,9 @@ src/
 │   ├── icons/
 │   └── images/
 │
+├── environments/ 
+│   ├── environment.prod.ts
+│   └── environment.ts
 └── styles 
 ```
 
