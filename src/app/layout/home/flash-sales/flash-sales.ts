@@ -2,9 +2,7 @@ import { Component, OnInit, OnDestroy, signal, ElementRef, ViewChild, inject } f
 import { CommonModule, DecimalPipe, CurrencyPipe, NgOptimizedImage } from '@angular/common'; 
 import { ApiService } from '../../../core/services/api';
 import { Router } from '@angular/router';
-import { ProtectedClickDirective } from '../../../shared/directives/protected-click'; 
-import { AddToWishlistDirective } from '../../../shared/directives/add-to-wishlist';
-import { AddToCartDirective } from '../../../shared/directives/add-to-cart';
+import { SharedModule } from '../../../shared/shared.module';
 import { TranslateModule } from '@ngx-translate/core';
 
 interface TimeLeft {
@@ -17,7 +15,7 @@ interface TimeLeft {
 @Component({
   selector: 'app-flash-sales',
   standalone: true,
-  imports: [CommonModule, DecimalPipe, CurrencyPipe, ProtectedClickDirective, AddToWishlistDirective, AddToCartDirective, TranslateModule, NgOptimizedImage],
+  imports: [CommonModule, DecimalPipe, CurrencyPipe, SharedModule, TranslateModule, NgOptimizedImage],
   templateUrl: './flash-sales.html',
   styleUrls: ['./flash-sales.scss']
 })

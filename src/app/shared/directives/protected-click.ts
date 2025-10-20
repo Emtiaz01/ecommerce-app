@@ -4,7 +4,6 @@ import { AuthService } from '../../core/guards/auth.service';
 
 @Directive({
   selector: '[protectedClick]',
-  standalone: true,
 })
 export class ProtectedClickDirective {
 

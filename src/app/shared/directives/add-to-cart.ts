@@ -6,7 +6,6 @@ import { Product } from '../../core/services/wishlist.service';
 
 @Directive({
   selector: '[appAddToCart]',
-  standalone: true,
 })
 export class AddToCartDirective {
   @Input('appAddToCart') productData: any;

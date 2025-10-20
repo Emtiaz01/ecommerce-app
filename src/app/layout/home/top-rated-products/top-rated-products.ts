@@ -3,14 +3,13 @@ import { CommonModule, CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { ViewEncapsulation } from '@angular/core';
 import { ApiService } from '../../../core/services/api';
 import { Router } from '@angular/router'; 
-import { AddToWishlistDirective } from '../../../shared/directives/add-to-wishlist';
-import { AddToCartDirective } from '../../../shared/directives/add-to-cart'; 
+import { SharedModule } from '../../../shared/shared.module';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-top-rated-products',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective, TranslateModule, NgOptimizedImage], 
+  imports: [CommonModule, CurrencyPipe, SharedModule, TranslateModule, NgOptimizedImage], 
   templateUrl: './top-rated-products.html',
   styleUrls: ['./top-rated-products.scss'],
   encapsulation: ViewEncapsulation.None

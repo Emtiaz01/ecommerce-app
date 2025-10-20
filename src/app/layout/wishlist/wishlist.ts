@@ -3,8 +3,7 @@ import { CommonModule, CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { Router } from '@angular/router';
 import { WishlistService } from '../../core/services/wishlist.service';
 import { ApiService } from '../../core/services/api';
-import { AddToWishlistDirective } from '../../shared/directives/add-to-wishlist'; 
-import { AddToCartDirective } from '../../shared/directives/add-to-cart'; 
+import { SharedModule } from '../../shared/shared.module'; 
 import { CartService } from '../../core/services/cart';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { TranslateModule } from '@ngx-translate/core';
@@ -12,7 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-wishlist',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective, NgxSkeletonLoaderModule, TranslateModule, NgOptimizedImage], 
+  imports: [CommonModule, CurrencyPipe, SharedModule, NgxSkeletonLoaderModule, TranslateModule, NgOptimizedImage], 
   templateUrl: './wishlist.html',
   styleUrls: ['./wishlist.scss']
 })

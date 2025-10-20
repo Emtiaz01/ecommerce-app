@@ -3,14 +3,16 @@ import { Error } from './layout/error/error';
 
 export const routes: Routes = [
   { path: '', loadComponent: () => import('./layout/home/home/home').then(m => m.Home) }, 
-  { path: 'registration', loadComponent: () => import('./auth/registration/registration').then(m => m.Registration) },
-  { path: 'login', loadComponent: () => import('./auth/login/login').then(m => m.Login) },
-  { path: 'about', loadComponent: () => import('./layout/about/about').then(m => m.About) },
-  { path: 'wishlist', loadComponent: () => import('./layout/wishlist/wishlist').then(m => m.Wishlist) },
-  { path: 'cart', loadComponent: () => import('./layout/cart/cart').then(m => m.Cart) },
-  { path: 'contact', loadComponent: () => import('./layout/contact/contact').then(m => m.Contact) },
-  { path: 'product/:id', loadComponent: () => import('./layout/product-details/product-details').then(m => m.ProductDetails) },
-  { path: 'billing', loadComponent: () => import('./layout/cart/billing-details/billing-details').then(m => m.BillingDetails) },
-  { path: 'account', loadComponent: () => import('./layout/account/account').then(m => m.Account) },
+  { path: 'registration', loadChildren: () => import('./auth/registration/registration.module').then(m => m.RegistrationModule) },
+  { path: 'login', loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule) },
+  { path: 'about', loadChildren: () => import('./layout/about/about.module').then(m => m.AboutModule) },
+  { path: 'wishlist', loadChildren: () => import('./layout/wishlist/wishlist.module').then(m => m.WishlistModule) },
+  { 
+    path: 'cart', 
+    loadChildren: () => import('./layout/cart/cart.module').then(m => m.CartModule) 
+  },
+  { path: 'contact', loadChildren: () => import('./layout/contact/contact.module').then(m => m.ContactModule) },
+  { path: 'product/:id', loadChildren: () => import('./layout/product-details/product-details.module').then(m => m.ProductDetailsModule) },
+  { path: 'account', loadChildren: () => import('./layout/account/account.module').then(m => m.AccountModule) },
   { path: '**', component: Error } 
 ];

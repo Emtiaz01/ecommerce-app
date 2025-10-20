@@ -2,14 +2,13 @@ import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule, CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { ApiService } from '../../../core/services/api';
 import { Router } from '@angular/router';
-import { AddToWishlistDirective } from '../../../shared/directives/add-to-wishlist';
-import { AddToCartDirective } from "../../../shared/directives/add-to-cart";
+import { SharedModule } from "../../../shared/shared.module";
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-explore-product',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, AddToWishlistDirective, AddToCartDirective, TranslateModule, NgOptimizedImage],
+  imports: [CommonModule, CurrencyPipe, SharedModule, TranslateModule, NgOptimizedImage],
   templateUrl: './explore-product.html',
   styleUrls: ['./explore-product.scss']
 })

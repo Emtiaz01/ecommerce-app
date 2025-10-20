@@ -3,13 +3,12 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule, CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { ApiService } from '../../core/services/api';
 import { FormsModule } from '@angular/forms';
-import { AddToCartDirective } from '../../shared/directives/add-to-cart';
-import { AddToWishlistDirective } from '../../shared/directives/add-to-wishlist';
+import { SharedModule } from '../../shared/shared.module';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, FormsModule, RouterModule, AddToCartDirective, AddToWishlistDirective, NgOptimizedImage],
+  imports: [CommonModule, CurrencyPipe, FormsModule, RouterModule, SharedModule, NgOptimizedImage],
   templateUrl: './product-details.html',
   styleUrls: ['./product-details.scss']
 })

@@ -5,7 +5,6 @@ import { WishlistService, Product } from '../../core/services/wishlist.service';
 
 @Directive({
   selector: '[appAddToWishlist]',
-  standalone: true,
 })
 export class AddToWishlistDirective {
   @Input('appAddToWishlist') productData: any;
