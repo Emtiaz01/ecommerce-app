@@ -51,7 +51,6 @@ A modern, responsive e-commerce web application built with Angular 20 and TypeSc
 - **Karma & Jasmine** - Testing framework
 
 ##  Project Structure
-
 ```
 src/
 ├── app/
@@ -117,16 +116,12 @@ src/
 │   └── app.ts
 │
 ├── assets/
-│   ├── i18n/
-│   │   ├── en.json
-│   │   └── bn.json
-│   ├── icons/
-│   └── images/
-│
-├── environments/ 
-│   ├── environment.prod.ts
-│   └── environment.ts
-└── styles
+│   ├── i18n/                # Translation files
+│   │   ├── en.json                 # English translations
+│   │   └── bn.json                 # Bengali translations
+│   ├── icons/               # Application icons
+│   └── images/              # Static images
+└── styles.scss              # Global styles
 ```
 
 ##  Installation & Setup
