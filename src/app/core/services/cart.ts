@@ -1,5 +1,6 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, inject } from '@angular/core';
 import { Product } from './wishlist.service'; 
+import { IndexedDBService } from './indexeddb.service';
 
 export interface CartItem extends Product {
   quantity: number;
@@ -9,7 +10,7 @@ export interface CartItem extends Product {
   providedIn: 'root'
 })
 export class CartService {
-
+  private indexedDBService = inject(IndexedDBService);
   cartItems = signal<CartItem[]>([]);
   cartCount = computed(() => this.cartItems().length);
 
@@ -20,42 +21,53 @@ export class CartService {
   total = computed(() => this.subtotal());
 
   constructor() {
-    const savedCart = localStorage.getItem('userCart');
-    if (savedCart) {
-      this.cartItems.set(JSON.parse(savedCart));
-    }
+    this.loadCartFromIndexedDB();
+  }
+
+  private async loadCartFromIndexedDB(): Promise<void> {
+    const cart = await this.indexedDBService.getCart();
+    this.cartItems.set(cart);
   }
 
   addToCart(product: Product): void {
     this.cartItems.update(items => {
       const itemInCart = items.find(item => item.id === product.id);
+      let updatedItem;
       if (itemInCart) {
         itemInCart.quantity++;
+        updatedItem = { ...itemInCart };
+        this.indexedDBService.saveCartItem(updatedItem);
         return [...items];
       } else {
-
-        return [...items, { ...product, quantity: 1 }];
+        updatedItem = { ...product, quantity: 1 };
+        this.indexedDBService.saveCartItem(updatedItem);
+        return [...items, updatedItem];
       }
     });
-    this.saveCartToStorage();
     alert('Product added to cart!');
   }
 
   updateQuantity(productId: string, newQuantity: number): void {
-    this.cartItems.update(items => 
-      items.map(item => 
-        item.id === productId ? { ...item, quantity: newQuantity } : item
-      )
-    );
-    this.saveCartToStorage();
+    this.cartItems.update(items => {
+      const newItems = items.map(item => {
+        if (item.id === productId) {
+          const updatedItem = { ...item, quantity: newQuantity };
+          this.indexedDBService.saveCartItem(updatedItem);
+          return updatedItem;
+        }
+        return item;
+      });
+      return newItems;
+    });
   }
 
   removeFromCart(productId: string): void {
     this.cartItems.update(items => items.filter(item => item.id !== productId));
-    this.saveCartToStorage();
+    this.indexedDBService.removeCartItem(productId);
   }
 
-  private saveCartToStorage(): void {
-    localStorage.setItem('userCart', JSON.stringify(this.cartItems()));
+  clearCart(): void {
+    this.cartItems.set([]);
+    this.indexedDBService.clearCart();
   }
 }

@@ -44,7 +44,7 @@
     class="product-carousel" 
     #productCarousel 
     [class.expanded-grid]="showAll()">
-    <div class="product-card" *ngFor="let product of showAll() ? products() : products().slice(0, 10)">
+    <div class="product-card" *ngFor="let product of showAll() ? products() : products().slice(0, 10)" (click)="viewProduct(product.id)">
       <div class="card-image-container">
         <span class="discount-badge">-{{ product.discountPercentage | number:'1.0-0' | translate }}%</span>
         <img [ngSrc]="product.thumbnail" [alt]="product.title" class="product-image" width="270" height="250">

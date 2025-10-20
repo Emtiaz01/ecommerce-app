@@ -56,7 +56,7 @@
 
     <!-- "Just For You" Products Carousel/Grid -->
     <div class="product-carousel" [class.expanded-grid]="showAllJustForYou()">
-      <div class="product-card" *ngFor="let product of showAllJustForYou() ? justForYouProducts() : justForYouProducts().slice(0, 10)">
+      <div class="product-card" *ngFor="let product of showAllJustForYou() ? justForYouProducts() : justForYouProducts().slice(0, 10)" (click)="viewProduct(product.id)">
         <div class="card-image-container">
           <span *ngIf="product.discountPercentage" class="discount-badge">-{{ product.discountPercentage | number:'1.0-0' }}%</span>
           <img [ngSrc]="product.thumbnail" [alt]="product.title" class="product-image" width="200" height="200">

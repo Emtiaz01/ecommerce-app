@@ -1,4 +1,5 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, inject } from '@angular/core';
+import { IndexedDBService } from './indexeddb.service';
 
 // Define an interface for what a Product looks like
 export interface Product {
@@ -14,40 +15,42 @@ export interface Product {
   providedIn: 'root'
 })
 export class WishlistService {
-
+  private indexedDBService = inject(IndexedDBService);
   wishlistItems = signal<Product[]>([]);
 
   wishlistCount = computed(() => this.wishlistItems().length);
 
   constructor() {
+    this.loadWishlistFromIndexedDB();
+  }
 
-    const savedWishlist = localStorage.getItem('userWishlist');
-    if (savedWishlist) {
-      this.wishlistItems.set(JSON.parse(savedWishlist));
-    }
+  private async loadWishlistFromIndexedDB(): Promise<void> {
+    const wishlist = await this.indexedDBService.getWishlist();
+    this.wishlistItems.set(wishlist);
   }
 
   addToWishlist(product: Product): void {
     this.wishlistItems.update(items => {
-
       if (items.some(item => item.id === product.id)) {
         console.log(`Product "${product.name}" is already in the wishlist.`);
-        return items; 
+        return items;
       }
       console.log(`Adding product "${product.name}" to wishlist.`);
-      return [...items, product];
+      const newItems = [...items, product];
+      this.indexedDBService.saveWishlistItem(product);
+      return newItems;
     });
-    this.saveWishlistToStorage();
   }
 
   removeFromWishlist(productId: string): void {
-    this.wishlistItems.update(items => 
+    this.wishlistItems.update(items =>
       items.filter(item => item.id !== productId)
     );
-    this.saveWishlistToStorage();
+    this.indexedDBService.removeWishlistItem(productId);
   }
 
-  private saveWishlistToStorage(): void {
-    localStorage.setItem('userWishlist', JSON.stringify(this.wishlistItems()));
+  clearWishlist(): void {
+    this.wishlistItems.set([]);
+    this.indexedDBService.clearWishlist();
   }
 }

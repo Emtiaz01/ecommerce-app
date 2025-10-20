@@ -36,7 +36,7 @@ export class ApiService {
     return this.http.get<DetailedCategory[]>(`${this.baseUrl}/products/categories`);
   }
 
-  getProductsByCategory(category: string, limit: number = 8, skip: number = 0): Observable<any> {
+  getProductsByCategory(category: string, limit: number = 100, skip: number = 0): Observable<any> {
     const params = new HttpParams()
       .set('limit', limit.toString())
       .set('skip', skip.toString());
