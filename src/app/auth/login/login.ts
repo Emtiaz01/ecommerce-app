@@ -32,7 +32,7 @@ export class Login {
       console.log('AuthService.login() returned:', isLoggedIn);
 
       if (isLoggedIn) {
-        this.router.navigate(['/']);
+        this.router.navigate(['/'], { replaceUrl: true });
       } else {
         alert('Invalid username or password.');
         console.error('Login failed. The username or password did not match.');
