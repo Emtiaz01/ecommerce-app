@@ -17,9 +17,9 @@
 
   <!-- Product Carousel: Add a dynamic class -->
   <div class="product-carousel" [class.expanded-grid]="showAll()">
-    <div class="product-card" *ngFor="let product of paginatedProducts" (click)="viewProduct(product.id)">
+    <div class="product-card" *ngFor="let product of paginatedProducts">
       <div class="card-image-container">
-        <img [ngSrc]="product.displayImage" [alt]="product.title" class="product-image" width="270" height="250">
+        <img [ngSrc]="product.displayImage" (click)="viewProduct(product.id)"[alt]="product.title" class="product-image" width="270" height="250">
         <div class="card-actions">
           <button class="action-btn wishlist-btn" [appAddToWishlist]="product" [attr.aria-label]="'Add ' + product.title + ' to wishlist'"></button>
           <button class="action-btn view-btn" (click)="viewProduct(product.id)" [attr.aria-label]="'View details for ' + product.title"></button>

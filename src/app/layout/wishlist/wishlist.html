@@ -15,7 +15,7 @@
       <div *ngFor="let product of wishlistService.wishlistItems()" class="product-card">
         <div class="card-image-container">
           <span *ngIf="product.discount" class="discount-badge">-{{ product.discount }}%</span>
-          <img [ngSrc]="product.imageUrl" [alt]="product.name" class="product-image" width="200" height="200">
+          <img [ngSrc]="product.imageUrl"  (click)="viewProduct(+product.id)" [alt]="product.name" class="product-image" width="200" height="200">
           <div class="card-actions">
             <button class="action-btn remove-btn" (click)="removeItem(product.id)" [attr.aria-label]="'Remove ' + product.name + ' from wishlist'"></button>
           </div>
@@ -56,10 +56,10 @@
 
     <!-- "Just For You" Products Carousel/Grid -->
     <div class="product-carousel" [class.expanded-grid]="showAllJustForYou()">
-      <div class="product-card" *ngFor="let product of showAllJustForYou() ? justForYouProducts() : justForYouProducts().slice(0, 10)" (click)="viewProduct(product.id)">
+      <div class="product-card" *ngFor="let product of showAllJustForYou() ? justForYouProducts() : justForYouProducts().slice(0, 10)">
         <div class="card-image-container">
           <span *ngIf="product.discountPercentage" class="discount-badge">-{{ product.discountPercentage | number:'1.0-0' }}%</span>
-          <img [ngSrc]="product.thumbnail" [alt]="product.title" class="product-image" width="200" height="200">
+          <img [ngSrc]="product.thumbnail" (click)="viewProduct(product.id)" [alt]="product.title" class="product-image" width="200" height="200">
           <div class="card-actions">
             <button class="action-btn wishlist-btn" [appAddToWishlist]="product" [attr.aria-label]="'Add ' + product.title + ' to wishlist'"></button>
             <button class="action-btn view-btn" (click)="viewProduct(product.id)" [attr.aria-label]="'View details for ' + product.title"></button>

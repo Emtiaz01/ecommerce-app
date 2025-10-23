@@ -1,0 +1,56 @@
+<section class="page-container">
+  <!-- Section Header -->
+  <div class="section-header" *ngIf="(categoryName$ | async) as categoryName">
+    <div class="title-container">
+      <div class="decorative">
+        <div class="decorative-line"></div>
+        <span class="category-tag">{{ 'Category' | translate }}</span>
+      </div>
+      <h2 class="section-title">{{ capitalizeCategory(categoryName) | translate }}</h2>
+    </div>
+  </div>
+
+  <!-- Products Grid -->
+  <div *ngIf="(products$ | async) as products; else loading">
+    <div *ngIf="products.length > 0; else noProducts" class="product-carousel">
+      <div class="product-card" *ngFor="let product of products">
+        <div class="card-image-container">
+          <img [src]="product.displayImage" (click)="viewProduct(product.id)" [alt]="product.title" class="product-image" width="270" height="250">
+          <div class="card-actions">
+            <button class="action-btn wishlist-btn" [appAddToWishlist]="product" [attr.aria-label]="'Add ' + product.title + ' to wishlist'"></button>
+            <button class="action-btn view-btn" (click)="viewProduct(product.id); $event.stopPropagation()" [attr.aria-label]="'View details for ' + product.title"></button>
+          </div>
+          <button class="add-to-cart-btn" [appAddToCart]="product" [attr.aria-label]="'Add ' + product.title + ' to cart'">{{ 'Add To Cart' | translate }}</button>
+        </div>
+        
+        <div class="card-content">
+          <h3 class="product-name">{{ product.title }}</h3>
+          <div class="price-container">
+            <span class="price">{{ product.price | currency }}</span>
+          </div>
+          <div class="rating-container">
+            <span class="stars">★★★★★</span>
+            <span class="review-count">({{ product.stock }})</span>
+          </div>
+          
+          <div class="color-swatches" *ngIf="product.images && product.images.length > 1">
+            <span 
+              *ngFor="let image of product.images.slice(0, 5)"
+              class="swatch"
+              [style.background-image]="'url(' + image + ')'"
+              (click)="changeProductImage(product, image); $event.stopPropagation()"
+              [class.active]="product.displayImage === image">
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noProducts>
+      <p class="no-products-message">{{ 'No products found in this category.' | translate }}</p>
+    </ng-template>
+  </div>
+
+  <ng-template #loading>
+    <p class="loading-message">{{ 'Loading products...' | translate }}</p>
+  </ng-template>
+</section>

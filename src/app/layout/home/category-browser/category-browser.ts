@@ -2,6 +2,7 @@ import {Component,OnInit,signal,ElementRef,ViewChild,ChangeDetectionStrategy,inj
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../core/services/api';
 import { TranslateModule } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 interface Category {
   name: string; 
@@ -54,6 +55,7 @@ export class CategoryBrowser implements OnInit {
   @ViewChild('categoryCarousel') categoryCarousel!: ElementRef;
 
   private apiService = inject(ApiService);
+  private router = inject(Router);
 
   ngOnInit(): void {
   this.apiService.getCategories().subscribe((apiCategorySlugs) => {
@@ -78,6 +80,7 @@ export class CategoryBrowser implements OnInit {
 }
   selectCategory(categoryApiName: string): void {
     this.activeCategory.set(categoryApiName);
+    this.router.navigate(['/category', categoryApiName]);
   }
 
   scroll(direction: 'left' | 'right'): void {

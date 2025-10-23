@@ -44,10 +44,10 @@
     class="product-carousel" 
     #productCarousel 
     [class.expanded-grid]="showAll()">
-    <div class="product-card" *ngFor="let product of showAll() ? products() : products().slice(0, 10)" (click)="viewProduct(product.id)">
+    <div class="product-card" *ngFor="let product of showAll() ? products() : products().slice(0, 10)">
       <div class="card-image-container">
         <span class="discount-badge">-{{ product.discountPercentage | number:'1.0-0' | translate }}%</span>
-        <img [ngSrc]="product.thumbnail" [alt]="product.title" class="product-image" width="270" height="250">
+        <img [ngSrc]="product.thumbnail" (click)="viewProduct(product.id)" [alt]="product.title" class="product-image" width="270" height="250">
         <div class="card-actions">
           <button class="action-btn wishlist-btn" [appAddToWishlist]="product" [attr.aria-label]="'Add ' + product.title + ' to wishlist'"></button>
           <button class="action-btn view-btn" (click)="viewProduct(product.id)" [attr.aria-label]="'View details for ' + product.title"></button>
